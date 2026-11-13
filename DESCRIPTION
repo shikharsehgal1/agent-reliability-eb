@@ -1,0 +1,15 @@
+Package: agentreliabilityeb
+Title: Empirical-Bayes Reliability Testing for Stochastic AI-Agent Tasks
+Version: 0.1.0
+Authors@R: person("Shikhar", "Sehgal", role = c("aut", "cre"))
+Description: Course project (STAT 27855). Compares oracle, nonparametric and
+    Beta-binomial empirical-Bayes local false discovery rates, an unpooled Beta(1,1)
+    baseline, and exact binomial tests with BH/BY for deciding which benchmark tasks
+    meet a reliability threshold, and quantifies non-identification of the lfdr
+    when each task has only a few binary runs. Analysis repository, not an
+    installable package: functions are sourced via R/load.R.
+License: MIT
+Depends: R (>= 4.3)
+Imports: lpSolve, jsonlite, knitr, ggplot2
+Suggests: testthat (>= 3.0.0)
+Encoding: UTF-8

@@ -1,0 +1,10 @@
+.Rlib/
+.Rhistory
+.RData
+.Rproj.user/
+results/raw/
+results/sim_results.rds
+results/stability_curves.rds
+results/sim_log.txt
+data/raw/
+.DS_Store

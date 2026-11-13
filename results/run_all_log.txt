@@ -1,0 +1,465 @@
+
+========== tests/run_tests.R ==========
+bounds: ................
+decisions: ..........
+formulas: ..............................................................................
+npmle: ....................
+reproducibility: .......
+
+══ DONE ════════════════════════════════════════════════════════════════════════
+🐝 Your tests are the bee's knees 🐝
+
+21 tests, 131 expectations, 0 failed, 0 errors, 0 skipped
+---------- tests/run_tests.R finished in 0.1 min (exit 0)
+
+========== scripts/01_examples.R ==========
+Smallest k with all successes giving exact p <= 0.10: 22 ; <= 0.05: 29 
+    k  x exact_p_value post_reliable_beta11 post_reliable_oracle_overlap_hi
+1   1  1        0.9000                0.190                           0.457
+2   2  2        0.8100                0.271                           0.498
+3   3  3        0.7290                0.344                           0.537
+4   5  5        0.5900                0.469                           0.609
+5  10 10        0.3490                0.686                           0.748
+6  15 15        0.2060                0.815                           0.840
+7  20 20        0.1220                0.891                           0.898
+8  22 22        0.0985                0.911                           0.915
+9  25 25        0.0718                0.935                           0.935
+10 29 29        0.0471                0.958                           0.955
+11 30 30        0.0424                0.962                           0.959
+   idset_post_reliable_lower idset_post_reliable_upper
+1                   2.22e-16                     1.000
+2                   1.11e-16                     0.903
+3                   1.17e-01                     0.869
+4                   1.87e-01                     0.892
+5                   5.01e-01                     0.911
+6                   6.58e-01                     0.948
+7                   7.81e-01                     0.967
+8                   8.09e-01                     0.975
+9                   8.51e-01                     0.982
+10                  8.90e-01                     0.989
+11                  8.98e-01                     0.990
+
+Non-identification, k = 3, G = overlap_hi
+          G x marginal_pmf   lfdr prob_reliable n_atoms
+1      true 0     0.007996 0.9859       0.41366      NA
+2      true 1     0.067848 0.9371       0.41366      NA
+3      true 2     0.275315 0.7796       0.41366      NA
+4      true 3     0.648840 0.4627       0.41366      NA
+5  min_lfdr 0     0.007996 0.9163       0.74499       4
+6  min_lfdr 1     0.067848 0.7338       0.74499       4
+7  min_lfdr 2     0.275315 0.4096       0.74499       4
+8  min_lfdr 3     0.648840 0.1312       0.74499       4
+9  max_lfdr 0     0.007996 1.0000       0.07604       4
+10 max_lfdr 1     0.067848 1.0000       0.07604       4
+11 max_lfdr 2     0.275315 1.0000       0.07604       4
+12 max_lfdr 3     0.648840 0.8828       0.07604       4
+         G   atom  weight
+1 min_lfdr 0.6933 0.19708
+2 min_lfdr 0.6950 0.05793
+3 min_lfdr 0.9000 0.66895
+4 min_lfdr 1.0000 0.07604
+5 max_lfdr 0.6933 0.19721
+6 max_lfdr 0.6950 0.05780
+7 max_lfdr 0.9000 0.66895
+8 max_lfdr 1.0000 0.07604
+
+Population identified sets (x0 = k):
+              G  k   oracle    lower    upper    width status
+1   beta_single  3 4.78e-01 7.35e-02 1.000000 0.926466      0
+3   beta_single  5 3.87e-01 9.71e-02 0.766724 0.669623      0
+5   beta_single 10 2.29e-01 6.40e-02 0.472569 0.408568      0
+7   beta_single 20 7.98e-02 2.27e-02 0.175062 0.152406      0
+9   beta_single 50 3.38e-03 5.59e-04 0.009702 0.009143      0
+11 separated_lo  3 4.70e-01 2.44e-01 1.000000 0.756301      0
+13 separated_lo  5 2.23e-01 1.20e-01 0.556663 0.436476      0
+15 separated_lo 10 3.55e-02 1.91e-02 0.118753 0.099671      0
+17 separated_lo 20 3.02e-03 1.12e-03 0.013579 0.012457      0
+19 separated_lo 50 5.50e-05 3.26e-06 0.000335 0.000331      0
+21 separated_hi  3 1.31e-01 4.03e-02 0.630731 0.590437      0
+23 separated_hi  5 4.82e-02 1.95e-02 0.308095 0.288611      0
+25 separated_hi 10 7.74e-03 2.42e-03 0.064617 0.062195      0
+27 separated_hi 20 1.12e-03 1.40e-04 0.007952 0.007813      0
+29 separated_hi 50 3.93e-05       NA 0.000234       NA      3
+31   overlap_lo  3 7.22e-01 3.12e-01 1.000000 0.688433      0
+33   overlap_lo  5 6.60e-01 3.19e-01 0.944984 0.626069      0
+35   overlap_lo 10 5.05e-01 2.62e-01 0.752085 0.489761      0
+37   overlap_lo 20 2.60e-01 1.12e-01 0.450577 0.338717      0
+39   overlap_lo 50 2.23e-02 5.48e-03 0.053711 0.048230      0
+41   overlap_hi  3 4.63e-01 1.31e-01 0.882801 0.751596      0
+43   overlap_hi  5 3.91e-01 1.08e-01 0.812727 0.704461      0
+45   overlap_hi 10 2.52e-01 8.92e-02 0.499463 0.410281      0
+47   overlap_hi 20 1.02e-01 3.29e-02 0.219202 0.186300      0
+49   overlap_hi 50 6.77e-03 1.14e-03 0.019684 0.018541      0
+51     near_tau  3 4.93e-01 3.70e-02 1.000000 0.963021      0
+53     near_tau  5 4.56e-01 1.89e-02 1.000000 0.981129      0
+55     near_tau 10 3.95e-01 1.45e-02 0.919853 0.905304      0
+57     near_tau 20 3.02e-01 3.98e-02 0.676644 0.636843      0
+59     near_tau 50 1.16e-01 1.73e-02 0.294936 0.277636      0
+61        edges  3 5.07e-02 7.09e-05 0.266217 0.266146      0
+63        edges  5 3.73e-02 1.46e-05 0.200771 0.200757      0
+65        edges 10 1.92e-02 1.04e-04 0.083166 0.083062      0
+67        edges 20 5.50e-03 4.52e-04 0.018654 0.018202      0
+69        edges 50 1.61e-04 1.48e-05 0.000564 0.000549      0
+   prob_reliable_lower prob_reliable_upper
+1             0.00e+00               0.726
+3             1.04e-01               0.608
+5             1.82e-01               0.517
+7             2.41e-01               0.450
+9             2.79e-01               0.410
+11           -2.22e-16               0.181
+13            5.05e-02               0.135
+15            8.41e-02               0.108
+17            9.49e-02               0.102
+19            9.78e-02               0.100
+21            1.57e-01               0.503
+23            2.57e-01               0.439
+25            3.53e-01               0.410
+27            3.85e-01               0.402
+29            3.93e-01               0.400
+31            0.00e+00               0.528
+33            2.21e-02               0.448
+35            6.97e-02               0.354
+37            9.61e-02               0.309
+39            1.25e-01               0.266
+41            7.60e-02               0.745
+43            9.59e-02               0.707
+45            2.22e-01               0.598
+47            2.86e-01               0.537
+49            3.28e-01               0.496
+51            0.00e+00               0.754
+53           -2.22e-16               0.744
+55            2.95e-02               0.709
+57            1.19e-01               0.630
+59            1.83e-01               0.565
+61            4.07e-01               0.610
+63            4.23e-01               0.604
+65            4.80e-01               0.595
+67            5.18e-01               0.582
+69            5.36e-01               0.572
+---------- scripts/01_examples.R finished in 0.2 min (exit 0)
+
+========== scripts/02_simulation.R ==========
+117 scenarios x 200 replicates on 9 cores
+Elapsed: 0.3201492 secs 
+---------- scripts/02_simulation.R finished in 0.0 min (exit 0)
+
+========== scripts/03_grid_sensitivity.R ==========
+                         case                    config n_datasets
+      near_tau k = 10 J = 200 barrier M=801 (reference)         20
+      near_tau k = 10 J = 200              barrier M=51         20
+      near_tau k = 10 J = 200             barrier M=201         20
+      near_tau k = 10 J = 200 barrier M=201 smooth=0.01         20
+      near_tau k = 10 J = 200  barrier M=201 smooth=0.1         20
+      near_tau k = 10 J = 200    barrier M=201 smooth=1         20
+      near_tau k = 10 J = 200    EM M=201 uniform start         20
+      near_tau k = 10 J = 200   EM M=201 random start 1         20
+      near_tau k = 10 J = 200   EM M=201 random start 2         20
+     overlap_hi k = 5 J = 200 barrier M=801 (reference)         20
+     overlap_hi k = 5 J = 200              barrier M=51         20
+     overlap_hi k = 5 J = 200             barrier M=201         20
+     overlap_hi k = 5 J = 200 barrier M=201 smooth=0.01         20
+     overlap_hi k = 5 J = 200  barrier M=201 smooth=0.1         20
+     overlap_hi k = 5 J = 200    barrier M=201 smooth=1         20
+     overlap_hi k = 5 J = 200    EM M=201 uniform start         20
+     overlap_hi k = 5 J = 200   EM M=201 random start 1         20
+     overlap_hi k = 5 J = 200   EM M=201 random start 2         20
+ separated_hi k = het J = 200 barrier M=801 (reference)         20
+ separated_hi k = het J = 200              barrier M=51         20
+ separated_hi k = het J = 200             barrier M=201         20
+ separated_hi k = het J = 200 barrier M=201 smooth=0.01         20
+ separated_hi k = het J = 200  barrier M=201 smooth=0.1         20
+ separated_hi k = het J = 200    barrier M=201 smooth=1         20
+ separated_hi k = het J = 200    EM M=201 uniform start         20
+ separated_hi k = het J = 200   EM M=201 random start 1         20
+ separated_hi k = het J = 200   EM M=201 random start 2         20
+ converged_frac max_kkt_gap mean_loglik_minus_ref mean_seconds mean_calls
+           0.95    1.24e-06              0.00e+00      3.74995       31.1
+           1.00    9.86e-08             -1.37e-02      0.02484       19.6
+           1.00    1.39e-07             -7.34e-04      0.18193       24.1
+           1.00    9.76e-03             -6.39e-01      0.04343        0.0
+           1.00    8.75e-02             -3.76e+00      0.02218        0.0
+           1.00    6.63e-01             -3.32e+01      0.00722        0.0
+           0.25    1.01e-04             -1.56e-03      1.35701       12.5
+           0.20    6.20e-05             -1.44e-03      1.46256       12.5
+           0.20    5.13e-05             -1.40e-03      1.42149       15.7
+           0.40    9.98e-06              0.00e+00      8.57960       16.8
+           1.00    1.08e-07             -2.82e-03      0.01857       16.8
+           0.90    1.02e-06              1.44e-05      0.21659       16.8
+           1.00    9.77e-03             -9.47e-01      0.03141        0.0
+           1.00    8.78e-02             -8.35e+00      0.01931        0.0
+           1.00    7.34e-01             -5.49e+01      0.00655        0.0
+           0.10    2.02e-05             -1.09e-03      0.97641       11.3
+           0.10    1.77e-05             -8.23e-04      0.91663       11.3
+           0.10    1.89e-05             -7.47e-04      0.92389       11.3
+           1.00    1.40e-07              0.00e+00      4.29837       52.8
+           1.00    9.58e-08             -5.49e-02      0.02177       52.1
+           1.00    1.17e-07             -4.17e-03      0.10355       52.8
+           1.00    9.93e-03             -8.79e-01      0.02873       47.5
+           1.00    9.82e-02             -4.53e+00      0.01753       30.1
+           1.00    8.34e-01             -2.25e+01      0.00797       11.8
+           0.15    1.89e-05             -4.61e-03      2.10143       52.8
+           0.15    2.30e-05             -4.59e-03      2.12389       52.8
+           0.05    4.49e-05             -4.49e-03      2.11778       52.8
+ mean_calls_oracle mean_lfdr_all_success sd_lfdr_all_success
+               0.0                0.5292              0.3803
+               0.0                0.5317              0.3365
+               0.0                0.5383              0.3664
+               0.0                0.4437              0.1906
+               0.0                0.3161              0.0861
+               0.0                0.2639              0.0302
+               0.0                0.5518              0.3409
+               0.0                0.5692              0.3270
+               0.0                0.5660              0.3415
+               0.0                0.4799              0.3341
+               0.0                0.4387              0.2759
+               0.0                0.4738              0.3253
+               0.0                0.4542              0.1339
+               0.0                0.3694              0.0654
+               0.0                0.3936              0.0233
+               0.0                0.4687              0.2851
+               0.0                0.4819              0.3058
+               0.0                0.4846              0.3167
+              53.2                0.0148              0.0223
+              53.2                0.0158              0.0197
+              53.2                0.0145              0.0216
+              53.2                0.0259              0.0206
+              53.2                0.0559              0.0155
+              53.2                0.1680              0.0166
+              53.2                0.0147              0.0218
+              53.2                0.0146              0.0219
+              53.2                0.0145              0.0216
+ oracle_lfdr_all_success mean_max_abs_diff_vs_ref mean_mae_vs_oracle
+                 0.39457                  0.00000             0.3027
+                 0.39457                  0.05437             0.2674
+                 0.39457                  0.01305             0.2945
+                 0.39457                  0.29735             0.1341
+                 0.39457                  0.46318             0.0816
+                 0.39457                  0.53237             0.1139
+                 0.39457                  0.04912             0.2689
+                 0.39457                  0.06162             0.2605
+                 0.39457                  0.05705             0.2750
+                 0.39100                  0.00000             0.2351
+                 0.39100                  0.04795             0.2014
+                 0.39100                  0.00717             0.2301
+                 0.39100                  0.24693             0.0822
+                 0.39100                  0.32929             0.0431
+                 0.39100                  0.33536             0.0433
+                 0.39100                  0.04328             0.2027
+                 0.39100                  0.02833             0.2153
+                 0.39100                  0.02062             0.2223
+                 0.00774                  0.00000             0.0191
+                 0.00774                  0.05760             0.0182
+                 0.00774                  0.00460             0.0190
+                 0.00774                  0.19611             0.0193
+                 0.00774                  0.33896             0.0433
+                 0.00774                  0.48612             0.1088
+                 0.00774                  0.00517             0.0190
+                 0.00774                  0.00437             0.0191
+                 0.00774                  0.00478             0.0190
+---------- scripts/03_grid_sensitivity.R finished in 1.3 min (exit 0)
+
+========== scripts/04_stability.R ==========
+            G   k                rule mean_discoveries mean_pairwise_jaccard
+   overlap_hi   5    oracle:threshold             0.00                    NA
+   overlap_hi   5     npmle:threshold            20.23                 0.671
+   overlap_hi   5 betabinom:threshold             0.00                    NA
+   overlap_hi   5  unpooled:threshold             0.00                    NA
+   overlap_hi   5       binom_test:BH             0.00                    NA
+ separated_hi   5    oracle:threshold            74.79                 0.744
+ separated_hi   5     npmle:threshold            54.30                 0.465
+ separated_hi   5 betabinom:threshold             0.00                    NA
+ separated_hi   5  unpooled:threshold             0.00                    NA
+ separated_hi   5       binom_test:BH             0.00                    NA
+   overlap_hi  10    oracle:threshold             0.00                    NA
+   overlap_hi  10     npmle:threshold            26.87                 0.464
+   overlap_hi  10 betabinom:threshold             0.00                    NA
+   overlap_hi  10  unpooled:threshold             0.00                    NA
+   overlap_hi  10       binom_test:BH             0.00                    NA
+ separated_hi  10    oracle:threshold            64.15                 0.651
+ separated_hi  10     npmle:threshold            72.32                 0.728
+ separated_hi  10 betabinom:threshold             0.72                 0.980
+ separated_hi  10  unpooled:threshold             0.00                    NA
+ separated_hi  10       binom_test:BH             0.00                    NA
+   overlap_hi  30    oracle:threshold            21.78                 0.205
+   overlap_hi  30     npmle:threshold            39.25                 0.236
+   overlap_hi  30 betabinom:threshold            21.78                 0.205
+   overlap_hi  30  unpooled:threshold            21.78                 0.205
+   overlap_hi  30       binom_test:BH             0.00                    NA
+ separated_hi  30    oracle:threshold            75.49                 0.960
+ separated_hi  30     npmle:threshold            74.75                 0.939
+ separated_hi  30 betabinom:threshold            61.60                 0.723
+ separated_hi  30  unpooled:threshold            40.58                 0.465
+ separated_hi  30       binom_test:BH             0.00                    NA
+   overlap_hi het    oracle:threshold             0.00                    NA
+   overlap_hi het     npmle:threshold            24.42                 0.246
+   overlap_hi het betabinom:threshold             4.76                 0.374
+   overlap_hi het  unpooled:threshold             0.00                    NA
+   overlap_hi het       binom_test:BH             0.00                    NA
+ separated_hi het    oracle:threshold            51.51                 0.785
+ separated_hi het     npmle:threshold            62.08                 0.653
+ separated_hi het betabinom:threshold            11.24                 0.511
+ separated_hi het  unpooled:threshold             0.00                    NA
+ separated_hi het       binom_test:BH             0.00                    NA
+ mean_false
+       0.00
+       8.78
+       0.00
+       0.00
+       0.00
+       5.12
+       3.76
+       0.00
+       0.00
+       0.00
+       0.00
+       7.79
+       0.00
+       0.00
+       0.00
+       0.30
+       1.24
+       0.04
+       0.00
+       0.00
+       0.76
+       5.09
+       0.76
+       0.76
+       0.00
+       0.08
+       0.15
+       0.00
+       0.00
+       0.00
+       0.00
+       7.08
+       0.60
+       0.00
+       0.00
+       1.84
+       3.14
+       0.04
+       0.00
+       0.00
+---------- scripts/04_stability.R finished in 0.5 min (exit 0)
+
+========== scripts/06_tau_bench.R ==========
+
+== decisions 
+                  data   J k tau   q all_success_tasks npmle_calls
+        gpt-4o-airline  50 4 0.8 0.1                10          10
+        gpt-4o-airline  50 4 0.9 0.1                10          10
+         gpt-4o-retail 115 4 0.8 0.1                44          66
+         gpt-4o-retail 115 4 0.9 0.1                44           0
+ sonnet-35-new-airline  50 8 0.8 0.1                 8           0
+ sonnet-35-new-airline  50 8 0.9 0.1                 8           0
+  sonnet-35-new-retail 115 8 0.8 0.1                41          41
+  sonnet-35-new-retail 115 8 0.9 0.1                41          41
+ betabinom_calls unpooled_calls BH_calls npmle_lfdr_all_success
+               0              0        0               0.063883
+               0              0        0               0.069620
+               0              0        0               0.000811
+               0              0        0               0.999621
+               8              0        0               0.146757
+               0              0        0               0.146759
+              41              0        0               0.048018
+               0              0        0               0.048025
+ betabinom_lfdr_all_success unpooled_lfdr_all_success min_p_value npmle_kkt_gap
+                     0.2994                     0.328       0.410      9.61e-08
+                     0.5439                     0.590       0.656      9.61e-08
+                     0.1163                     0.328       0.410      9.96e-08
+                     0.2533                     0.590       0.656      9.96e-08
+                     0.0751                     0.134       0.168      9.92e-08
+                     0.2425                     0.387       0.430      9.92e-08
+                     0.0346                     0.134       0.168      9.93e-08
+                     0.1304                     0.387       0.430      9.93e-08
+  bb_a  bb_b bb_boundary
+ 0.642 0.858       FALSE
+ 0.642 0.858       FALSE
+ 0.563 0.370       FALSE
+ 0.563 0.370       FALSE
+ 0.544 0.629       FALSE
+ 0.544 0.629       FALSE
+ 0.859 0.384       FALSE
+ 0.859 0.384       FALSE
+
+== batch 
+                  data trials min_trial_rate max_trial_rate chisq_p
+        gpt-4o-airline      4          0.400          0.440   0.983
+         gpt-4o-retail      4          0.583          0.617   0.940
+ sonnet-35-new-airline      8          0.400          0.520   0.944
+  sonnet-35-new-retail      8          0.609          0.748   0.394
+
+== bounds 
+                  data tau x0 k0 n_tasks_with_x0 npmle_plugin betabinom_plugin
+        gpt-4o-airline 0.8  4  4              10     0.063883           0.2994
+        gpt-4o-airline 0.8  3  4               4     0.981625           0.7330
+        gpt-4o-airline 0.9  4  4              10     0.069620           0.5439
+        gpt-4o-airline 0.9  3  4               4     0.991392           0.9113
+         gpt-4o-retail 0.8  4  4              44     0.000811           0.1163
+         gpt-4o-retail 0.8  3  4              22     0.031982           0.5947
+         gpt-4o-retail 0.9  4  4              44     0.999621           0.2533
+         gpt-4o-retail 0.9  3  4              22     0.999712           0.8166
+ sonnet-35-new-airline 0.8  8  8               8     0.146757           0.0751
+ sonnet-35-new-airline 0.8  7  8               3     0.999994           0.3612
+ sonnet-35-new-airline 0.9  8  8               8     0.146759           0.2425
+ sonnet-35-new-airline 0.9  7  8               3     0.999999           0.6923
+  sonnet-35-new-retail 0.8  8  8              41     0.048018           0.0346
+  sonnet-35-new-retail 0.8  7  8              18     0.374266           0.2741
+  sonnet-35-new-retail 0.9  8  8              41     0.048025           0.1304
+  sonnet-35-new-retail 0.9  7  8              18     0.374290           0.5937
+  A_lower A_upper  B_lower B_upper lp_status
+ 0.049373 0.08926 1.93e-05   1.000         0
+ 0.900288 1.00000 1.43e-03   1.000         0
+ 0.050617 0.12634 9.35e-04   1.000         0
+ 0.915869 1.00000 3.93e-02   1.000         0
+ 0.000792 0.00109 9.10e-06   1.000         0
+ 0.031909 0.03250 7.62e-04   1.000         0
+ 0.960835 1.00000 1.19e-05   1.000         0
+ 0.965028 1.00000 1.86e-03   1.000         0
+ 0.146748 0.14676 2.70e-09   1.000         0
+ 0.999951 1.00000 1.86e-07   1.000         0
+ 0.146756 0.14676 1.94e-06   1.000         0
+ 0.999991 1.00000 1.11e-04   1.000         0
+ 0.047981 0.04804 1.35e-08   0.471         0
+ 0.374055 0.37433 1.52e-06   1.000         0
+ 0.048003 0.04813 1.60e-05   1.000         0
+ 0.374194 0.37446 4.25e-04   1.000         0
+
+== counts 
+                  data x n_tasks
+        gpt-4o-airline 0      14
+        gpt-4o-airline 1      12
+        gpt-4o-airline 2      10
+        gpt-4o-airline 3       4
+        gpt-4o-airline 4      10
+         gpt-4o-retail 0      22
+         gpt-4o-retail 1      18
+         gpt-4o-retail 2       9
+         gpt-4o-retail 3      22
+         gpt-4o-retail 4      44
+ sonnet-35-new-airline 0      10
+ sonnet-35-new-airline 1       5
+ sonnet-35-new-airline 2       8
+ sonnet-35-new-airline 3       2
+ sonnet-35-new-airline 4       5
+ sonnet-35-new-airline 5       2
+ sonnet-35-new-airline 6       7
+ sonnet-35-new-airline 7       3
+ sonnet-35-new-airline 8       8
+  sonnet-35-new-retail 0       7
+  sonnet-35-new-retail 1       8
+  sonnet-35-new-retail 2       7
+  sonnet-35-new-retail 3       7
+  sonnet-35-new-retail 4       6
+  sonnet-35-new-retail 5      10
+  sonnet-35-new-retail 6      11
+  sonnet-35-new-retail 7      18
+  sonnet-35-new-retail 8      41
+---------- scripts/06_tau_bench.R finished in 0.0 min (exit 0)
+
+========== scripts/05_figures_tables.R ==========
+Using 117 of 117 scenarios (nrep = 200)
+Wrote results/summary.md and figures.
+---------- scripts/05_figures_tables.R finished in 0.0 min (exit 0)
+Rscript scripts/run_all.R  553.42s user 95.95s system 504% cpu 2:08.64 total
