@@ -21,7 +21,7 @@ through its first k moments, so lfdr is generally not identified.
   author's earlier `rl-dist-eval` project, which already contained Beta-binomial
   posteriors, MoM empirical-Bayes shrinkage and BH adjustment; those are not claimed
   as new here.
-* **Six methods**: oracle lfdr (true G); grid NPMLE plug-in (Kiefer-Wolfowitz;
+* **Seven methods**: box-robust lfdr rule with guaranteed FDR (Section 3); oracle lfdr (true G); grid NPMLE plug-in (Kiefer-Wolfowitz;
   log-barrier interior point with a certified KKT gap, plus EM/SQUAREM); Beta-binomial
   EB (bounded MLE with boundary flags); unpooled Beta(1,1); exact one-sided binomial
   test at theta = tau with BH and BY. lfdr rules are run as a threshold rule
@@ -40,7 +40,8 @@ through its first k moments, so lfdr is generally not identified.
   license; pinned commit 59a200c). They contain task_id, trial and reward in {0, 1}:
   airline (50 tasks) and retail (115 tasks), with 4 trials for GPT-4o and 8 for
   Claude 3.5 Sonnet (new). This is a secondary illustration only (Section 4).
-* **Tests**: 21 testthat tests, 131 expectations. They check the closed-form lfdr
+* **Tests**: 24 testthat tests, 140 expectations, including checks of the robust
+  rule's monotone early stopping and of its FDR in a hard case. They check the closed-form lfdr
   against numerical integration, normalisation, BH/BY against `p.adjust`, the NPMLE
   optimality certificate, marginal recovery, the LP bounds against an analytic k = 1
   example, nesting of (A) inside (B), detection of an infeasible marginal, and seed
@@ -97,13 +98,30 @@ the plug-in identified set (A) under the fitted marginal often *excluded* the tr
 value: coverage at most 12% in every cell with k >= 10. The fitted NPMLE marginal sits on
 the boundary of the moment space, so (A) collapses to a near-point. This is the
 empirical reason (A) must not be read as a confidence interval. The confidence-box
-interval (B) contained the oracle lfdr in 100% of replicates in every cell
-(conservative). Its mean width exceeded 0.9 for k <= 10 except when G had little
+interval (B) contained the oracle lfdr in at least 99.5% of replicates in every cell
+(nominal 95%; conservative). Its mean width exceeded 0.9 for k <= 10 except when G had little
 mass near tau. Even then (edges or separated G, J >= 200) it narrowed only to
 0.17-0.85 and never certified lfdr <= q. It certified lfdr(k|k) <= 0.10 only with
 k = 30 and edges or separated G: in 81-100% of replicates for edges G (J >= 200),
 separated G with 40% reliable component (J >= 200) and with 10% (J = 1000); in 7.5%
 for edges G at J = 50; never otherwise.
+
+**A rule with a guarantee: box-robust lfdr.** Build the (B) confidence box at level
+1 - q/2, let U_i be the largest lfdr(x_i, k_i; G) over all G consistent with it, and
+call task i reliable when U_i <= q/2. On the event that the box covers the true
+marginal, every call has true lfdr <= q/2, so E[V/R | X] <= q/2. The box fails with
+probability <= q/2. Hence **FDR <= q for any G** under A1-A4, without assuming a
+shape for G or consistency of an estimator. Because lfdr(x, k; G) is nonincreasing
+in x for every G, only a few LPs per run budget are needed. In simulation the
+guarantee held with a wide margin: maximum FDR 0.004 over all 105 primary cells at
+q = 0.10, against 0.20 for the NPMLE plug-in and 0.30 for the Beta-binomial. The
+cost is power. At tau = 0.9 it made calls only with k = 30 and G having little mass
+near tau: power 0.40-0.69 (edges G, J >= 200) and up to 0.55 (separated G, J = 1000).
+With k <= 10 it made **no calls in any cell**. At tau = 0.8 it sometimes had power where
+exact test + BH had none, through borrowing across tasks: edges G, k = 10, J = 200,
+power 0.23 vs 0; heterogeneous k, 0.18 vs 0.06. With k = 30, BH was usually more
+powerful. The two guarantees differ: BH's holds for fixed theta's, the box-robust
+rule's is averaged over theta ~ G.
 
 **Dependence stress.** Within-task run correlation 0.3 (runs not independent) raised
 FDR in the overlapping-G cells to 0.26-0.31 (NPMLE) and 0.42 (Beta-binomial, k = 10).
@@ -143,10 +161,11 @@ settings used to generate these files are not documented.
   likelihood-ratio-based localisation, as in Ignatiadis & Wager, could be tighter.
   Coverage was checked only for x0 in {k0, k0 - 1}, and is approximate because G is
   restricted to a grid.
-* No method here controls frequentist FDR under misspecification while keeping
-  power at k <= 10. A natural next step is a decision rule based on the upper end
-  of (B), which would have FDR control but, from the widths above, almost no power.
-  That should be quantified.
+* The box-robust rule controls FDR but is far below its nominal level (0.004 vs
+  0.10), and has no power at k <= 10. Next: tighten the box (KS or
+  likelihood-ratio localisation, a better split of q between box and threshold), and
+  test the rule under the dependence stress cases at k = 30, where it actually makes
+  calls (current stress cells use k <= 10, so its zero FDR there is vacuous).
 * A margin-of-indifference version of the hypothesis (e.g. theta > tau + delta)
   would remove the boundary-atom artefact in the bounds; not yet done.
 * Real data: tau-bench is small (J <= 115, k <= 8) and is used only as an

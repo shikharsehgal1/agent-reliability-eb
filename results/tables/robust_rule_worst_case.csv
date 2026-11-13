@@ -1,0 +1,19 @@
+"rule","tau","q","cells","max_FDR","at","cells_with_power_gt_0.01","max_power"
+"robust_box:stepup",0.8,0.05,105,"0.011 (0.000)","edges k = 30 J = 1000",18,0.932
+"robust_box:threshold",0.8,0.05,105,"0.001 (0.000)","overlap_hi k = 30 J = 1000",18,0.819
+"robust_box:stepup",0.9,0.05,105,"0.002 (0.000)","edges k = 30 J = 1000",2,0.539
+"robust_box:threshold",0.9,0.05,105,"0.001 (0.000)","edges k = 30 J = 1000",2,0.533
+"robust_box:stepup",0.95,0.05,105,"0.000 (0.000)","beta_single k = 3 J = 50",0,0
+"robust_box:threshold",0.95,0.05,105,"0.000 (0.000)","beta_single k = 3 J = 50",0,0
+"robust_box:stepup",0.8,0.1,105,"0.034 (0.000)","edges k = 30 J = 1000",27,0.934
+"robust_box:threshold",0.8,0.1,105,"0.003 (0.001)","overlap_lo k = 30 J = 1000",27,0.822
+"robust_box:stepup",0.9,0.1,105,"0.004 (0.000)","edges k = 30 J = 1000",5,0.761
+"robust_box:threshold",0.9,0.1,105,"0.002 (0.000)","edges k = 30 J = 1000",5,0.692
+"robust_box:stepup",0.95,0.1,105,"0.000 (0.000)","beta_single k = 3 J = 50",0,0
+"robust_box:threshold",0.95,0.1,105,"0.000 (0.000)","beta_single k = 3 J = 50",0,0
+"robust_box:stepup",0.8,0.2,105,"0.071 (0.000)","edges k = 30 J = 1000",40,0.966
+"robust_box:threshold",0.8,0.2,105,"0.005 (0.001)","overlap_hi k = het J = 1000",39,0.909
+"robust_box:stepup",0.9,0.2,105,"0.024 (0.001)","separated_hi k = 30 J = 1000",8,0.865
+"robust_box:threshold",0.9,0.2,105,"0.004 (0.000)","edges k = het J = 1000",8,0.692
+"robust_box:stepup",0.95,0.2,105,"0.000 (0.000)","beta_single k = 3 J = 50",0,0
+"robust_box:threshold",0.95,0.2,105,"0.000 (0.000)","beta_single k = 3 J = 50",0,0

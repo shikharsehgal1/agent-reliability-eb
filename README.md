@@ -75,6 +75,7 @@ Charnes-Cooper transform (`R/bounds.R`).
 | Unpooled Bayes | fixed Beta(1, 1) prior for every task; nothing estimated | posterior null prob <= q | A2 plus the prior. No borrowing across tasks. (A prior cannot be fitted from one task's single count.) |
 | Exact test + BH | one-sided p_i = Pr(Bin(k_i, tau) >= x_i), least-favourable null theta_i = tau | BH at level q | Valid p-values under A2. BH controls FDR <= q under A3 (independence) or PRDS. |
 | Exact test + BY | same p-values | BY at level q | FDR <= q under arbitrary dependence across tasks. Conservative. |
+| Box-robust lfdr | U_i = max lfdr(x_i, k_i; G) over all G whose marginal lies in a (1 - q/2) Clopper-Pearson box | U_i <= q/2 (also step-up) | FDR <= q for **any** G under A1-A4 (box fails w.p. <= q/2; otherwise every call has lfdr <= q/2). Averaged over theta ~ G, not conditional on fixed theta. |
 
 "Step-up" = reject the largest set of smallest lfdr values whose mean is <= q, which
 targets posterior expected FDP <= q *if the lfdr values are correct*. Neither lfdr
@@ -92,7 +93,7 @@ Rscript scripts/run_all.R        # tests, examples, simulation, sensitivity, fig
 ```
 
 `run_all.R` runs, in order: `tests/run_tests.R`, `scripts/01_examples.R`,
-`02_simulation.R` (117 scenarios x 200 replicates; ~40 min on 9 cores; cached per
+`02_simulation.R` (117 scenarios x 200 replicates; ~30 min on 9 cores; cached per
 scenario in `results/raw/`), `03_grid_sensitivity.R`, `04_stability.R`,
 `06_tau_bench.R` (if the data were fetched), `05_figures_tables.R`. Set
 `NREP=20` for a quick pass. Every replicate has its own seed
@@ -143,7 +144,9 @@ any call at q = 0.10 in the small-k cells.
   When G is well separated from tau, plug-in EB was close to the oracle.
 * The plug-in identified set (A) is not a confidence interval: it contained the true
   lfdr in at most 12% of replicates when k >= 10. The confidence-box interval (B)
-  always covered it, but was nearly [0, 1] unless k = 30.
+  covered it in >= 99.5% of replicates, but was nearly [0, 1] unless k = 30.
+* A box-robust lfdr rule has provable FDR <= q for any G. Its worst simulated FDR was
+  0.004 at q = 0.10, but at tau = 0.9 it made no calls at all unless k = 30.
 * On public tau-bench data (k = 4 or 8), no reliability call at tau = 0.9 is
   supported once uncertainty in the marginal is accounted for.
 

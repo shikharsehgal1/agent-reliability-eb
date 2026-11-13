@@ -15,15 +15,17 @@ write.csv(oc, "results/tables/operating_characteristics_all.csv", row.names = FA
 
 rule_levels <- c("oracle:threshold", "oracle:stepup", "npmle:threshold", "npmle:stepup",
                  "betabinom:threshold", "betabinom:stepup", "unpooled:threshold",
-                 "binom_test:BH", "binom_test:BY")
+                 "binom_test:BH", "binom_test:BY", "robust_box:threshold", "robust_box:stepup")
 rule_labels <- c("Oracle lfdr <= q (benchmark)", "Oracle step-up", "NPMLE lfdr <= q",
                  "NPMLE step-up", "Beta-binomial EB lfdr <= q", "Beta-binomial step-up",
-                 "Unpooled Beta(1,1) <= q", "Exact test + BH", "Exact test + BY")
+                 "Unpooled Beta(1,1) <= q", "Exact test + BH", "Exact test + BY",
+                 "Box-robust U <= q/2 (FDR <= q)", "Box-robust step-up")
 palette <- c("Oracle lfdr <= q (benchmark)" = "#52514e", "NPMLE lfdr <= q" = "#2a78d6",
              "Beta-binomial EB lfdr <= q" = "#eb6834", "Unpooled Beta(1,1) <= q" = "#1baf7a",
-             "Exact test + BH" = "#eda100", "Exact test + BY" = "#e87ba4")
-shapes <- c(16, 15, 17, 18, 4, 3); names(shapes) <- names(palette)
-main_rules <- rule_levels[c(1, 3, 5, 7, 8)]
+             "Exact test + BH" = "#eda100", "Exact test + BY" = "#e87ba4",
+             "Box-robust U <= q/2 (FDR <= q)" = "#6250d6")
+shapes <- c(16, 15, 17, 18, 4, 3, 8); names(shapes) <- names(palette)
+main_rules <- rule_levels[c(1, 3, 5, 7, 8, 10)]
 lab_rule <- function(x) factor(rule_labels[match(x, rule_levels)], levels = rule_labels)
 oc$method <- lab_rule(oc$rule)
 theme_set(theme_minimal(base_size = 10) +
@@ -47,7 +49,7 @@ add_table <- function(title, df, note = NULL) {
 # ---- Main operating characteristics -------------------------------------------
 prim <- oc[oc$id <= 1000, ]
 main <- prim[prim$tau == main_tau & prim$q == main_q, ]
-tab_main <- main[main$J == 200 & main$rule %in% c(main_rules, "npmle:stepup", "binom_test:BY"), ]
+tab_main <- main[main$J == 200 & main$rule %in% c(main_rules, "npmle:stepup", "binom_test:BY", "robust_box:stepup"), ]
 tab_main <- tab_main[order(tab_main$G, tab_main$k, match(tab_main$rule, rule_levels)), ]
 out_main <- data.frame(G = tab_main$G, k = tab_main$k, rule = tab_main$rule,
                        FDR = fmt(tab_main$FDR, tab_main$FDR_mcse),
@@ -103,6 +105,23 @@ tab_J <- pj[order(pj$G, pj$k, pj$rule, pj$J),
             c("G", "k", "J", "rule", "FDR", "FDR_mcse", "power", "power_mcse", "mean_R")]
 write.csv(tab_J, "results/tables/J_sensitivity.csv", row.names = FALSE)
 
+# ---- Box-robust rule: worst-case FDR and where it has power ---------------------
+rb <- prim[prim$rule %in% c("robust_box:threshold", "robust_box:stepup"), ]
+rb_worst <- do.call(rbind, lapply(split(rb, list(rb$rule, rb$tau, rb$q), drop = TRUE), function(g) {
+  i <- which.max(g$FDR)
+  data.frame(rule = g$rule[1], tau = g$tau[1], q = g$q[1], cells = nrow(g),
+             max_FDR = fmt(g$FDR[i], g$FDR_mcse[i]), at = paste(g$G[i], "k =", g$k[i], "J =", g$J[i]),
+             cells_with_power_gt_0.01 = sum(g$power > 0.01, na.rm = TRUE),
+             max_power = round(max(g$power, na.rm = TRUE), 3))
+}))
+write.csv(rb_worst, "results/tables/robust_rule_worst_case.csv", row.names = FALSE)
+add_table("Box-robust rule (guaranteed FDR <= q under the model): worst-case FDR over all 105 primary cells",
+          rb_worst, "max_FDR = largest mean FDP over cells, with MCSE. Power is reported to show the cost of the guarantee.")
+rbp <- rb[rb$rule == "robust_box:threshold" & rb$tau == main_tau & rb$q == main_q & rb$power > 0.01, ]
+if (nrow(rbp)) add_table("Cells where the box-robust rule (tau = 0.9, q = 0.1) has power > 0.01",
+          data.frame(G = rbp$G, k = rbp$k, J = rbp$J, FDR = fmt(rbp$FDR, rbp$FDR_mcse),
+                     power = fmt(rbp$power, rbp$power_mcse), mean_calls = round(rbp$mean_R, 1))[order(rbp$G, rbp$k, rbp$J), ])
+
 # ---- Near-boundary false calls -------------------------------------------------
 nb <- main[main$J == 200 & main$rule %in% main_rules, ]
 nb_out <- data.frame(G = nb$G, k = nb$k, rule = nb$rule,
@@ -117,7 +136,8 @@ add_table("False reliability calls near the boundary (theta in (0.85, 0.90]), J 
 # ---- tau x q sensitivity -------------------------------------------------------
 sens <- prim[prim$J == 200 & prim$k %in% c("10", "30", "het") &
                prim$G %in% c("overlap_hi", "separated_hi", "near_tau") &
-               prim$rule %in% c("oracle:threshold", "npmle:threshold", "betabinom:threshold", "binom_test:BH"), ]
+               prim$rule %in% c("oracle:threshold", "npmle:threshold", "betabinom:threshold",
+                                "binom_test:BH", "robust_box:threshold"), ]
 sens_out <- data.frame(G = sens$G, k = sens$k, tau = sens$tau, q = sens$q, rule = sens$rule,
                        FDR = fmt(sens$FDR, sens$FDR_mcse), power = fmt(sens$power, sens$power_mcse))
 sens_out <- sens_out[order(sens_out$G, sens_out$k, sens_out$tau, sens_out$q, sens_out$rule), ]

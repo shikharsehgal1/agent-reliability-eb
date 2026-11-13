@@ -64,3 +64,46 @@ test_that("Clopper-Pearson box covers the true marginal at roughly the nominal r
   })
   expect_gte(mean(cover), 0.90 - 3 * sqrt(0.09 / 300))
 })
+
+test_that("early-stopped robust upper bounds equal the full computation where it matters", {
+  set.seed(3)
+  d <- simulate_dataset(300, "het", G_library$separated_hi)
+  con <- cp_box_constraints(d$x, d$k, 0.05)
+  full <- robust_lfdr_upper(d$x, d$k, con, grid, 0.9, stop_above = 1)
+  early <- robust_lfdr_upper(d$x, d$k, con, grid, 0.9, stop_above = 0.05)
+  keep <- early <= 0.05
+  expect_equal(early[keep], full[keep])
+  expect_true(all(full[!keep] > 0.05 - 1e-9))
+  # The upper bound is nonincreasing in x within each run budget.
+  for (kk in unique(d$k)) {
+    u <- full[d$k == kk][order(d$x[d$k == kk])]
+    expect_true(all(diff(u) <= 1e-7))
+  }
+})
+
+test_that("box-robust rule calls nothing the box cannot certify, and is a subset of oracle calls when the box covers", {
+  set.seed(4)
+  G <- G_library$separated_hi
+  d <- simulate_dataset(1000, "30", G)
+  g <- make_grid(M = 301, taus = 0.9)
+  rej <- reject_robust(d$x, d$k, 0.1, 0.9, g)
+  expect_gt(sum(rej), 0)
+  box <- cp_box_constraints(d$x, d$k, 0.05)[[1]]
+  f <- oracle_marginal(30, G)
+  if (all(box$lower <= f & f <= box$upper)) {
+    expect_true(all(oracle_lfdr(d$x[rej], d$k[rej], G, 0.9) <= 0.05 + 1e-6))
+  }
+})
+
+test_that("box-robust rule keeps FDR <= q in the hard near-tau, heterogeneous-k case", {
+  set.seed(5)
+  g <- make_grid(M = 201, taus = 0.9)
+  fdp <- replicate(150, {
+    d <- simulate_dataset(200, "het", G_library$near_tau)
+    c(robust = decision_metrics(reject_robust(d$x, d$k, 0.1, 0.9, g), d$theta, 0.9)[["FDP"]],
+      npmle = decision_metrics(lfdr_npmle(fit_npmle(d$x, d$k, grid = g), d$x, d$k, 0.9) <= 0.1,
+                               d$theta, 0.9)[["FDP"]])
+  })
+  se <- apply(fdp, 1, sd) / sqrt(ncol(fdp))
+  expect_lt(mean(fdp["robust", ]), 0.1 + 3 * se[["robust"]])
+})

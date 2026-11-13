@@ -11,6 +11,9 @@
 "separated_hi","5","clustered","oracle:threshold","0.054 (0.004)","0.890 (0.003)",73.7
 "separated_hi","5","none","oracle:threshold","0.048 (0.002)","0.888 (0.002)",74
 "separated_hi","5","within_corr","oracle:threshold","0.157 (0.003)","0.929 (0.002)",87.4
+"separated_hi","5","clustered","robust_box:threshold","0.000 (0.000)","0.000 (0.000)",0
+"separated_hi","5","none","robust_box:threshold","0.000 (0.000)","0.000 (0.000)",0
+"separated_hi","5","within_corr","robust_box:threshold","0.000 (0.000)","0.000 (0.000)",0
 "separated_hi","5","clustered","unpooled:threshold","0.000 (0.000)","0.000 (0.000)",0
 "separated_hi","5","none","unpooled:threshold","0.000 (0.000)","0.000 (0.000)",0
 "separated_hi","5","within_corr","unpooled:threshold","0.000 (0.000)","0.000 (0.000)",0
@@ -26,6 +29,9 @@
 "separated_hi","10","clustered","oracle:threshold","0.008 (0.001)","0.796 (0.005)",64.7
 "separated_hi","10","none","oracle:threshold","0.010 (0.001)","0.793 (0.004)",63.9
 "separated_hi","10","within_corr","oracle:threshold","0.093 (0.002)","0.904 (0.002)",78.5
+"separated_hi","10","clustered","robust_box:threshold","0.000 (0.000)","0.000 (0.000)",0
+"separated_hi","10","none","robust_box:threshold","0.000 (0.000)","0.000 (0.000)",0
+"separated_hi","10","within_corr","robust_box:threshold","0.000 (0.000)","0.000 (0.000)",0
 "separated_hi","10","clustered","unpooled:threshold","0.000 (0.000)","0.000 (0.000)",0
 "separated_hi","10","none","unpooled:threshold","0.000 (0.000)","0.000 (0.000)",0
 "separated_hi","10","within_corr","unpooled:threshold","0.000 (0.000)","0.000 (0.000)",0
@@ -41,6 +47,9 @@
 "overlap_hi","5","clustered","oracle:threshold","0.000 (0.000)","0.000 (0.000)",0
 "overlap_hi","5","none","oracle:threshold","0.000 (0.000)","0.000 (0.000)",0
 "overlap_hi","5","within_corr","oracle:threshold","0.000 (0.000)","0.000 (0.000)",0
+"overlap_hi","5","clustered","robust_box:threshold","0.000 (0.000)","0.000 (0.000)",0
+"overlap_hi","5","none","robust_box:threshold","0.000 (0.000)","0.000 (0.000)",0
+"overlap_hi","5","within_corr","robust_box:threshold","0.000 (0.000)","0.000 (0.000)",0
 "overlap_hi","5","clustered","unpooled:threshold","0.000 (0.000)","0.000 (0.000)",0
 "overlap_hi","5","none","unpooled:threshold","0.000 (0.000)","0.000 (0.000)",0
 "overlap_hi","5","within_corr","unpooled:threshold","0.000 (0.000)","0.000 (0.000)",0
@@ -56,6 +65,9 @@
 "overlap_hi","10","clustered","oracle:threshold","0.000 (0.000)","0.000 (0.000)",0
 "overlap_hi","10","none","oracle:threshold","0.000 (0.000)","0.000 (0.000)",0
 "overlap_hi","10","within_corr","oracle:threshold","0.000 (0.000)","0.000 (0.000)",0
+"overlap_hi","10","clustered","robust_box:threshold","0.000 (0.000)","0.000 (0.000)",0
+"overlap_hi","10","none","robust_box:threshold","0.000 (0.000)","0.000 (0.000)",0
+"overlap_hi","10","within_corr","robust_box:threshold","0.000 (0.000)","0.000 (0.000)",0
 "overlap_hi","10","clustered","unpooled:threshold","0.000 (0.000)","0.000 (0.000)",0
 "overlap_hi","10","none","unpooled:threshold","0.000 (0.000)","0.000 (0.000)",0
 "overlap_hi","10","within_corr","unpooled:threshold","0.000 (0.000)","0.000 (0.000)",0

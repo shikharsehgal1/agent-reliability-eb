@@ -26,6 +26,11 @@ run_replicate <- function(scen, seed, grid = make_grid(), do_bounds = TRUE,
       for (m in c("oracle", "npmle", "betabinom")) rules[[paste0(m, ":stepup")]] <- reject_lfdr_stepup(lf[[m]], q)
       rules[["binom_test:BH"]] <- reject_bh(p, q)
       rules[["binom_test:BY"]] <- reject_by(p, q)
+      # Box-robust rule (see reject_robust in decisions.R): FDR <= q for any G.
+      U <- robust_lfdr_upper(x, k, cp_box_constraints(x, k, alpha = q / 2), grid, tau,
+                             stop_above = q / 2)
+      rules[["robust_box:threshold"]] <- U <= q / 2
+      rules[["robust_box:stepup"]] <- reject_lfdr_stepup(U, q / 2)
       for (nm in names(rules)) {
         metric_rows[[length(metric_rows) + 1]] <-
           c(tau = tau, q = q, decision_metrics(rules[[nm]], theta, tau))

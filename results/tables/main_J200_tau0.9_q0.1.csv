@@ -6,6 +6,8 @@
 "beta_single","3","unpooled:threshold","0.000 (0.000)","0.000 (0.000)",0,0
 "beta_single","3","binom_test:BH","0.000 (0.000)","0.000 (0.000)",0,0
 "beta_single","3","binom_test:BY","0.000 (0.000)","0.000 (0.000)",0,0
+"beta_single","3","robust_box:threshold","0.000 (0.000)","0.000 (0.000)",0,0
+"beta_single","3","robust_box:stepup","0.000 (0.000)","0.000 (0.000)",0,0
 "beta_single","5","oracle:threshold","0.000 (0.000)","0.000 (0.000)",0,0
 "beta_single","5","npmle:threshold","0.094 (0.012)","0.192 (0.024)",22,0.24
 "beta_single","5","npmle:stepup","0.112 (0.014)","0.210 (0.027)",28,0.24
@@ -13,6 +15,8 @@
 "beta_single","5","unpooled:threshold","0.000 (0.000)","0.000 (0.000)",0,0
 "beta_single","5","binom_test:BH","0.000 (0.000)","0.000 (0.000)",0,0
 "beta_single","5","binom_test:BY","0.000 (0.000)","0.000 (0.000)",0,0
+"beta_single","5","robust_box:threshold","0.000 (0.000)","0.000 (0.000)",0,0
+"beta_single","5","robust_box:stepup","0.000 (0.000)","0.000 (0.000)",0,0
 "beta_single","10","oracle:threshold","0.000 (0.000)","0.000 (0.000)",0,0
 "beta_single","10","npmle:threshold","0.105 (0.009)","0.286 (0.024)",27.3,0.425
 "beta_single","10","npmle:stepup","0.151 (0.013)","0.351 (0.030)",39.4,0.425
@@ -20,6 +24,8 @@
 "beta_single","10","unpooled:threshold","0.000 (0.000)","0.000 (0.000)",0,0
 "beta_single","10","binom_test:BH","0.000 (0.000)","0.000 (0.000)",0,0
 "beta_single","10","binom_test:BY","0.000 (0.000)","0.000 (0.000)",0,0
+"beta_single","10","robust_box:threshold","0.000 (0.000)","0.000 (0.000)",0,0
+"beta_single","10","robust_box:stepup","0.000 (0.000)","0.000 (0.000)",0,0
 "beta_single","30","oracle:threshold","0.031 (0.003)","0.335 (0.004)",24,0.5
 "beta_single","30","npmle:threshold","0.080 (0.005)","0.535 (0.016)",42.1,0.75
 "beta_single","30","npmle:stepup","0.161 (0.008)","0.711 (0.018)",62.9,0.875
@@ -27,6 +33,8 @@
 "beta_single","30","unpooled:threshold","0.031 (0.003)","0.335 (0.004)",24,0.5
 "beta_single","30","binom_test:BH","0.000 (0.000)","0.000 (0.000)",0,0
 "beta_single","30","binom_test:BY","0.000 (0.000)","0.000 (0.000)",0,0
+"beta_single","30","robust_box:threshold","0.000 (0.000)","0.000 (0.000)",0,0
+"beta_single","30","robust_box:stepup","0.000 (0.000)","0.000 (0.000)",0,0
 "beta_single","het","oracle:threshold","0.087 (0.008)","0.110 (0.003)",8.3,0.495
 "beta_single","het","npmle:threshold","0.113 (0.009)","0.170 (0.012)",15.2,0.53
 "beta_single","het","npmle:stepup","0.160 (0.011)","0.270 (0.019)",27.1,0.625
@@ -34,6 +42,8 @@
 "beta_single","het","unpooled:threshold","0.000 (0.000)","0.000 (0.000)",0,0
 "beta_single","het","binom_test:BH","0.000 (0.000)","0.000 (0.000)",0,0
 "beta_single","het","binom_test:BY","0.000 (0.000)","0.000 (0.000)",0,0
+"beta_single","het","robust_box:threshold","0.000 (0.000)","0.000 (0.000)",0,0
+"beta_single","het","robust_box:stepup","0.000 (0.000)","0.000 (0.000)",0,0
 "separated_lo","3","oracle:threshold","0.000 (0.000)","0.000 (0.000)",0,0
 "separated_lo","3","npmle:threshold","0.000 (0.000)","0.000 (0.000)",0,0
 "separated_lo","3","npmle:stepup","0.000 (0.000)","0.000 (0.000)",0,0
@@ -41,6 +51,8 @@
 "separated_lo","3","unpooled:threshold","0.000 (0.000)","0.000 (0.000)",0,0
 "separated_lo","3","binom_test:BH","0.000 (0.000)","0.000 (0.000)",0,0
 "separated_lo","3","binom_test:BY","0.000 (0.000)","0.000 (0.000)",0,0
+"separated_lo","3","robust_box:threshold","0.000 (0.000)","0.000 (0.000)",0,0
+"separated_lo","3","robust_box:stepup","0.000 (0.000)","0.000 (0.000)",0,0
 "separated_lo","5","oracle:threshold","0.000 (0.000)","0.000 (0.000)",0,0
 "separated_lo","5","npmle:threshold","0.035 (0.006)","0.142 (0.024)",3.9,0.155
 "separated_lo","5","npmle:stepup","0.039 (0.007)","0.143 (0.024)",4.1,0.155
@@ -48,6 +60,8 @@
 "separated_lo","5","unpooled:threshold","0.000 (0.000)","0.000 (0.000)",0,0
 "separated_lo","5","binom_test:BH","0.000 (0.000)","0.000 (0.000)",0,0
 "separated_lo","5","binom_test:BY","0.000 (0.000)","0.000 (0.000)",0,0
+"separated_lo","5","robust_box:threshold","0.000 (0.000)","0.000 (0.000)",0,0
+"separated_lo","5","robust_box:stepup","0.000 (0.000)","0.000 (0.000)",0,0
 "separated_lo","10","oracle:threshold","0.030 (0.003)","0.795 (0.006)",16.1,0.365
 "separated_lo","10","npmle:threshold","0.030 (0.004)","0.628 (0.025)",13.1,0.305
 "separated_lo","10","npmle:stepup","0.085 (0.007)","0.695 (0.028)",15.9,0.595
@@ -55,6 +69,8 @@
 "separated_lo","10","unpooled:threshold","0.000 (0.000)","0.000 (0.000)",0,0
 "separated_lo","10","binom_test:BH","0.000 (0.000)","0.000 (0.000)",0,0
 "separated_lo","10","binom_test:BY","0.000 (0.000)","0.000 (0.000)",0,0
+"separated_lo","10","robust_box:threshold","0.000 (0.000)","0.000 (0.000)",0,0
+"separated_lo","10","robust_box:stepup","0.000 (0.000)","0.000 (0.000)",0,0
 "separated_lo","30","oracle:threshold","0.007 (0.002)","0.938 (0.004)",18.6,0.12
 "separated_lo","30","npmle:threshold","0.016 (0.002)","0.951 (0.005)",19.1,0.24
 "separated_lo","30","npmle:stepup","0.084 (0.004)","0.991 (0.003)",21.4,0.875
@@ -62,6 +78,8 @@
 "separated_lo","30","unpooled:threshold","0.000 (0.000)","0.553 (0.008)",10.9,0.005
 "separated_lo","30","binom_test:BH","0.000 (0.000)","0.000 (0.000)",0,0
 "separated_lo","30","binom_test:BY","0.000 (0.000)","0.000 (0.000)",0,0
+"separated_lo","30","robust_box:threshold","0.000 (0.000)","0.000 (0.000)",0,0
+"separated_lo","30","robust_box:stepup","0.000 (0.000)","0.000 (0.000)",0,0
 "separated_lo","het","oracle:threshold","0.027 (0.004)","0.435 (0.008)",8.8,0.205
 "separated_lo","het","npmle:threshold","0.030 (0.005)","0.400 (0.012)",8.2,0.2
 "separated_lo","het","npmle:stepup","0.091 (0.006)","0.577 (0.016)",12.9,0.62
@@ -69,6 +87,8 @@
 "separated_lo","het","unpooled:threshold","0.000 (0.000)","0.000 (0.000)",0,0
 "separated_lo","het","binom_test:BH","0.000 (0.000)","0.000 (0.000)",0,0
 "separated_lo","het","binom_test:BY","0.000 (0.000)","0.000 (0.000)",0,0
+"separated_lo","het","robust_box:threshold","0.000 (0.000)","0.000 (0.000)",0,0
+"separated_lo","het","robust_box:stepup","0.000 (0.000)","0.000 (0.000)",0,0
 "separated_hi","3","oracle:threshold","0.000 (0.000)","0.000 (0.000)",0,0
 "separated_hi","3","npmle:threshold","0.014 (0.003)","0.104 (0.021)",9.6,0.11
 "separated_hi","3","npmle:stepup","0.016 (0.003)","0.104 (0.021)",9.7,0.11
@@ -76,6 +96,8 @@
 "separated_hi","3","unpooled:threshold","0.000 (0.000)","0.000 (0.000)",0,0
 "separated_hi","3","binom_test:BH","0.000 (0.000)","0.000 (0.000)",0,0
 "separated_hi","3","binom_test:BY","0.000 (0.000)","0.000 (0.000)",0,0
+"separated_hi","3","robust_box:threshold","0.000 (0.000)","0.000 (0.000)",0,0
+"separated_hi","3","robust_box:stepup","0.000 (0.000)","0.000 (0.000)",0,0
 "separated_hi","5","oracle:threshold","0.049 (0.002)","0.889 (0.002)",74,0.995
 "separated_hi","5","npmle:threshold","0.032 (0.002)","0.555 (0.031)",46.3,0.62
 "separated_hi","5","npmle:stepup","0.080 (0.006)","0.591 (0.033)",53.9,0.62
@@ -83,6 +105,8 @@
 "separated_hi","5","unpooled:threshold","0.000 (0.000)","0.000 (0.000)",0,0
 "separated_hi","5","binom_test:BH","0.000 (0.000)","0.000 (0.000)",0,0
 "separated_hi","5","binom_test:BY","0.000 (0.000)","0.000 (0.000)",0,0
+"separated_hi","5","robust_box:threshold","0.000 (0.000)","0.000 (0.000)",0,0
+"separated_hi","5","robust_box:stepup","0.000 (0.000)","0.000 (0.000)",0,0
 "separated_hi","10","oracle:threshold","0.008 (0.001)","0.794 (0.003)",63.3,0.365
 "separated_hi","10","npmle:threshold","0.018 (0.001)","0.838 (0.017)",68.1,0.625
 "separated_hi","10","npmle:stepup","0.091 (0.004)","0.912 (0.018)",80.9,0.885
@@ -90,6 +114,8 @@
 "separated_hi","10","unpooled:threshold","0.000 (0.000)","0.000 (0.000)",0,0
 "separated_hi","10","binom_test:BH","0.000 (0.000)","0.000 (0.000)",0,0
 "separated_hi","10","binom_test:BY","0.000 (0.000)","0.000 (0.000)",0,0
+"separated_hi","10","robust_box:threshold","0.000 (0.000)","0.000 (0.000)",0,0
+"separated_hi","10","robust_box:stepup","0.000 (0.000)","0.000 (0.000)",0,0
 "separated_hi","30","oracle:threshold","0.005 (0.001)","0.980 (0.001)",78.7,0.32
 "separated_hi","30","npmle:threshold","0.006 (0.001)","0.967 (0.003)",77.7,0.375
 "separated_hi","30","npmle:stepup","0.087 (0.002)","0.999 (0.001)",87.5,0.98
@@ -97,6 +123,8 @@
 "separated_hi","30","unpooled:threshold","0.001 (0.000)","0.553 (0.004)",44.2,0.035
 "separated_hi","30","binom_test:BH","0.000 (0.000)","0.000 (0.000)",0,0
 "separated_hi","30","binom_test:BY","0.000 (0.000)","0.000 (0.000)",0,0
+"separated_hi","30","robust_box:threshold","0.000 (0.000)","0.031 (0.010)",2.6,0
+"separated_hi","30","robust_box:stepup","0.000 (0.000)","0.031 (0.010)",2.6,0
 "separated_hi","het","oracle:threshold","0.021 (0.001)","0.669 (0.004)",54.3,0.69
 "separated_hi","het","npmle:threshold","0.026 (0.002)","0.664 (0.012)",54.6,0.7
 "separated_hi","het","npmle:stepup","0.088 (0.003)","0.923 (0.010)",81.1,0.955
@@ -104,6 +132,8 @@
 "separated_hi","het","unpooled:threshold","0.000 (0.000)","0.000 (0.000)",0,0
 "separated_hi","het","binom_test:BH","0.000 (0.000)","0.000 (0.000)",0,0
 "separated_hi","het","binom_test:BY","0.000 (0.000)","0.000 (0.000)",0,0
+"separated_hi","het","robust_box:threshold","0.000 (0.000)","0.000 (0.000)",0,0
+"separated_hi","het","robust_box:stepup","0.000 (0.000)","0.000 (0.000)",0,0
 "overlap_lo","3","oracle:threshold","0.000 (0.000)","0.000 (0.000)",0,0
 "overlap_lo","3","npmle:threshold","0.000 (0.000)","0.000 (0.000)",0,0
 "overlap_lo","3","npmle:stepup","0.000 (0.000)","0.000 (0.000)",0,0
@@ -111,6 +141,8 @@
 "overlap_lo","3","unpooled:threshold","0.000 (0.000)","0.000 (0.000)",0,0
 "overlap_lo","3","binom_test:BH","0.000 (0.000)","0.000 (0.000)",0,0
 "overlap_lo","3","binom_test:BY","0.000 (0.000)","0.000 (0.000)",0,0
+"overlap_lo","3","robust_box:threshold","0.000 (0.000)","0.000 (0.000)",0,0
+"overlap_lo","3","robust_box:stepup","0.000 (0.000)","0.000 (0.000)",0,0
 "overlap_lo","5","oracle:threshold","0.000 (0.000)","0.000 (0.000)",0,0
 "overlap_lo","5","npmle:threshold","0.007 (0.005)","0.008 (0.006)",0.9,0.01
 "overlap_lo","5","npmle:stepup","0.007 (0.005)","0.009 (0.006)",1.1,0.01
@@ -118,6 +150,8 @@
 "overlap_lo","5","unpooled:threshold","0.000 (0.000)","0.000 (0.000)",0,0
 "overlap_lo","5","binom_test:BH","0.000 (0.000)","0.000 (0.000)",0,0
 "overlap_lo","5","binom_test:BY","0.000 (0.000)","0.000 (0.000)",0,0
+"overlap_lo","5","robust_box:threshold","0.000 (0.000)","0.000 (0.000)",0,0
+"overlap_lo","5","robust_box:stepup","0.000 (0.000)","0.000 (0.000)",0,0
 "overlap_lo","10","oracle:threshold","0.000 (0.000)","0.000 (0.000)",0,0
 "overlap_lo","10","npmle:threshold","0.024 (0.008)","0.025 (0.008)",2,0.045
 "overlap_lo","10","npmle:stepup","0.025 (0.008)","0.027 (0.009)",2.4,0.045
@@ -125,6 +159,8 @@
 "overlap_lo","10","unpooled:threshold","0.000 (0.000)","0.000 (0.000)",0,0
 "overlap_lo","10","binom_test:BH","0.000 (0.000)","0.000 (0.000)",0,0
 "overlap_lo","10","binom_test:BY","0.000 (0.000)","0.000 (0.000)",0,0
+"overlap_lo","10","robust_box:threshold","0.000 (0.000)","0.000 (0.000)",0,0
+"overlap_lo","10","robust_box:stepup","0.000 (0.000)","0.000 (0.000)",0,0
 "overlap_lo","30","oracle:threshold","0.000 (0.000)","0.000 (0.000)",0,0
 "overlap_lo","30","npmle:threshold","0.119 (0.011)","0.200 (0.016)",10.4,0.47
 "overlap_lo","30","npmle:stepup","0.164 (0.013)","0.287 (0.022)",17.1,0.53
@@ -132,6 +168,8 @@
 "overlap_lo","30","unpooled:threshold","0.138 (0.011)","0.175 (0.005)",7.7,0.625
 "overlap_lo","30","binom_test:BH","0.000 (0.000)","0.000 (0.000)",0,0
 "overlap_lo","30","binom_test:BY","0.000 (0.000)","0.000 (0.000)",0,0
+"overlap_lo","30","robust_box:threshold","0.000 (0.000)","0.000 (0.000)",0,0
+"overlap_lo","30","robust_box:stepup","0.000 (0.000)","0.000 (0.000)",0,0
 "overlap_lo","het","oracle:threshold","0.000 (0.000)","0.000 (0.000)",0,0
 "overlap_lo","het","npmle:threshold","0.135 (0.017)","0.045 (0.006)",2.9,0.31
 "overlap_lo","het","npmle:stepup","0.152 (0.017)","0.068 (0.009)",5,0.335
@@ -139,6 +177,8 @@
 "overlap_lo","het","unpooled:threshold","0.000 (0.000)","0.000 (0.000)",0,0
 "overlap_lo","het","binom_test:BH","0.000 (0.000)","0.000 (0.000)",0,0
 "overlap_lo","het","binom_test:BY","0.000 (0.000)","0.000 (0.000)",0,0
+"overlap_lo","het","robust_box:threshold","0.000 (0.000)","0.000 (0.000)",0,0
+"overlap_lo","het","robust_box:stepup","0.000 (0.000)","0.000 (0.000)",0,0
 "overlap_hi","3","oracle:threshold","0.000 (0.000)","0.000 (0.000)",0,0
 "overlap_hi","3","npmle:threshold","0.000 (0.000)","0.000 (0.000)",0,0
 "overlap_hi","3","npmle:stepup","0.000 (0.000)","0.000 (0.000)",0,0
@@ -146,6 +186,8 @@
 "overlap_hi","3","unpooled:threshold","0.000 (0.000)","0.000 (0.000)",0,0
 "overlap_hi","3","binom_test:BH","0.000 (0.000)","0.000 (0.000)",0,0
 "overlap_hi","3","binom_test:BY","0.000 (0.000)","0.000 (0.000)",0,0
+"overlap_hi","3","robust_box:threshold","0.000 (0.000)","0.000 (0.000)",0,0
+"overlap_hi","3","robust_box:stepup","0.000 (0.000)","0.000 (0.000)",0,0
 "overlap_hi","5","oracle:threshold","0.000 (0.000)","0.000 (0.000)",0,0
 "overlap_hi","5","npmle:threshold","0.043 (0.009)","0.084 (0.017)",11.6,0.11
 "overlap_hi","5","npmle:stepup","0.050 (0.010)","0.094 (0.019)",14.8,0.11
@@ -153,6 +195,8 @@
 "overlap_hi","5","unpooled:threshold","0.000 (0.000)","0.000 (0.000)",0,0
 "overlap_hi","5","binom_test:BH","0.000 (0.000)","0.000 (0.000)",0,0
 "overlap_hi","5","binom_test:BY","0.000 (0.000)","0.000 (0.000)",0,0
+"overlap_hi","5","robust_box:threshold","0.000 (0.000)","0.000 (0.000)",0,0
+"overlap_hi","5","robust_box:stepup","0.000 (0.000)","0.000 (0.000)",0,0
 "overlap_hi","10","oracle:threshold","0.000 (0.000)","0.000 (0.000)",0,0
 "overlap_hi","10","npmle:threshold","0.092 (0.009)","0.210 (0.021)",24.9,0.34
 "overlap_hi","10","npmle:stepup","0.119 (0.012)","0.257 (0.026)",34.8,0.34
@@ -160,6 +204,8 @@
 "overlap_hi","10","unpooled:threshold","0.000 (0.000)","0.000 (0.000)",0,0
 "overlap_hi","10","binom_test:BH","0.000 (0.000)","0.000 (0.000)",0,0
 "overlap_hi","10","binom_test:BY","0.000 (0.000)","0.000 (0.000)",0,0
+"overlap_hi","10","robust_box:threshold","0.000 (0.000)","0.000 (0.000)",0,0
+"overlap_hi","10","robust_box:stepup","0.000 (0.000)","0.000 (0.000)",0,0
 "overlap_hi","30","oracle:threshold","0.040 (0.003)","0.224 (0.003)",19.5,0.575
 "overlap_hi","30","npmle:threshold","0.078 (0.005)","0.404 (0.019)",39,0.72
 "overlap_hi","30","npmle:stepup","0.143 (0.008)","0.564 (0.023)",60.5,0.815
@@ -167,6 +213,8 @@
 "overlap_hi","30","unpooled:threshold","0.040 (0.003)","0.224 (0.003)",19.5,0.575
 "overlap_hi","30","binom_test:BH","0.000 (0.000)","0.000 (0.000)",0,0
 "overlap_hi","30","binom_test:BY","0.000 (0.000)","0.000 (0.000)",0,0
+"overlap_hi","30","robust_box:threshold","0.000 (0.000)","0.000 (0.000)",0,0
+"overlap_hi","30","robust_box:stepup","0.000 (0.000)","0.000 (0.000)",0,0
 "overlap_hi","het","oracle:threshold","0.000 (0.000)","0.000 (0.000)",0,0
 "overlap_hi","het","npmle:threshold","0.117 (0.010)","0.167 (0.014)",18.8,0.535
 "overlap_hi","het","npmle:stepup","0.167 (0.011)","0.270 (0.021)",33.9,0.635
@@ -174,6 +222,8 @@
 "overlap_hi","het","unpooled:threshold","0.000 (0.000)","0.000 (0.000)",0,0
 "overlap_hi","het","binom_test:BH","0.000 (0.000)","0.000 (0.000)",0,0
 "overlap_hi","het","binom_test:BY","0.000 (0.000)","0.000 (0.000)",0,0
+"overlap_hi","het","robust_box:threshold","0.000 (0.000)","0.000 (0.000)",0,0
+"overlap_hi","het","robust_box:stepup","0.000 (0.000)","0.000 (0.000)",0,0
 "near_tau","3","oracle:threshold","0.000 (0.000)","0.000 (0.000)",0,0
 "near_tau","3","npmle:threshold","0.000 (0.000)","0.000 (0.000)",0,0
 "near_tau","3","npmle:stepup","0.000 (0.000)","0.000 (0.000)",0,0
@@ -181,6 +231,8 @@
 "near_tau","3","unpooled:threshold","0.000 (0.000)","0.000 (0.000)",0,0
 "near_tau","3","binom_test:BH","0.000 (0.000)","0.000 (0.000)",0,0
 "near_tau","3","binom_test:BY","0.000 (0.000)","0.000 (0.000)",0,0
+"near_tau","3","robust_box:threshold","0.000 (0.000)","0.000 (0.000)",0,0
+"near_tau","3","robust_box:stepup","0.000 (0.000)","0.000 (0.000)",0,0
 "near_tau","5","oracle:threshold","0.000 (0.000)","0.000 (0.000)",0,0
 "near_tau","5","npmle:threshold","0.081 (0.013)","0.135 (0.022)",19.8,0.17
 "near_tau","5","npmle:stepup","0.091 (0.014)","0.163 (0.026)",26.7,0.17
@@ -188,6 +240,8 @@
 "near_tau","5","unpooled:threshold","0.000 (0.000)","0.000 (0.000)",0,0
 "near_tau","5","binom_test:BH","0.000 (0.000)","0.000 (0.000)",0,0
 "near_tau","5","binom_test:BY","0.000 (0.000)","0.000 (0.000)",0,0
+"near_tau","5","robust_box:threshold","0.000 (0.000)","0.000 (0.000)",0,0
+"near_tau","5","robust_box:stepup","0.000 (0.000)","0.000 (0.000)",0,0
 "near_tau","10","oracle:threshold","0.000 (0.000)","0.000 (0.000)",0,0
 "near_tau","10","npmle:threshold","0.164 (0.015)","0.273 (0.026)",37.3,0.38
 "near_tau","10","npmle:stepup","0.183 (0.017)","0.332 (0.031)",50.1,0.38
@@ -195,6 +249,8 @@
 "near_tau","10","unpooled:threshold","0.000 (0.000)","0.000 (0.000)",0,0
 "near_tau","10","binom_test:BH","0.000 (0.000)","0.000 (0.000)",0,0
 "near_tau","10","binom_test:BY","0.000 (0.000)","0.000 (0.000)",0,0
+"near_tau","10","robust_box:threshold","0.000 (0.000)","0.000 (0.000)",0,0
+"near_tau","10","robust_box:stepup","0.000 (0.000)","0.000 (0.000)",0,0
 "near_tau","30","oracle:threshold","0.000 (0.000)","0.000 (0.000)",0,0
 "near_tau","30","npmle:threshold","0.188 (0.014)","0.341 (0.027)",43.2,0.52
 "near_tau","30","npmle:stepup","0.226 (0.016)","0.422 (0.032)",59.5,0.525
@@ -202,6 +258,8 @@
 "near_tau","30","unpooled:threshold","0.219 (0.011)","0.079 (0.002)",7.7,0.825
 "near_tau","30","binom_test:BH","0.000 (0.000)","0.000 (0.000)",0,0
 "near_tau","30","binom_test:BY","0.000 (0.000)","0.000 (0.000)",0,0
+"near_tau","30","robust_box:threshold","0.000 (0.000)","0.000 (0.000)",0,0
+"near_tau","30","robust_box:stepup","0.000 (0.000)","0.000 (0.000)",0,0
 "near_tau","het","oracle:threshold","0.000 (0.000)","0.000 (0.000)",0,0
 "near_tau","het","npmle:threshold","0.156 (0.015)","0.172 (0.021)",23.8,0.365
 "near_tau","het","npmle:stepup","0.166 (0.016)","0.247 (0.027)",36.7,0.365
@@ -209,6 +267,8 @@
 "near_tau","het","unpooled:threshold","0.000 (0.000)","0.000 (0.000)",0,0
 "near_tau","het","binom_test:BH","0.000 (0.000)","0.000 (0.000)",0,0
 "near_tau","het","binom_test:BY","0.000 (0.000)","0.000 (0.000)",0,0
+"near_tau","het","robust_box:threshold","0.000 (0.000)","0.000 (0.000)",0,0
+"near_tau","het","robust_box:stepup","0.000 (0.000)","0.000 (0.000)",0,0
 "edges","3","oracle:threshold","0.051 (0.002)","0.948 (0.001)",111,0.99
 "edges","3","npmle:threshold","0.048 (0.002)","0.897 (0.015)",105.3,0.935
 "edges","3","npmle:stepup","0.069 (0.002)","0.921 (0.016)",110.7,0.945
@@ -216,6 +276,8 @@
 "edges","3","unpooled:threshold","0.000 (0.000)","0.000 (0.000)",0,0
 "edges","3","binom_test:BH","0.000 (0.000)","0.000 (0.000)",0,0
 "edges","3","binom_test:BY","0.000 (0.000)","0.000 (0.000)",0,0
+"edges","3","robust_box:threshold","0.000 (0.000)","0.000 (0.000)",0,0
+"edges","3","robust_box:stepup","0.000 (0.000)","0.000 (0.000)",0,0
 "edges","5","oracle:threshold","0.037 (0.001)","0.919 (0.002)",106.2,0.985
 "edges","5","npmle:threshold","0.044 (0.002)","0.887 (0.017)",103.9,0.935
 "edges","5","npmle:stepup","0.105 (0.004)","0.927 (0.017)",116.6,0.935
@@ -223,6 +285,8 @@
 "edges","5","unpooled:threshold","0.000 (0.000)","0.000 (0.000)",0,0
 "edges","5","binom_test:BH","0.000 (0.000)","0.000 (0.000)",0,0
 "edges","5","binom_test:BY","0.000 (0.000)","0.000 (0.000)",0,0
+"edges","5","robust_box:threshold","0.000 (0.000)","0.000 (0.000)",0,0
+"edges","5","robust_box:stepup","0.000 (0.000)","0.000 (0.000)",0,0
 "edges","10","oracle:threshold","0.019 (0.001)","0.856 (0.002)",97.3,0.86
 "edges","10","npmle:threshold","0.041 (0.002)","0.884 (0.016)",103.3,0.89
 "edges","10","npmle:stepup","0.107 (0.004)","0.931 (0.016)",117.6,0.94
@@ -230,6 +294,8 @@
 "edges","10","unpooled:threshold","0.000 (0.000)","0.000 (0.000)",0,0
 "edges","10","binom_test:BH","0.000 (0.000)","0.000 (0.000)",0,0
 "edges","10","binom_test:BY","0.000 (0.000)","0.000 (0.000)",0,0
+"edges","10","robust_box:threshold","0.000 (0.000)","0.000 (0.000)",0,0
+"edges","10","robust_box:stepup","0.000 (0.000)","0.000 (0.000)",0,0
 "edges","30","oracle:threshold","0.006 (0.001)","0.860 (0.002)",96.3,0.42
 "edges","30","npmle:threshold","0.024 (0.002)","0.917 (0.007)",104.7,0.7
 "edges","30","npmle:stepup","0.099 (0.003)","0.994 (0.001)",123,0.98
@@ -237,6 +303,8 @@
 "edges","30","unpooled:threshold","0.001 (0.000)","0.686 (0.003)",76.4,0.09
 "edges","30","binom_test:BH","0.000 (0.000)","0.103 (0.018)",12.3,0.015
 "edges","30","binom_test:BY","0.000 (0.000)","0.000 (0.000)",0,0
+"edges","30","robust_box:threshold","0.001 (0.000)","0.401 (0.025)",45.2,0.06
+"edges","30","robust_box:stepup","0.001 (0.000)","0.404 (0.025)",45.6,0.08
 "edges","het","oracle:threshold","0.031 (0.001)","0.907 (0.002)",104.3,0.97
 "edges","het","npmle:threshold","0.041 (0.002)","0.877 (0.013)",102.3,0.905
 "edges","het","npmle:stepup","0.109 (0.004)","0.969 (0.006)",121.9,0.99
@@ -244,3 +312,5 @@
 "edges","het","unpooled:threshold","0.000 (0.000)","0.000 (0.000)",0,0
 "edges","het","binom_test:BH","0.000 (0.000)","0.000 (0.000)",0,0
 "edges","het","binom_test:BY","0.000 (0.000)","0.000 (0.000)",0,0
+"edges","het","robust_box:threshold","0.000 (0.000)","0.000 (0.000)",0,0
+"edges","het","robust_box:stepup","0.000 (0.000)","0.000 (0.000)",0,0

@@ -57,6 +57,27 @@ lfdr_bounds <- function(x0, k0, constraints, grid, tau, return_extremes = FALSE)
   out
 }
 
+# Per-task upper end of the (B) interval: U_i = sup lfdr(x_i, k_i; G) over all G whose
+# marginals lie in the confidence box. Because the binomial family has monotone
+# likelihood ratio, lfdr(x, k; G) is nonincreasing in x for every G, and so is the
+# supremum. For each k we therefore scan x downward from k and stop after the first
+# value whose bound exceeds `stop_above`; tasks with smaller x are then also above it
+# and get U_i = 1 (a valid, conservative bound). LP failures also give U_i = 1.
+robust_lfdr_upper <- function(x, k, constraints, grid, tau, stop_above = 1) {
+  U <- rep(1, length(x))
+  for (kk in sort(unique(k))) {
+    for (x0 in kk:0) {
+      idx <- k == kk & x == x0
+      if (!any(idx)) next
+      u <- lfdr_bounds(x0, kk, constraints, grid, tau)$upper
+      if (is.na(u)) u <- 1
+      U[idx] <- u
+      if (u > stop_above) break
+    }
+  }
+  U
+}
+
 # (A) Equality constraints on a known marginal pmf, one entry per run budget.
 # A small band (eps) absorbs floating-point error; it is reported, not hidden.
 marginal_constraints <- function(marginals, eps = 1e-9) {

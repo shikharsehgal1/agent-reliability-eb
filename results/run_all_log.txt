@@ -1,6 +1,6 @@
 
 ========== tests/run_tests.R ==========
-bounds: ................
+bounds: .........................
 decisions: ..........
 formulas: ..............................................................................
 npmle: ....................
@@ -9,8 +9,8 @@ reproducibility: .......
 ══ DONE ════════════════════════════════════════════════════════════════════════
 🐝 Your tests are the bee's knees 🐝
 
-21 tests, 131 expectations, 0 failed, 0 errors, 0 skipped
----------- tests/run_tests.R finished in 0.1 min (exit 0)
+24 tests, 140 expectations, 0 failed, 0 errors, 0 skipped
+---------- tests/run_tests.R finished in 0.3 min (exit 0)
 
 ========== scripts/01_examples.R ==========
 Smallest k with all successes giving exact p <= 0.10: 22 ; <= 0.05: 29 
@@ -140,8 +140,8 @@ Population identified sets (x0 = k):
 
 ========== scripts/02_simulation.R ==========
 117 scenarios x 200 replicates on 9 cores
-Elapsed: 0.3201492 secs 
----------- scripts/02_simulation.R finished in 0.0 min (exit 0)
+Elapsed: 30.50313 mins 
+---------- scripts/02_simulation.R finished in 30.5 min (exit 0)
 
 ========== scripts/03_grid_sensitivity.R ==========
                          case                    config n_datasets
@@ -173,33 +173,33 @@ Elapsed: 0.3201492 secs
  separated_hi k = het J = 200   EM M=201 random start 1         20
  separated_hi k = het J = 200   EM M=201 random start 2         20
  converged_frac max_kkt_gap mean_loglik_minus_ref mean_seconds mean_calls
-           0.95    1.24e-06              0.00e+00      3.74995       31.1
-           1.00    9.86e-08             -1.37e-02      0.02484       19.6
-           1.00    1.39e-07             -7.34e-04      0.18193       24.1
-           1.00    9.76e-03             -6.39e-01      0.04343        0.0
-           1.00    8.75e-02             -3.76e+00      0.02218        0.0
-           1.00    6.63e-01             -3.32e+01      0.00722        0.0
-           0.25    1.01e-04             -1.56e-03      1.35701       12.5
-           0.20    6.20e-05             -1.44e-03      1.46256       12.5
-           0.20    5.13e-05             -1.40e-03      1.42149       15.7
-           0.40    9.98e-06              0.00e+00      8.57960       16.8
-           1.00    1.08e-07             -2.82e-03      0.01857       16.8
-           0.90    1.02e-06              1.44e-05      0.21659       16.8
-           1.00    9.77e-03             -9.47e-01      0.03141        0.0
-           1.00    8.78e-02             -8.35e+00      0.01931        0.0
-           1.00    7.34e-01             -5.49e+01      0.00655        0.0
-           0.10    2.02e-05             -1.09e-03      0.97641       11.3
-           0.10    1.77e-05             -8.23e-04      0.91663       11.3
-           0.10    1.89e-05             -7.47e-04      0.92389       11.3
-           1.00    1.40e-07              0.00e+00      4.29837       52.8
-           1.00    9.58e-08             -5.49e-02      0.02177       52.1
-           1.00    1.17e-07             -4.17e-03      0.10355       52.8
-           1.00    9.93e-03             -8.79e-01      0.02873       47.5
-           1.00    9.82e-02             -4.53e+00      0.01753       30.1
-           1.00    8.34e-01             -2.25e+01      0.00797       11.8
-           0.15    1.89e-05             -4.61e-03      2.10143       52.8
-           0.15    2.30e-05             -4.59e-03      2.12389       52.8
-           0.05    4.49e-05             -4.49e-03      2.11778       52.8
+           0.95    1.24e-06              0.00e+00      4.94323       31.1
+           1.00    9.86e-08             -1.37e-02      0.04413       19.6
+           1.00    1.39e-07             -7.34e-04      0.27601       24.1
+           1.00    9.76e-03             -6.39e-01      0.05219        0.0
+           1.00    8.75e-02             -3.76e+00      0.03403        0.0
+           1.00    6.63e-01             -3.32e+01      0.01350        0.0
+           0.25    1.01e-04             -1.56e-03      2.06083       12.5
+           0.20    6.20e-05             -1.44e-03      1.99708       12.5
+           0.20    5.13e-05             -1.40e-03      2.15208       15.7
+           0.40    9.98e-06              0.00e+00     11.43337       16.8
+           1.00    1.08e-07             -2.82e-03      0.04624       16.8
+           0.90    1.02e-06              1.44e-05      0.29059       16.8
+           1.00    9.77e-03             -9.47e-01      0.03793        0.0
+           1.00    8.78e-02             -8.35e+00      0.02022        0.0
+           1.00    7.34e-01             -5.49e+01      0.00798        0.0
+           0.10    2.02e-05             -1.09e-03      1.22708       11.3
+           0.10    1.77e-05             -8.23e-04      1.09264       11.3
+           0.10    1.89e-05             -7.47e-04      1.15498       11.3
+           1.00    1.40e-07              0.00e+00      6.00410       52.8
+           1.00    9.58e-08             -5.49e-02      0.04335       52.1
+           1.00    1.17e-07             -4.17e-03      0.14726       52.8
+           1.00    9.93e-03             -8.79e-01      0.04295       47.5
+           1.00    9.82e-02             -4.53e+00      0.02550       30.1
+           1.00    8.34e-01             -2.25e+01      0.00919       11.8
+           0.15    1.89e-05             -4.61e-03      2.87788       52.8
+           0.15    2.30e-05             -4.59e-03      2.66431       52.8
+           0.05    4.49e-05             -4.49e-03      2.70761       52.8
  mean_calls_oracle mean_lfdr_all_success sd_lfdr_all_success
                0.0                0.5292              0.3803
                0.0                0.5317              0.3365
@@ -256,7 +256,7 @@ Elapsed: 0.3201492 secs
                  0.00774                  0.00517             0.0190
                  0.00774                  0.00437             0.0191
                  0.00774                  0.00478             0.0190
----------- scripts/03_grid_sensitivity.R finished in 1.3 min (exit 0)
+---------- scripts/03_grid_sensitivity.R finished in 1.7 min (exit 0)
 
 ========== scripts/04_stability.R ==========
             G   k                rule mean_discoveries mean_pairwise_jaccard
@@ -341,7 +341,7 @@ Elapsed: 0.3201492 secs
        0.04
        0.00
        0.00
----------- scripts/04_stability.R finished in 0.5 min (exit 0)
+---------- scripts/04_stability.R finished in 0.7 min (exit 0)
 
 ========== scripts/06_tau_bench.R ==========
 
@@ -462,4 +462,3 @@ Elapsed: 0.3201492 secs
 Using 117 of 117 scenarios (nrep = 200)
 Wrote results/summary.md and figures.
 ---------- scripts/05_figures_tables.R finished in 0.0 min (exit 0)
-Rscript scripts/run_all.R  553.42s user 95.95s system 504% cpu 2:08.64 total

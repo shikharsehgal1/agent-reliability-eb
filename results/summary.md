@@ -7,478 +7,631 @@ tau = reliability threshold; q = decision threshold (lfdr cutoff, or BH/BY level
 
 FDR = mean false discovery proportion over replicates (0 when nothing is called). P_any_false = fraction of replicates with at least one false reliability call.
 
-|G            |k   |rule                |FDR           |power         | mean_calls| P_any_false|
-|:------------|:---|:-------------------|:-------------|:-------------|----------:|-----------:|
-|beta_single  |3   |oracle:threshold    |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|beta_single  |3   |npmle:threshold     |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|beta_single  |3   |npmle:stepup        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|beta_single  |3   |betabinom:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|beta_single  |3   |unpooled:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|beta_single  |3   |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|beta_single  |3   |binom_test:BY       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|beta_single  |5   |oracle:threshold    |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|beta_single  |5   |npmle:threshold     |0.094 (0.012) |0.192 (0.024) |       22.0|       0.240|
-|beta_single  |5   |npmle:stepup        |0.112 (0.014) |0.210 (0.027) |       28.0|       0.240|
-|beta_single  |5   |betabinom:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|beta_single  |5   |unpooled:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|beta_single  |5   |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|beta_single  |5   |binom_test:BY       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|beta_single  |10  |oracle:threshold    |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|beta_single  |10  |npmle:threshold     |0.105 (0.009) |0.286 (0.024) |       27.3|       0.425|
-|beta_single  |10  |npmle:stepup        |0.151 (0.013) |0.351 (0.030) |       39.4|       0.425|
-|beta_single  |10  |betabinom:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|beta_single  |10  |unpooled:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|beta_single  |10  |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|beta_single  |10  |binom_test:BY       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|beta_single  |30  |oracle:threshold    |0.031 (0.003) |0.335 (0.004) |       24.0|       0.500|
-|beta_single  |30  |npmle:threshold     |0.080 (0.005) |0.535 (0.016) |       42.1|       0.750|
-|beta_single  |30  |npmle:stepup        |0.161 (0.008) |0.711 (0.018) |       62.9|       0.875|
-|beta_single  |30  |betabinom:threshold |0.031 (0.003) |0.335 (0.004) |       24.0|       0.500|
-|beta_single  |30  |unpooled:threshold  |0.031 (0.003) |0.335 (0.004) |       24.0|       0.500|
-|beta_single  |30  |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|beta_single  |30  |binom_test:BY       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|beta_single  |het |oracle:threshold    |0.087 (0.008) |0.110 (0.003) |        8.3|       0.495|
-|beta_single  |het |npmle:threshold     |0.113 (0.009) |0.170 (0.012) |       15.2|       0.530|
-|beta_single  |het |npmle:stepup        |0.160 (0.011) |0.270 (0.019) |       27.1|       0.625|
-|beta_single  |het |betabinom:threshold |0.059 (0.007) |0.088 (0.004) |        6.7|       0.355|
-|beta_single  |het |unpooled:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|beta_single  |het |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|beta_single  |het |binom_test:BY       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|separated_lo |3   |oracle:threshold    |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|separated_lo |3   |npmle:threshold     |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|separated_lo |3   |npmle:stepup        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|separated_lo |3   |betabinom:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|separated_lo |3   |unpooled:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|separated_lo |3   |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|separated_lo |3   |binom_test:BY       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|separated_lo |5   |oracle:threshold    |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|separated_lo |5   |npmle:threshold     |0.035 (0.006) |0.142 (0.024) |        3.9|       0.155|
-|separated_lo |5   |npmle:stepup        |0.039 (0.007) |0.143 (0.024) |        4.1|       0.155|
-|separated_lo |5   |betabinom:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|separated_lo |5   |unpooled:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|separated_lo |5   |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|separated_lo |5   |binom_test:BY       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|separated_lo |10  |oracle:threshold    |0.030 (0.003) |0.795 (0.006) |       16.1|       0.365|
-|separated_lo |10  |npmle:threshold     |0.030 (0.004) |0.628 (0.025) |       13.1|       0.305|
-|separated_lo |10  |npmle:stepup        |0.085 (0.007) |0.695 (0.028) |       15.9|       0.595|
-|separated_lo |10  |betabinom:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|separated_lo |10  |unpooled:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|separated_lo |10  |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|separated_lo |10  |binom_test:BY       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|separated_lo |30  |oracle:threshold    |0.007 (0.002) |0.938 (0.004) |       18.6|       0.120|
-|separated_lo |30  |npmle:threshold     |0.016 (0.002) |0.951 (0.005) |       19.1|       0.240|
-|separated_lo |30  |npmle:stepup        |0.084 (0.004) |0.991 (0.003) |       21.4|       0.875|
-|separated_lo |30  |betabinom:threshold |0.000 (0.000) |0.186 (0.019) |        4.4|       0.000|
-|separated_lo |30  |unpooled:threshold  |0.000 (0.000) |0.553 (0.008) |       10.9|       0.005|
-|separated_lo |30  |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|separated_lo |30  |binom_test:BY       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|separated_lo |het |oracle:threshold    |0.027 (0.004) |0.435 (0.008) |        8.8|       0.205|
-|separated_lo |het |npmle:threshold     |0.030 (0.005) |0.400 (0.012) |        8.2|       0.200|
-|separated_lo |het |npmle:stepup        |0.091 (0.006) |0.577 (0.016) |       12.9|       0.620|
-|separated_lo |het |betabinom:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|separated_lo |het |unpooled:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|separated_lo |het |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|separated_lo |het |binom_test:BY       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|separated_hi |3   |oracle:threshold    |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|separated_hi |3   |npmle:threshold     |0.014 (0.003) |0.104 (0.021) |        9.6|       0.110|
-|separated_hi |3   |npmle:stepup        |0.016 (0.003) |0.104 (0.021) |        9.7|       0.110|
-|separated_hi |3   |betabinom:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|separated_hi |3   |unpooled:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|separated_hi |3   |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|separated_hi |3   |binom_test:BY       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|separated_hi |5   |oracle:threshold    |0.049 (0.002) |0.889 (0.002) |       74.0|       0.995|
-|separated_hi |5   |npmle:threshold     |0.032 (0.002) |0.555 (0.031) |       46.3|       0.620|
-|separated_hi |5   |npmle:stepup        |0.080 (0.006) |0.591 (0.033) |       53.9|       0.620|
-|separated_hi |5   |betabinom:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|separated_hi |5   |unpooled:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|separated_hi |5   |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|separated_hi |5   |binom_test:BY       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|separated_hi |10  |oracle:threshold    |0.008 (0.001) |0.794 (0.003) |       63.3|       0.365|
-|separated_hi |10  |npmle:threshold     |0.018 (0.001) |0.838 (0.017) |       68.1|       0.625|
-|separated_hi |10  |npmle:stepup        |0.091 (0.004) |0.912 (0.018) |       80.9|       0.885|
-|separated_hi |10  |betabinom:threshold |0.001 (0.000) |0.066 (0.016) |        6.1|       0.035|
-|separated_hi |10  |unpooled:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|separated_hi |10  |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|separated_hi |10  |binom_test:BY       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|separated_hi |30  |oracle:threshold    |0.005 (0.001) |0.980 (0.001) |       78.7|       0.320|
-|separated_hi |30  |npmle:threshold     |0.006 (0.001) |0.967 (0.003) |       77.7|       0.375|
-|separated_hi |30  |npmle:stepup        |0.087 (0.002) |0.999 (0.001) |       87.5|       0.980|
-|separated_hi |30  |betabinom:threshold |0.001 (0.000) |0.810 (0.006) |       65.0|       0.075|
-|separated_hi |30  |unpooled:threshold  |0.001 (0.000) |0.553 (0.004) |       44.2|       0.035|
-|separated_hi |30  |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|separated_hi |30  |binom_test:BY       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|separated_hi |het |oracle:threshold    |0.021 (0.001) |0.669 (0.004) |       54.3|       0.690|
-|separated_hi |het |npmle:threshold     |0.026 (0.002) |0.664 (0.012) |       54.6|       0.700|
-|separated_hi |het |npmle:stepup        |0.088 (0.003) |0.923 (0.010) |       81.1|       0.955|
-|separated_hi |het |betabinom:threshold |0.001 (0.001) |0.187 (0.006) |       15.1|       0.025|
-|separated_hi |het |unpooled:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|separated_hi |het |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|separated_hi |het |binom_test:BY       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|overlap_lo   |3   |oracle:threshold    |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|overlap_lo   |3   |npmle:threshold     |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|overlap_lo   |3   |npmle:stepup        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|overlap_lo   |3   |betabinom:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|overlap_lo   |3   |unpooled:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|overlap_lo   |3   |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|overlap_lo   |3   |binom_test:BY       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|overlap_lo   |5   |oracle:threshold    |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|overlap_lo   |5   |npmle:threshold     |0.007 (0.005) |0.008 (0.006) |        0.9|       0.010|
-|overlap_lo   |5   |npmle:stepup        |0.007 (0.005) |0.009 (0.006) |        1.1|       0.010|
-|overlap_lo   |5   |betabinom:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|overlap_lo   |5   |unpooled:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|overlap_lo   |5   |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|overlap_lo   |5   |binom_test:BY       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|overlap_lo   |10  |oracle:threshold    |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|overlap_lo   |10  |npmle:threshold     |0.024 (0.008) |0.025 (0.008) |        2.0|       0.045|
-|overlap_lo   |10  |npmle:stepup        |0.025 (0.008) |0.027 (0.009) |        2.4|       0.045|
-|overlap_lo   |10  |betabinom:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|overlap_lo   |10  |unpooled:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|overlap_lo   |10  |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|overlap_lo   |10  |binom_test:BY       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|overlap_lo   |30  |oracle:threshold    |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|overlap_lo   |30  |npmle:threshold     |0.119 (0.011) |0.200 (0.016) |       10.4|       0.470|
-|overlap_lo   |30  |npmle:stepup        |0.164 (0.013) |0.287 (0.022) |       17.1|       0.530|
-|overlap_lo   |30  |betabinom:threshold |0.002 (0.001) |0.006 (0.003) |        0.3|       0.015|
-|overlap_lo   |30  |unpooled:threshold  |0.138 (0.011) |0.175 (0.005) |        7.7|       0.625|
-|overlap_lo   |30  |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|overlap_lo   |30  |binom_test:BY       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|overlap_lo   |het |oracle:threshold    |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|overlap_lo   |het |npmle:threshold     |0.135 (0.017) |0.045 (0.006) |        2.9|       0.310|
-|overlap_lo   |het |npmle:stepup        |0.152 (0.017) |0.068 (0.009) |        5.0|       0.335|
-|overlap_lo   |het |betabinom:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|overlap_lo   |het |unpooled:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|overlap_lo   |het |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|overlap_lo   |het |binom_test:BY       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|overlap_hi   |3   |oracle:threshold    |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|overlap_hi   |3   |npmle:threshold     |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|overlap_hi   |3   |npmle:stepup        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|overlap_hi   |3   |betabinom:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|overlap_hi   |3   |unpooled:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|overlap_hi   |3   |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|overlap_hi   |3   |binom_test:BY       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|overlap_hi   |5   |oracle:threshold    |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|overlap_hi   |5   |npmle:threshold     |0.043 (0.009) |0.084 (0.017) |       11.6|       0.110|
-|overlap_hi   |5   |npmle:stepup        |0.050 (0.010) |0.094 (0.019) |       14.8|       0.110|
-|overlap_hi   |5   |betabinom:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|overlap_hi   |5   |unpooled:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|overlap_hi   |5   |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|overlap_hi   |5   |binom_test:BY       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|overlap_hi   |10  |oracle:threshold    |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|overlap_hi   |10  |npmle:threshold     |0.092 (0.009) |0.210 (0.021) |       24.9|       0.340|
-|overlap_hi   |10  |npmle:stepup        |0.119 (0.012) |0.257 (0.026) |       34.8|       0.340|
-|overlap_hi   |10  |betabinom:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|overlap_hi   |10  |unpooled:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|overlap_hi   |10  |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|overlap_hi   |10  |binom_test:BY       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|overlap_hi   |30  |oracle:threshold    |0.040 (0.003) |0.224 (0.003) |       19.5|       0.575|
-|overlap_hi   |30  |npmle:threshold     |0.078 (0.005) |0.404 (0.019) |       39.0|       0.720|
-|overlap_hi   |30  |npmle:stepup        |0.143 (0.008) |0.564 (0.023) |       60.5|       0.815|
-|overlap_hi   |30  |betabinom:threshold |0.040 (0.003) |0.223 (0.003) |       19.4|       0.575|
-|overlap_hi   |30  |unpooled:threshold  |0.040 (0.003) |0.224 (0.003) |       19.5|       0.575|
-|overlap_hi   |30  |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|overlap_hi   |30  |binom_test:BY       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|overlap_hi   |het |oracle:threshold    |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|overlap_hi   |het |npmle:threshold     |0.117 (0.010) |0.167 (0.014) |       18.8|       0.535|
-|overlap_hi   |het |npmle:stepup        |0.167 (0.011) |0.270 (0.021) |       33.9|       0.635|
-|overlap_hi   |het |betabinom:threshold |0.023 (0.004) |0.030 (0.004) |        2.8|       0.180|
-|overlap_hi   |het |unpooled:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|overlap_hi   |het |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|overlap_hi   |het |binom_test:BY       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|near_tau     |3   |oracle:threshold    |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|near_tau     |3   |npmle:threshold     |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|near_tau     |3   |npmle:stepup        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|near_tau     |3   |betabinom:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|near_tau     |3   |unpooled:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|near_tau     |3   |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|near_tau     |3   |binom_test:BY       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|near_tau     |5   |oracle:threshold    |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|near_tau     |5   |npmle:threshold     |0.081 (0.013) |0.135 (0.022) |       19.8|       0.170|
-|near_tau     |5   |npmle:stepup        |0.091 (0.014) |0.163 (0.026) |       26.7|       0.170|
-|near_tau     |5   |betabinom:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|near_tau     |5   |unpooled:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|near_tau     |5   |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|near_tau     |5   |binom_test:BY       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|near_tau     |10  |oracle:threshold    |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|near_tau     |10  |npmle:threshold     |0.164 (0.015) |0.273 (0.026) |       37.3|       0.380|
-|near_tau     |10  |npmle:stepup        |0.183 (0.017) |0.332 (0.031) |       50.1|       0.380|
-|near_tau     |10  |betabinom:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|near_tau     |10  |unpooled:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|near_tau     |10  |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|near_tau     |10  |binom_test:BY       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|near_tau     |30  |oracle:threshold    |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|near_tau     |30  |npmle:threshold     |0.188 (0.014) |0.341 (0.027) |       43.2|       0.520|
-|near_tau     |30  |npmle:stepup        |0.226 (0.016) |0.422 (0.032) |       59.5|       0.525|
-|near_tau     |30  |betabinom:threshold |0.219 (0.011) |0.079 (0.002) |        7.7|       0.825|
-|near_tau     |30  |unpooled:threshold  |0.219 (0.011) |0.079 (0.002) |        7.7|       0.825|
-|near_tau     |30  |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|near_tau     |30  |binom_test:BY       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|near_tau     |het |oracle:threshold    |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|near_tau     |het |npmle:threshold     |0.156 (0.015) |0.172 (0.021) |       23.8|       0.365|
-|near_tau     |het |npmle:stepup        |0.166 (0.016) |0.247 (0.027) |       36.7|       0.365|
-|near_tau     |het |betabinom:threshold |0.290 (0.016) |0.046 (0.002) |        4.9|       0.760|
-|near_tau     |het |unpooled:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|near_tau     |het |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|near_tau     |het |binom_test:BY       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|edges        |3   |oracle:threshold    |0.051 (0.002) |0.948 (0.001) |      111.0|       0.990|
-|edges        |3   |npmle:threshold     |0.048 (0.002) |0.897 (0.015) |      105.3|       0.935|
-|edges        |3   |npmle:stepup        |0.069 (0.002) |0.921 (0.016) |      110.7|       0.945|
-|edges        |3   |betabinom:threshold |0.050 (0.002) |0.934 (0.008) |      109.5|       0.975|
-|edges        |3   |unpooled:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|edges        |3   |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|edges        |3   |binom_test:BY       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|edges        |5   |oracle:threshold    |0.037 (0.001) |0.919 (0.002) |      106.2|       0.985|
-|edges        |5   |npmle:threshold     |0.044 (0.002) |0.887 (0.017) |      103.9|       0.935|
-|edges        |5   |npmle:stepup        |0.105 (0.004) |0.927 (0.017) |      116.6|       0.935|
-|edges        |5   |betabinom:threshold |0.037 (0.001) |0.919 (0.002) |      106.2|       0.985|
-|edges        |5   |unpooled:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|edges        |5   |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|edges        |5   |binom_test:BY       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|edges        |10  |oracle:threshold    |0.019 (0.001) |0.856 (0.002) |       97.3|       0.860|
-|edges        |10  |npmle:threshold     |0.041 (0.002) |0.884 (0.016) |      103.3|       0.890|
-|edges        |10  |npmle:stepup        |0.107 (0.004) |0.931 (0.016) |      117.6|       0.940|
-|edges        |10  |betabinom:threshold |0.019 (0.001) |0.856 (0.002) |       97.3|       0.860|
-|edges        |10  |unpooled:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|edges        |10  |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|edges        |10  |binom_test:BY       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|edges        |30  |oracle:threshold    |0.006 (0.001) |0.860 (0.002) |       96.3|       0.420|
-|edges        |30  |npmle:threshold     |0.024 (0.002) |0.917 (0.007) |      104.7|       0.700|
-|edges        |30  |npmle:stepup        |0.099 (0.003) |0.994 (0.001) |      123.0|       0.980|
-|edges        |30  |betabinom:threshold |0.006 (0.001) |0.860 (0.002) |       96.3|       0.420|
-|edges        |30  |unpooled:threshold  |0.001 (0.000) |0.686 (0.003) |       76.4|       0.090|
-|edges        |30  |binom_test:BH       |0.000 (0.000) |0.103 (0.018) |       12.3|       0.015|
-|edges        |30  |binom_test:BY       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|edges        |het |oracle:threshold    |0.031 (0.001) |0.907 (0.002) |      104.3|       0.970|
-|edges        |het |npmle:threshold     |0.041 (0.002) |0.877 (0.013) |      102.3|       0.905|
-|edges        |het |npmle:stepup        |0.109 (0.004) |0.969 (0.006) |      121.9|       0.990|
-|edges        |het |betabinom:threshold |0.028 (0.001) |0.831 (0.007) |       95.5|       0.925|
-|edges        |het |unpooled:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|edges        |het |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
-|edges        |het |binom_test:BY       |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|G            |k   |rule                 |FDR           |power         | mean_calls| P_any_false|
+|:------------|:---|:--------------------|:-------------|:-------------|----------:|-----------:|
+|beta_single  |3   |oracle:threshold     |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|beta_single  |3   |npmle:threshold      |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|beta_single  |3   |npmle:stepup         |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|beta_single  |3   |betabinom:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|beta_single  |3   |unpooled:threshold   |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|beta_single  |3   |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|beta_single  |3   |binom_test:BY        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|beta_single  |3   |robust_box:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|beta_single  |3   |robust_box:stepup    |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|beta_single  |5   |oracle:threshold     |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|beta_single  |5   |npmle:threshold      |0.094 (0.012) |0.192 (0.024) |       22.0|       0.240|
+|beta_single  |5   |npmle:stepup         |0.112 (0.014) |0.210 (0.027) |       28.0|       0.240|
+|beta_single  |5   |betabinom:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|beta_single  |5   |unpooled:threshold   |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|beta_single  |5   |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|beta_single  |5   |binom_test:BY        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|beta_single  |5   |robust_box:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|beta_single  |5   |robust_box:stepup    |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|beta_single  |10  |oracle:threshold     |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|beta_single  |10  |npmle:threshold      |0.105 (0.009) |0.286 (0.024) |       27.3|       0.425|
+|beta_single  |10  |npmle:stepup         |0.151 (0.013) |0.351 (0.030) |       39.4|       0.425|
+|beta_single  |10  |betabinom:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|beta_single  |10  |unpooled:threshold   |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|beta_single  |10  |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|beta_single  |10  |binom_test:BY        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|beta_single  |10  |robust_box:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|beta_single  |10  |robust_box:stepup    |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|beta_single  |30  |oracle:threshold     |0.031 (0.003) |0.335 (0.004) |       24.0|       0.500|
+|beta_single  |30  |npmle:threshold      |0.080 (0.005) |0.535 (0.016) |       42.1|       0.750|
+|beta_single  |30  |npmle:stepup         |0.161 (0.008) |0.711 (0.018) |       62.9|       0.875|
+|beta_single  |30  |betabinom:threshold  |0.031 (0.003) |0.335 (0.004) |       24.0|       0.500|
+|beta_single  |30  |unpooled:threshold   |0.031 (0.003) |0.335 (0.004) |       24.0|       0.500|
+|beta_single  |30  |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|beta_single  |30  |binom_test:BY        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|beta_single  |30  |robust_box:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|beta_single  |30  |robust_box:stepup    |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|beta_single  |het |oracle:threshold     |0.087 (0.008) |0.110 (0.003) |        8.3|       0.495|
+|beta_single  |het |npmle:threshold      |0.113 (0.009) |0.170 (0.012) |       15.2|       0.530|
+|beta_single  |het |npmle:stepup         |0.160 (0.011) |0.270 (0.019) |       27.1|       0.625|
+|beta_single  |het |betabinom:threshold  |0.059 (0.007) |0.088 (0.004) |        6.7|       0.355|
+|beta_single  |het |unpooled:threshold   |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|beta_single  |het |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|beta_single  |het |binom_test:BY        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|beta_single  |het |robust_box:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|beta_single  |het |robust_box:stepup    |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|separated_lo |3   |oracle:threshold     |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|separated_lo |3   |npmle:threshold      |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|separated_lo |3   |npmle:stepup         |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|separated_lo |3   |betabinom:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|separated_lo |3   |unpooled:threshold   |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|separated_lo |3   |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|separated_lo |3   |binom_test:BY        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|separated_lo |3   |robust_box:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|separated_lo |3   |robust_box:stepup    |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|separated_lo |5   |oracle:threshold     |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|separated_lo |5   |npmle:threshold      |0.035 (0.006) |0.142 (0.024) |        3.9|       0.155|
+|separated_lo |5   |npmle:stepup         |0.039 (0.007) |0.143 (0.024) |        4.1|       0.155|
+|separated_lo |5   |betabinom:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|separated_lo |5   |unpooled:threshold   |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|separated_lo |5   |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|separated_lo |5   |binom_test:BY        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|separated_lo |5   |robust_box:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|separated_lo |5   |robust_box:stepup    |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|separated_lo |10  |oracle:threshold     |0.030 (0.003) |0.795 (0.006) |       16.1|       0.365|
+|separated_lo |10  |npmle:threshold      |0.030 (0.004) |0.628 (0.025) |       13.1|       0.305|
+|separated_lo |10  |npmle:stepup         |0.085 (0.007) |0.695 (0.028) |       15.9|       0.595|
+|separated_lo |10  |betabinom:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|separated_lo |10  |unpooled:threshold   |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|separated_lo |10  |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|separated_lo |10  |binom_test:BY        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|separated_lo |10  |robust_box:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|separated_lo |10  |robust_box:stepup    |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|separated_lo |30  |oracle:threshold     |0.007 (0.002) |0.938 (0.004) |       18.6|       0.120|
+|separated_lo |30  |npmle:threshold      |0.016 (0.002) |0.951 (0.005) |       19.1|       0.240|
+|separated_lo |30  |npmle:stepup         |0.084 (0.004) |0.991 (0.003) |       21.4|       0.875|
+|separated_lo |30  |betabinom:threshold  |0.000 (0.000) |0.186 (0.019) |        4.4|       0.000|
+|separated_lo |30  |unpooled:threshold   |0.000 (0.000) |0.553 (0.008) |       10.9|       0.005|
+|separated_lo |30  |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|separated_lo |30  |binom_test:BY        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|separated_lo |30  |robust_box:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|separated_lo |30  |robust_box:stepup    |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|separated_lo |het |oracle:threshold     |0.027 (0.004) |0.435 (0.008) |        8.8|       0.205|
+|separated_lo |het |npmle:threshold      |0.030 (0.005) |0.400 (0.012) |        8.2|       0.200|
+|separated_lo |het |npmle:stepup         |0.091 (0.006) |0.577 (0.016) |       12.9|       0.620|
+|separated_lo |het |betabinom:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|separated_lo |het |unpooled:threshold   |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|separated_lo |het |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|separated_lo |het |binom_test:BY        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|separated_lo |het |robust_box:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|separated_lo |het |robust_box:stepup    |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|separated_hi |3   |oracle:threshold     |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|separated_hi |3   |npmle:threshold      |0.014 (0.003) |0.104 (0.021) |        9.6|       0.110|
+|separated_hi |3   |npmle:stepup         |0.016 (0.003) |0.104 (0.021) |        9.7|       0.110|
+|separated_hi |3   |betabinom:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|separated_hi |3   |unpooled:threshold   |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|separated_hi |3   |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|separated_hi |3   |binom_test:BY        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|separated_hi |3   |robust_box:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|separated_hi |3   |robust_box:stepup    |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|separated_hi |5   |oracle:threshold     |0.049 (0.002) |0.889 (0.002) |       74.0|       0.995|
+|separated_hi |5   |npmle:threshold      |0.032 (0.002) |0.555 (0.031) |       46.3|       0.620|
+|separated_hi |5   |npmle:stepup         |0.080 (0.006) |0.591 (0.033) |       53.9|       0.620|
+|separated_hi |5   |betabinom:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|separated_hi |5   |unpooled:threshold   |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|separated_hi |5   |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|separated_hi |5   |binom_test:BY        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|separated_hi |5   |robust_box:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|separated_hi |5   |robust_box:stepup    |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|separated_hi |10  |oracle:threshold     |0.008 (0.001) |0.794 (0.003) |       63.3|       0.365|
+|separated_hi |10  |npmle:threshold      |0.018 (0.001) |0.838 (0.017) |       68.1|       0.625|
+|separated_hi |10  |npmle:stepup         |0.091 (0.004) |0.912 (0.018) |       80.9|       0.885|
+|separated_hi |10  |betabinom:threshold  |0.001 (0.000) |0.066 (0.016) |        6.1|       0.035|
+|separated_hi |10  |unpooled:threshold   |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|separated_hi |10  |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|separated_hi |10  |binom_test:BY        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|separated_hi |10  |robust_box:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|separated_hi |10  |robust_box:stepup    |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|separated_hi |30  |oracle:threshold     |0.005 (0.001) |0.980 (0.001) |       78.7|       0.320|
+|separated_hi |30  |npmle:threshold      |0.006 (0.001) |0.967 (0.003) |       77.7|       0.375|
+|separated_hi |30  |npmle:stepup         |0.087 (0.002) |0.999 (0.001) |       87.5|       0.980|
+|separated_hi |30  |betabinom:threshold  |0.001 (0.000) |0.810 (0.006) |       65.0|       0.075|
+|separated_hi |30  |unpooled:threshold   |0.001 (0.000) |0.553 (0.004) |       44.2|       0.035|
+|separated_hi |30  |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|separated_hi |30  |binom_test:BY        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|separated_hi |30  |robust_box:threshold |0.000 (0.000) |0.031 (0.010) |        2.6|       0.000|
+|separated_hi |30  |robust_box:stepup    |0.000 (0.000) |0.031 (0.010) |        2.6|       0.000|
+|separated_hi |het |oracle:threshold     |0.021 (0.001) |0.669 (0.004) |       54.3|       0.690|
+|separated_hi |het |npmle:threshold      |0.026 (0.002) |0.664 (0.012) |       54.6|       0.700|
+|separated_hi |het |npmle:stepup         |0.088 (0.003) |0.923 (0.010) |       81.1|       0.955|
+|separated_hi |het |betabinom:threshold  |0.001 (0.001) |0.187 (0.006) |       15.1|       0.025|
+|separated_hi |het |unpooled:threshold   |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|separated_hi |het |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|separated_hi |het |binom_test:BY        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|separated_hi |het |robust_box:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|separated_hi |het |robust_box:stepup    |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_lo   |3   |oracle:threshold     |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_lo   |3   |npmle:threshold      |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_lo   |3   |npmle:stepup         |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_lo   |3   |betabinom:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_lo   |3   |unpooled:threshold   |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_lo   |3   |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_lo   |3   |binom_test:BY        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_lo   |3   |robust_box:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_lo   |3   |robust_box:stepup    |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_lo   |5   |oracle:threshold     |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_lo   |5   |npmle:threshold      |0.007 (0.005) |0.008 (0.006) |        0.9|       0.010|
+|overlap_lo   |5   |npmle:stepup         |0.007 (0.005) |0.009 (0.006) |        1.1|       0.010|
+|overlap_lo   |5   |betabinom:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_lo   |5   |unpooled:threshold   |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_lo   |5   |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_lo   |5   |binom_test:BY        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_lo   |5   |robust_box:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_lo   |5   |robust_box:stepup    |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_lo   |10  |oracle:threshold     |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_lo   |10  |npmle:threshold      |0.024 (0.008) |0.025 (0.008) |        2.0|       0.045|
+|overlap_lo   |10  |npmle:stepup         |0.025 (0.008) |0.027 (0.009) |        2.4|       0.045|
+|overlap_lo   |10  |betabinom:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_lo   |10  |unpooled:threshold   |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_lo   |10  |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_lo   |10  |binom_test:BY        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_lo   |10  |robust_box:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_lo   |10  |robust_box:stepup    |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_lo   |30  |oracle:threshold     |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_lo   |30  |npmle:threshold      |0.119 (0.011) |0.200 (0.016) |       10.4|       0.470|
+|overlap_lo   |30  |npmle:stepup         |0.164 (0.013) |0.287 (0.022) |       17.1|       0.530|
+|overlap_lo   |30  |betabinom:threshold  |0.002 (0.001) |0.006 (0.003) |        0.3|       0.015|
+|overlap_lo   |30  |unpooled:threshold   |0.138 (0.011) |0.175 (0.005) |        7.7|       0.625|
+|overlap_lo   |30  |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_lo   |30  |binom_test:BY        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_lo   |30  |robust_box:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_lo   |30  |robust_box:stepup    |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_lo   |het |oracle:threshold     |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_lo   |het |npmle:threshold      |0.135 (0.017) |0.045 (0.006) |        2.9|       0.310|
+|overlap_lo   |het |npmle:stepup         |0.152 (0.017) |0.068 (0.009) |        5.0|       0.335|
+|overlap_lo   |het |betabinom:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_lo   |het |unpooled:threshold   |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_lo   |het |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_lo   |het |binom_test:BY        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_lo   |het |robust_box:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_lo   |het |robust_box:stepup    |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_hi   |3   |oracle:threshold     |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_hi   |3   |npmle:threshold      |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_hi   |3   |npmle:stepup         |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_hi   |3   |betabinom:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_hi   |3   |unpooled:threshold   |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_hi   |3   |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_hi   |3   |binom_test:BY        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_hi   |3   |robust_box:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_hi   |3   |robust_box:stepup    |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_hi   |5   |oracle:threshold     |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_hi   |5   |npmle:threshold      |0.043 (0.009) |0.084 (0.017) |       11.6|       0.110|
+|overlap_hi   |5   |npmle:stepup         |0.050 (0.010) |0.094 (0.019) |       14.8|       0.110|
+|overlap_hi   |5   |betabinom:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_hi   |5   |unpooled:threshold   |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_hi   |5   |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_hi   |5   |binom_test:BY        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_hi   |5   |robust_box:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_hi   |5   |robust_box:stepup    |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_hi   |10  |oracle:threshold     |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_hi   |10  |npmle:threshold      |0.092 (0.009) |0.210 (0.021) |       24.9|       0.340|
+|overlap_hi   |10  |npmle:stepup         |0.119 (0.012) |0.257 (0.026) |       34.8|       0.340|
+|overlap_hi   |10  |betabinom:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_hi   |10  |unpooled:threshold   |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_hi   |10  |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_hi   |10  |binom_test:BY        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_hi   |10  |robust_box:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_hi   |10  |robust_box:stepup    |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_hi   |30  |oracle:threshold     |0.040 (0.003) |0.224 (0.003) |       19.5|       0.575|
+|overlap_hi   |30  |npmle:threshold      |0.078 (0.005) |0.404 (0.019) |       39.0|       0.720|
+|overlap_hi   |30  |npmle:stepup         |0.143 (0.008) |0.564 (0.023) |       60.5|       0.815|
+|overlap_hi   |30  |betabinom:threshold  |0.040 (0.003) |0.223 (0.003) |       19.4|       0.575|
+|overlap_hi   |30  |unpooled:threshold   |0.040 (0.003) |0.224 (0.003) |       19.5|       0.575|
+|overlap_hi   |30  |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_hi   |30  |binom_test:BY        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_hi   |30  |robust_box:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_hi   |30  |robust_box:stepup    |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_hi   |het |oracle:threshold     |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_hi   |het |npmle:threshold      |0.117 (0.010) |0.167 (0.014) |       18.8|       0.535|
+|overlap_hi   |het |npmle:stepup         |0.167 (0.011) |0.270 (0.021) |       33.9|       0.635|
+|overlap_hi   |het |betabinom:threshold  |0.023 (0.004) |0.030 (0.004) |        2.8|       0.180|
+|overlap_hi   |het |unpooled:threshold   |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_hi   |het |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_hi   |het |binom_test:BY        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_hi   |het |robust_box:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|overlap_hi   |het |robust_box:stepup    |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|near_tau     |3   |oracle:threshold     |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|near_tau     |3   |npmle:threshold      |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|near_tau     |3   |npmle:stepup         |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|near_tau     |3   |betabinom:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|near_tau     |3   |unpooled:threshold   |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|near_tau     |3   |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|near_tau     |3   |binom_test:BY        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|near_tau     |3   |robust_box:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|near_tau     |3   |robust_box:stepup    |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|near_tau     |5   |oracle:threshold     |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|near_tau     |5   |npmle:threshold      |0.081 (0.013) |0.135 (0.022) |       19.8|       0.170|
+|near_tau     |5   |npmle:stepup         |0.091 (0.014) |0.163 (0.026) |       26.7|       0.170|
+|near_tau     |5   |betabinom:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|near_tau     |5   |unpooled:threshold   |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|near_tau     |5   |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|near_tau     |5   |binom_test:BY        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|near_tau     |5   |robust_box:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|near_tau     |5   |robust_box:stepup    |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|near_tau     |10  |oracle:threshold     |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|near_tau     |10  |npmle:threshold      |0.164 (0.015) |0.273 (0.026) |       37.3|       0.380|
+|near_tau     |10  |npmle:stepup         |0.183 (0.017) |0.332 (0.031) |       50.1|       0.380|
+|near_tau     |10  |betabinom:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|near_tau     |10  |unpooled:threshold   |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|near_tau     |10  |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|near_tau     |10  |binom_test:BY        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|near_tau     |10  |robust_box:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|near_tau     |10  |robust_box:stepup    |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|near_tau     |30  |oracle:threshold     |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|near_tau     |30  |npmle:threshold      |0.188 (0.014) |0.341 (0.027) |       43.2|       0.520|
+|near_tau     |30  |npmle:stepup         |0.226 (0.016) |0.422 (0.032) |       59.5|       0.525|
+|near_tau     |30  |betabinom:threshold  |0.219 (0.011) |0.079 (0.002) |        7.7|       0.825|
+|near_tau     |30  |unpooled:threshold   |0.219 (0.011) |0.079 (0.002) |        7.7|       0.825|
+|near_tau     |30  |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|near_tau     |30  |binom_test:BY        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|near_tau     |30  |robust_box:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|near_tau     |30  |robust_box:stepup    |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|near_tau     |het |oracle:threshold     |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|near_tau     |het |npmle:threshold      |0.156 (0.015) |0.172 (0.021) |       23.8|       0.365|
+|near_tau     |het |npmle:stepup         |0.166 (0.016) |0.247 (0.027) |       36.7|       0.365|
+|near_tau     |het |betabinom:threshold  |0.290 (0.016) |0.046 (0.002) |        4.9|       0.760|
+|near_tau     |het |unpooled:threshold   |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|near_tau     |het |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|near_tau     |het |binom_test:BY        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|near_tau     |het |robust_box:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|near_tau     |het |robust_box:stepup    |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|edges        |3   |oracle:threshold     |0.051 (0.002) |0.948 (0.001) |      111.0|       0.990|
+|edges        |3   |npmle:threshold      |0.048 (0.002) |0.897 (0.015) |      105.3|       0.935|
+|edges        |3   |npmle:stepup         |0.069 (0.002) |0.921 (0.016) |      110.7|       0.945|
+|edges        |3   |betabinom:threshold  |0.050 (0.002) |0.934 (0.008) |      109.5|       0.975|
+|edges        |3   |unpooled:threshold   |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|edges        |3   |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|edges        |3   |binom_test:BY        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|edges        |3   |robust_box:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|edges        |3   |robust_box:stepup    |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|edges        |5   |oracle:threshold     |0.037 (0.001) |0.919 (0.002) |      106.2|       0.985|
+|edges        |5   |npmle:threshold      |0.044 (0.002) |0.887 (0.017) |      103.9|       0.935|
+|edges        |5   |npmle:stepup         |0.105 (0.004) |0.927 (0.017) |      116.6|       0.935|
+|edges        |5   |betabinom:threshold  |0.037 (0.001) |0.919 (0.002) |      106.2|       0.985|
+|edges        |5   |unpooled:threshold   |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|edges        |5   |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|edges        |5   |binom_test:BY        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|edges        |5   |robust_box:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|edges        |5   |robust_box:stepup    |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|edges        |10  |oracle:threshold     |0.019 (0.001) |0.856 (0.002) |       97.3|       0.860|
+|edges        |10  |npmle:threshold      |0.041 (0.002) |0.884 (0.016) |      103.3|       0.890|
+|edges        |10  |npmle:stepup         |0.107 (0.004) |0.931 (0.016) |      117.6|       0.940|
+|edges        |10  |betabinom:threshold  |0.019 (0.001) |0.856 (0.002) |       97.3|       0.860|
+|edges        |10  |unpooled:threshold   |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|edges        |10  |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|edges        |10  |binom_test:BY        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|edges        |10  |robust_box:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|edges        |10  |robust_box:stepup    |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|edges        |30  |oracle:threshold     |0.006 (0.001) |0.860 (0.002) |       96.3|       0.420|
+|edges        |30  |npmle:threshold      |0.024 (0.002) |0.917 (0.007) |      104.7|       0.700|
+|edges        |30  |npmle:stepup         |0.099 (0.003) |0.994 (0.001) |      123.0|       0.980|
+|edges        |30  |betabinom:threshold  |0.006 (0.001) |0.860 (0.002) |       96.3|       0.420|
+|edges        |30  |unpooled:threshold   |0.001 (0.000) |0.686 (0.003) |       76.4|       0.090|
+|edges        |30  |binom_test:BH        |0.000 (0.000) |0.103 (0.018) |       12.3|       0.015|
+|edges        |30  |binom_test:BY        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|edges        |30  |robust_box:threshold |0.001 (0.000) |0.401 (0.025) |       45.2|       0.060|
+|edges        |30  |robust_box:stepup    |0.001 (0.000) |0.404 (0.025) |       45.6|       0.080|
+|edges        |het |oracle:threshold     |0.031 (0.001) |0.907 (0.002) |      104.3|       0.970|
+|edges        |het |npmle:threshold      |0.041 (0.002) |0.877 (0.013) |      102.3|       0.905|
+|edges        |het |npmle:stepup         |0.109 (0.004) |0.969 (0.006) |      121.9|       0.990|
+|edges        |het |betabinom:threshold  |0.028 (0.001) |0.831 (0.007) |       95.5|       0.925|
+|edges        |het |unpooled:threshold   |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|edges        |het |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|edges        |het |binom_test:BY        |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|edges        |het |robust_box:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+|edges        |het |robust_box:stepup    |0.000 (0.000) |0.000 (0.000) |        0.0|       0.000|
+
+## Box-robust rule (guaranteed FDR <= q under the model): worst-case FDR over all 105 primary cells
+
+max_FDR = largest mean FDP over cells, with MCSE. Power is reported to show the cost of the guarantee.
+
+|rule                 |  tau|    q| cells|max_FDR       |at                           | cells_with_power_gt_0.01| max_power|
+|:--------------------|----:|----:|-----:|:-------------|:----------------------------|------------------------:|---------:|
+|robust_box:stepup    | 0.80| 0.05|   105|0.011 (0.000) |edges k = 30 J = 1000        |                       18|     0.932|
+|robust_box:threshold | 0.80| 0.05|   105|0.001 (0.000) |overlap_hi k = 30 J = 1000   |                       18|     0.819|
+|robust_box:stepup    | 0.90| 0.05|   105|0.002 (0.000) |edges k = 30 J = 1000        |                        2|     0.539|
+|robust_box:threshold | 0.90| 0.05|   105|0.001 (0.000) |edges k = 30 J = 1000        |                        2|     0.533|
+|robust_box:stepup    | 0.95| 0.05|   105|0.000 (0.000) |beta_single k = 3 J = 50     |                        0|     0.000|
+|robust_box:threshold | 0.95| 0.05|   105|0.000 (0.000) |beta_single k = 3 J = 50     |                        0|     0.000|
+|robust_box:stepup    | 0.80| 0.10|   105|0.034 (0.000) |edges k = 30 J = 1000        |                       27|     0.934|
+|robust_box:threshold | 0.80| 0.10|   105|0.003 (0.001) |overlap_lo k = 30 J = 1000   |                       27|     0.822|
+|robust_box:stepup    | 0.90| 0.10|   105|0.004 (0.000) |edges k = 30 J = 1000        |                        5|     0.761|
+|robust_box:threshold | 0.90| 0.10|   105|0.002 (0.000) |edges k = 30 J = 1000        |                        5|     0.692|
+|robust_box:stepup    | 0.95| 0.10|   105|0.000 (0.000) |beta_single k = 3 J = 50     |                        0|     0.000|
+|robust_box:threshold | 0.95| 0.10|   105|0.000 (0.000) |beta_single k = 3 J = 50     |                        0|     0.000|
+|robust_box:stepup    | 0.80| 0.20|   105|0.071 (0.000) |edges k = 30 J = 1000        |                       40|     0.966|
+|robust_box:threshold | 0.80| 0.20|   105|0.005 (0.001) |overlap_hi k = het J = 1000  |                       39|     0.909|
+|robust_box:stepup    | 0.90| 0.20|   105|0.024 (0.001) |separated_hi k = 30 J = 1000 |                        8|     0.865|
+|robust_box:threshold | 0.90| 0.20|   105|0.004 (0.000) |edges k = het J = 1000       |                        8|     0.692|
+|robust_box:stepup    | 0.95| 0.20|   105|0.000 (0.000) |beta_single k = 3 J = 50     |                        0|     0.000|
+|robust_box:threshold | 0.95| 0.20|   105|0.000 (0.000) |beta_single k = 3 J = 50     |                        0|     0.000|
+
+## Cells where the box-robust rule (tau = 0.9, q = 0.1) has power > 0.01
+
+|G            |k  |    J|FDR           |power         | mean_calls|
+|:------------|:--|----:|:-------------|:-------------|----------:|
+|separated_lo |30 | 1000|0.000 (0.000) |0.036 (0.010) |        3.8|
+|separated_hi |30 |  200|0.000 (0.000) |0.031 (0.010) |        2.6|
+|separated_hi |30 | 1000|0.000 (0.000) |0.548 (0.002) |      217.5|
+|edges        |30 |  200|0.001 (0.000) |0.401 (0.025) |       45.2|
+|edges        |30 | 1000|0.002 (0.000) |0.692 (0.002) |      385.2|
 
 ## False reliability calls near the boundary (theta in (0.85, 0.90]), J = 200, k in {5, 10, het} (all k in CSV)
 
 near_false_per_rep = mean count per replicate; near_false_rate = fraction of near-boundary tasks called reliable.
 
-|G            |k   |rule                |near_false_per_rep | near_false_rate|
-|:------------|:---|:-------------------|:------------------|---------------:|
-|beta_single  |5   |betabinom:threshold |0.000 (0.000)      |         0.00000|
-|beta_single  |5   |binom_test:BH       |0.000 (0.000)      |         0.00000|
-|beta_single  |5   |npmle:threshold     |3.400 (0.449)      |         0.12500|
-|beta_single  |5   |oracle:threshold    |0.000 (0.000)      |         0.00000|
-|beta_single  |5   |unpooled:threshold  |0.000 (0.000)      |         0.00000|
-|beta_single  |10  |betabinom:threshold |0.000 (0.000)      |         0.00000|
-|beta_single  |10  |binom_test:BH       |0.000 (0.000)      |         0.00000|
-|beta_single  |10  |npmle:threshold     |3.665 (0.382)      |         0.13700|
-|beta_single  |10  |oracle:threshold    |0.000 (0.000)      |         0.00000|
-|beta_single  |10  |unpooled:threshold  |0.000 (0.000)      |         0.00000|
-|beta_single  |het |betabinom:threshold |0.390 (0.050)      |         0.01470|
-|beta_single  |het |binom_test:BH       |0.000 (0.000)      |         0.00000|
-|beta_single  |het |npmle:threshold     |1.915 (0.232)      |         0.07200|
-|beta_single  |het |oracle:threshold    |0.530 (0.054)      |         0.01990|
-|beta_single  |het |unpooled:threshold  |0.000 (0.000)      |         0.00000|
-|separated_lo |5   |betabinom:threshold |0.000 (0.000)      |         0.00000|
-|separated_lo |5   |binom_test:BH       |0.000 (0.000)      |         0.00000|
-|separated_lo |5   |npmle:threshold     |0.020 (0.010)      |         0.08700|
-|separated_lo |5   |oracle:threshold    |0.000 (0.000)      |         0.00000|
-|separated_lo |5   |unpooled:threshold  |0.000 (0.000)      |         0.00000|
-|separated_lo |10  |betabinom:threshold |0.000 (0.000)      |         0.00000|
-|separated_lo |10  |binom_test:BH       |0.000 (0.000)      |         0.00000|
-|separated_lo |10  |npmle:threshold     |0.045 (0.016)      |         0.23100|
-|separated_lo |10  |oracle:threshold    |0.045 (0.015)      |         0.23100|
-|separated_lo |10  |unpooled:threshold  |0.000 (0.000)      |         0.00000|
-|separated_lo |het |betabinom:threshold |0.000 (0.000)      |         0.00000|
-|separated_lo |het |binom_test:BH       |0.000 (0.000)      |         0.00000|
-|separated_lo |het |npmle:threshold     |0.035 (0.013)      |         0.17500|
-|separated_lo |het |oracle:threshold    |0.025 (0.011)      |         0.12500|
-|separated_lo |het |unpooled:threshold  |0.000 (0.000)      |         0.00000|
-|separated_hi |5   |betabinom:threshold |0.000 (0.000)      |         0.00000|
-|separated_hi |5   |binom_test:BH       |0.000 (0.000)      |         0.00000|
-|separated_hi |5   |npmle:threshold     |0.200 (0.032)      |         0.42100|
-|separated_hi |5   |oracle:threshold    |0.270 (0.036)      |         0.56800|
-|separated_hi |5   |unpooled:threshold  |0.000 (0.000)      |         0.00000|
-|separated_hi |10  |betabinom:threshold |0.010 (0.007)      |         0.02250|
-|separated_hi |10  |binom_test:BH       |0.000 (0.000)      |         0.00000|
-|separated_hi |10  |npmle:threshold     |0.210 (0.031)      |         0.47200|
-|separated_hi |10  |oracle:threshold    |0.125 (0.024)      |         0.28100|
-|separated_hi |10  |unpooled:threshold  |0.000 (0.000)      |         0.00000|
-|separated_hi |het |betabinom:threshold |0.010 (0.007)      |         0.01820|
-|separated_hi |het |binom_test:BH       |0.000 (0.000)      |         0.00000|
-|separated_hi |het |npmle:threshold     |0.205 (0.033)      |         0.37300|
-|separated_hi |het |oracle:threshold    |0.185 (0.029)      |         0.33600|
-|separated_hi |het |unpooled:threshold  |0.000 (0.000)      |         0.00000|
-|overlap_lo   |5   |betabinom:threshold |0.000 (0.000)      |         0.00000|
-|overlap_lo   |5   |binom_test:BH       |0.000 (0.000)      |         0.00000|
-|overlap_lo   |5   |npmle:threshold     |0.245 (0.174)      |         0.00636|
-|overlap_lo   |5   |oracle:threshold    |0.000 (0.000)      |         0.00000|
-|overlap_lo   |5   |unpooled:threshold  |0.000 (0.000)      |         0.00000|
-|overlap_lo   |10  |betabinom:threshold |0.000 (0.000)      |         0.00000|
-|overlap_lo   |10  |binom_test:BH       |0.000 (0.000)      |         0.00000|
-|overlap_lo   |10  |npmle:threshold     |0.490 (0.168)      |         0.01270|
-|overlap_lo   |10  |oracle:threshold    |0.000 (0.000)      |         0.00000|
-|overlap_lo   |10  |unpooled:threshold  |0.000 (0.000)      |         0.00000|
-|overlap_lo   |het |betabinom:threshold |0.000 (0.000)      |         0.00000|
-|overlap_lo   |het |binom_test:BH       |0.000 (0.000)      |         0.00000|
-|overlap_lo   |het |npmle:threshold     |0.710 (0.106)      |         0.01820|
-|overlap_lo   |het |oracle:threshold    |0.000 (0.000)      |         0.00000|
-|overlap_lo   |het |unpooled:threshold  |0.000 (0.000)      |         0.00000|
-|overlap_hi   |5   |betabinom:threshold |0.000 (0.000)      |         0.00000|
-|overlap_hi   |5   |binom_test:BH       |0.000 (0.000)      |         0.00000|
-|overlap_hi   |5   |npmle:threshold     |2.120 (0.438)      |         0.06410|
-|overlap_hi   |5   |oracle:threshold    |0.000 (0.000)      |         0.00000|
-|overlap_hi   |5   |unpooled:threshold  |0.000 (0.000)      |         0.00000|
-|overlap_hi   |10  |betabinom:threshold |0.000 (0.000)      |         0.00000|
-|overlap_hi   |10  |binom_test:BH       |0.000 (0.000)      |         0.00000|
-|overlap_hi   |10  |npmle:threshold     |3.655 (0.414)      |         0.11100|
-|overlap_hi   |10  |oracle:threshold    |0.000 (0.000)      |         0.00000|
-|overlap_hi   |10  |unpooled:threshold  |0.000 (0.000)      |         0.00000|
-|overlap_hi   |het |betabinom:threshold |0.170 (0.033)      |         0.00516|
-|overlap_hi   |het |binom_test:BH       |0.000 (0.000)      |         0.00000|
-|overlap_hi   |het |npmle:threshold     |2.630 (0.336)      |         0.07980|
-|overlap_hi   |het |oracle:threshold    |0.000 (0.000)      |         0.00000|
-|overlap_hi   |het |unpooled:threshold  |0.000 (0.000)      |         0.00000|
-|near_tau     |5   |betabinom:threshold |0.000 (0.000)      |         0.00000|
-|near_tau     |5   |binom_test:BH       |0.000 (0.000)      |         0.00000|
-|near_tau     |5   |npmle:threshold     |7.935 (1.291)      |         0.11900|
-|near_tau     |5   |oracle:threshold    |0.000 (0.000)      |         0.00000|
-|near_tau     |5   |unpooled:threshold  |0.000 (0.000)      |         0.00000|
-|near_tau     |10  |betabinom:threshold |0.000 (0.000)      |         0.00000|
-|near_tau     |10  |binom_test:BH       |0.000 (0.000)      |         0.00000|
-|near_tau     |10  |npmle:threshold     |14.755 (1.499)     |         0.22300|
-|near_tau     |10  |oracle:threshold    |0.000 (0.000)      |         0.00000|
-|near_tau     |10  |unpooled:threshold  |0.000 (0.000)      |         0.00000|
-|near_tau     |het |betabinom:threshold |1.390 (0.087)      |         0.02080|
-|near_tau     |het |binom_test:BH       |0.000 (0.000)      |         0.00000|
-|near_tau     |het |npmle:threshold     |9.665 (1.221)      |         0.14500|
-|near_tau     |het |oracle:threshold    |0.000 (0.000)      |         0.00000|
-|near_tau     |het |unpooled:threshold  |0.000 (0.000)      |         0.00000|
-|edges        |5   |betabinom:threshold |2.685 (0.114)      |         0.52900|
-|edges        |5   |binom_test:BH       |0.000 (0.000)      |         0.00000|
-|edges        |5   |npmle:threshold     |3.170 (0.148)      |         0.62500|
-|edges        |5   |oracle:threshold    |2.685 (0.114)      |         0.52900|
-|edges        |5   |unpooled:threshold  |0.000 (0.000)      |         0.00000|
-|edges        |10  |betabinom:threshold |1.420 (0.080)      |         0.27700|
-|edges        |10  |binom_test:BH       |0.000 (0.000)      |         0.00000|
-|edges        |10  |npmle:threshold     |3.030 (0.163)      |         0.59100|
-|edges        |10  |oracle:threshold    |1.420 (0.080)      |         0.27700|
-|edges        |10  |unpooled:threshold  |0.000 (0.000)      |         0.00000|
-|edges        |het |betabinom:threshold |1.865 (0.099)      |         0.36400|
-|edges        |het |binom_test:BH       |0.000 (0.000)      |         0.00000|
-|edges        |het |npmle:threshold     |3.020 (0.155)      |         0.59000|
-|edges        |het |oracle:threshold    |2.255 (0.105)      |         0.44000|
-|edges        |het |unpooled:threshold  |0.000 (0.000)      |         0.00000|
+|G            |k   |rule                 |near_false_per_rep | near_false_rate|
+|:------------|:---|:--------------------|:------------------|---------------:|
+|beta_single  |5   |betabinom:threshold  |0.000 (0.000)      |         0.00000|
+|beta_single  |5   |binom_test:BH        |0.000 (0.000)      |         0.00000|
+|beta_single  |5   |npmle:threshold      |3.400 (0.449)      |         0.12500|
+|beta_single  |5   |oracle:threshold     |0.000 (0.000)      |         0.00000|
+|beta_single  |5   |robust_box:threshold |0.000 (0.000)      |         0.00000|
+|beta_single  |5   |unpooled:threshold   |0.000 (0.000)      |         0.00000|
+|beta_single  |10  |betabinom:threshold  |0.000 (0.000)      |         0.00000|
+|beta_single  |10  |binom_test:BH        |0.000 (0.000)      |         0.00000|
+|beta_single  |10  |npmle:threshold      |3.665 (0.382)      |         0.13700|
+|beta_single  |10  |oracle:threshold     |0.000 (0.000)      |         0.00000|
+|beta_single  |10  |robust_box:threshold |0.000 (0.000)      |         0.00000|
+|beta_single  |10  |unpooled:threshold   |0.000 (0.000)      |         0.00000|
+|beta_single  |het |betabinom:threshold  |0.390 (0.050)      |         0.01470|
+|beta_single  |het |binom_test:BH        |0.000 (0.000)      |         0.00000|
+|beta_single  |het |npmle:threshold      |1.915 (0.232)      |         0.07200|
+|beta_single  |het |oracle:threshold     |0.530 (0.054)      |         0.01990|
+|beta_single  |het |robust_box:threshold |0.000 (0.000)      |         0.00000|
+|beta_single  |het |unpooled:threshold   |0.000 (0.000)      |         0.00000|
+|separated_lo |5   |betabinom:threshold  |0.000 (0.000)      |         0.00000|
+|separated_lo |5   |binom_test:BH        |0.000 (0.000)      |         0.00000|
+|separated_lo |5   |npmle:threshold      |0.020 (0.010)      |         0.08700|
+|separated_lo |5   |oracle:threshold     |0.000 (0.000)      |         0.00000|
+|separated_lo |5   |robust_box:threshold |0.000 (0.000)      |         0.00000|
+|separated_lo |5   |unpooled:threshold   |0.000 (0.000)      |         0.00000|
+|separated_lo |10  |betabinom:threshold  |0.000 (0.000)      |         0.00000|
+|separated_lo |10  |binom_test:BH        |0.000 (0.000)      |         0.00000|
+|separated_lo |10  |npmle:threshold      |0.045 (0.016)      |         0.23100|
+|separated_lo |10  |oracle:threshold     |0.045 (0.015)      |         0.23100|
+|separated_lo |10  |robust_box:threshold |0.000 (0.000)      |         0.00000|
+|separated_lo |10  |unpooled:threshold   |0.000 (0.000)      |         0.00000|
+|separated_lo |het |betabinom:threshold  |0.000 (0.000)      |         0.00000|
+|separated_lo |het |binom_test:BH        |0.000 (0.000)      |         0.00000|
+|separated_lo |het |npmle:threshold      |0.035 (0.013)      |         0.17500|
+|separated_lo |het |oracle:threshold     |0.025 (0.011)      |         0.12500|
+|separated_lo |het |robust_box:threshold |0.000 (0.000)      |         0.00000|
+|separated_lo |het |unpooled:threshold   |0.000 (0.000)      |         0.00000|
+|separated_hi |5   |betabinom:threshold  |0.000 (0.000)      |         0.00000|
+|separated_hi |5   |binom_test:BH        |0.000 (0.000)      |         0.00000|
+|separated_hi |5   |npmle:threshold      |0.200 (0.032)      |         0.42100|
+|separated_hi |5   |oracle:threshold     |0.270 (0.036)      |         0.56800|
+|separated_hi |5   |robust_box:threshold |0.000 (0.000)      |         0.00000|
+|separated_hi |5   |unpooled:threshold   |0.000 (0.000)      |         0.00000|
+|separated_hi |10  |betabinom:threshold  |0.010 (0.007)      |         0.02250|
+|separated_hi |10  |binom_test:BH        |0.000 (0.000)      |         0.00000|
+|separated_hi |10  |npmle:threshold      |0.210 (0.031)      |         0.47200|
+|separated_hi |10  |oracle:threshold     |0.125 (0.024)      |         0.28100|
+|separated_hi |10  |robust_box:threshold |0.000 (0.000)      |         0.00000|
+|separated_hi |10  |unpooled:threshold   |0.000 (0.000)      |         0.00000|
+|separated_hi |het |betabinom:threshold  |0.010 (0.007)      |         0.01820|
+|separated_hi |het |binom_test:BH        |0.000 (0.000)      |         0.00000|
+|separated_hi |het |npmle:threshold      |0.205 (0.033)      |         0.37300|
+|separated_hi |het |oracle:threshold     |0.185 (0.029)      |         0.33600|
+|separated_hi |het |robust_box:threshold |0.000 (0.000)      |         0.00000|
+|separated_hi |het |unpooled:threshold   |0.000 (0.000)      |         0.00000|
+|overlap_lo   |5   |betabinom:threshold  |0.000 (0.000)      |         0.00000|
+|overlap_lo   |5   |binom_test:BH        |0.000 (0.000)      |         0.00000|
+|overlap_lo   |5   |npmle:threshold      |0.245 (0.174)      |         0.00636|
+|overlap_lo   |5   |oracle:threshold     |0.000 (0.000)      |         0.00000|
+|overlap_lo   |5   |robust_box:threshold |0.000 (0.000)      |         0.00000|
+|overlap_lo   |5   |unpooled:threshold   |0.000 (0.000)      |         0.00000|
+|overlap_lo   |10  |betabinom:threshold  |0.000 (0.000)      |         0.00000|
+|overlap_lo   |10  |binom_test:BH        |0.000 (0.000)      |         0.00000|
+|overlap_lo   |10  |npmle:threshold      |0.490 (0.168)      |         0.01270|
+|overlap_lo   |10  |oracle:threshold     |0.000 (0.000)      |         0.00000|
+|overlap_lo   |10  |robust_box:threshold |0.000 (0.000)      |         0.00000|
+|overlap_lo   |10  |unpooled:threshold   |0.000 (0.000)      |         0.00000|
+|overlap_lo   |het |betabinom:threshold  |0.000 (0.000)      |         0.00000|
+|overlap_lo   |het |binom_test:BH        |0.000 (0.000)      |         0.00000|
+|overlap_lo   |het |npmle:threshold      |0.710 (0.106)      |         0.01820|
+|overlap_lo   |het |oracle:threshold     |0.000 (0.000)      |         0.00000|
+|overlap_lo   |het |robust_box:threshold |0.000 (0.000)      |         0.00000|
+|overlap_lo   |het |unpooled:threshold   |0.000 (0.000)      |         0.00000|
+|overlap_hi   |5   |betabinom:threshold  |0.000 (0.000)      |         0.00000|
+|overlap_hi   |5   |binom_test:BH        |0.000 (0.000)      |         0.00000|
+|overlap_hi   |5   |npmle:threshold      |2.120 (0.438)      |         0.06410|
+|overlap_hi   |5   |oracle:threshold     |0.000 (0.000)      |         0.00000|
+|overlap_hi   |5   |robust_box:threshold |0.000 (0.000)      |         0.00000|
+|overlap_hi   |5   |unpooled:threshold   |0.000 (0.000)      |         0.00000|
+|overlap_hi   |10  |betabinom:threshold  |0.000 (0.000)      |         0.00000|
+|overlap_hi   |10  |binom_test:BH        |0.000 (0.000)      |         0.00000|
+|overlap_hi   |10  |npmle:threshold      |3.655 (0.414)      |         0.11100|
+|overlap_hi   |10  |oracle:threshold     |0.000 (0.000)      |         0.00000|
+|overlap_hi   |10  |robust_box:threshold |0.000 (0.000)      |         0.00000|
+|overlap_hi   |10  |unpooled:threshold   |0.000 (0.000)      |         0.00000|
+|overlap_hi   |het |betabinom:threshold  |0.170 (0.033)      |         0.00516|
+|overlap_hi   |het |binom_test:BH        |0.000 (0.000)      |         0.00000|
+|overlap_hi   |het |npmle:threshold      |2.630 (0.336)      |         0.07980|
+|overlap_hi   |het |oracle:threshold     |0.000 (0.000)      |         0.00000|
+|overlap_hi   |het |robust_box:threshold |0.000 (0.000)      |         0.00000|
+|overlap_hi   |het |unpooled:threshold   |0.000 (0.000)      |         0.00000|
+|near_tau     |5   |betabinom:threshold  |0.000 (0.000)      |         0.00000|
+|near_tau     |5   |binom_test:BH        |0.000 (0.000)      |         0.00000|
+|near_tau     |5   |npmle:threshold      |7.935 (1.291)      |         0.11900|
+|near_tau     |5   |oracle:threshold     |0.000 (0.000)      |         0.00000|
+|near_tau     |5   |robust_box:threshold |0.000 (0.000)      |         0.00000|
+|near_tau     |5   |unpooled:threshold   |0.000 (0.000)      |         0.00000|
+|near_tau     |10  |betabinom:threshold  |0.000 (0.000)      |         0.00000|
+|near_tau     |10  |binom_test:BH        |0.000 (0.000)      |         0.00000|
+|near_tau     |10  |npmle:threshold      |14.755 (1.499)     |         0.22300|
+|near_tau     |10  |oracle:threshold     |0.000 (0.000)      |         0.00000|
+|near_tau     |10  |robust_box:threshold |0.000 (0.000)      |         0.00000|
+|near_tau     |10  |unpooled:threshold   |0.000 (0.000)      |         0.00000|
+|near_tau     |het |betabinom:threshold  |1.390 (0.087)      |         0.02080|
+|near_tau     |het |binom_test:BH        |0.000 (0.000)      |         0.00000|
+|near_tau     |het |npmle:threshold      |9.665 (1.221)      |         0.14500|
+|near_tau     |het |oracle:threshold     |0.000 (0.000)      |         0.00000|
+|near_tau     |het |robust_box:threshold |0.000 (0.000)      |         0.00000|
+|near_tau     |het |unpooled:threshold   |0.000 (0.000)      |         0.00000|
+|edges        |5   |betabinom:threshold  |2.685 (0.114)      |         0.52900|
+|edges        |5   |binom_test:BH        |0.000 (0.000)      |         0.00000|
+|edges        |5   |npmle:threshold      |3.170 (0.148)      |         0.62500|
+|edges        |5   |oracle:threshold     |2.685 (0.114)      |         0.52900|
+|edges        |5   |robust_box:threshold |0.000 (0.000)      |         0.00000|
+|edges        |5   |unpooled:threshold   |0.000 (0.000)      |         0.00000|
+|edges        |10  |betabinom:threshold  |1.420 (0.080)      |         0.27700|
+|edges        |10  |binom_test:BH        |0.000 (0.000)      |         0.00000|
+|edges        |10  |npmle:threshold      |3.030 (0.163)      |         0.59100|
+|edges        |10  |oracle:threshold     |1.420 (0.080)      |         0.27700|
+|edges        |10  |robust_box:threshold |0.000 (0.000)      |         0.00000|
+|edges        |10  |unpooled:threshold   |0.000 (0.000)      |         0.00000|
+|edges        |het |betabinom:threshold  |1.865 (0.099)      |         0.36400|
+|edges        |het |binom_test:BH        |0.000 (0.000)      |         0.00000|
+|edges        |het |npmle:threshold      |3.020 (0.155)      |         0.59000|
+|edges        |het |oracle:threshold     |2.255 (0.105)      |         0.44000|
+|edges        |het |robust_box:threshold |0.000 (0.000)      |         0.00000|
+|edges        |het |unpooled:threshold   |0.000 (0.000)      |         0.00000|
 
 ## Sensitivity to tau and q (J = 200; full table in tables/tau_q_sensitivity.csv), k = 10 shown
 
-|G            |k  |  tau|    q|rule                |FDR           |power         |
-|:------------|:--|----:|----:|:-------------------|:-------------|:-------------|
-|separated_hi |10 | 0.80| 0.05|betabinom:threshold |0.005 (0.001) |0.789 (0.003) |
-|separated_hi |10 | 0.80| 0.05|binom_test:BH       |0.000 (0.000) |0.000 (0.000) |
-|separated_hi |10 | 0.80| 0.05|npmle:threshold     |0.012 (0.001) |0.868 (0.006) |
-|separated_hi |10 | 0.80| 0.05|oracle:threshold    |0.005 (0.001) |0.789 (0.003) |
-|separated_hi |10 | 0.80| 0.10|betabinom:threshold |0.005 (0.001) |0.789 (0.003) |
-|separated_hi |10 | 0.80| 0.10|binom_test:BH       |0.000 (0.000) |0.000 (0.000) |
-|separated_hi |10 | 0.80| 0.10|npmle:threshold     |0.018 (0.001) |0.914 (0.006) |
-|separated_hi |10 | 0.80| 0.10|oracle:threshold    |0.005 (0.001) |0.789 (0.003) |
-|separated_hi |10 | 0.80| 0.20|betabinom:threshold |0.010 (0.001) |0.845 (0.007) |
-|separated_hi |10 | 0.80| 0.20|binom_test:BH       |0.000 (0.000) |0.000 (0.000) |
-|separated_hi |10 | 0.80| 0.20|npmle:threshold     |0.027 (0.002) |0.949 (0.004) |
-|separated_hi |10 | 0.80| 0.20|oracle:threshold    |0.023 (0.001) |0.963 (0.002) |
-|separated_hi |10 | 0.90| 0.05|betabinom:threshold |0.000 (0.000) |0.000 (0.000) |
-|separated_hi |10 | 0.90| 0.05|binom_test:BH       |0.000 (0.000) |0.000 (0.000) |
-|separated_hi |10 | 0.90| 0.05|npmle:threshold     |0.012 (0.001) |0.751 (0.021) |
-|separated_hi |10 | 0.90| 0.05|oracle:threshold    |0.008 (0.001) |0.794 (0.003) |
-|separated_hi |10 | 0.90| 0.10|betabinom:threshold |0.001 (0.000) |0.066 (0.016) |
-|separated_hi |10 | 0.90| 0.10|binom_test:BH       |0.000 (0.000) |0.000 (0.000) |
-|separated_hi |10 | 0.90| 0.10|npmle:threshold     |0.018 (0.001) |0.838 (0.017) |
-|separated_hi |10 | 0.90| 0.10|oracle:threshold    |0.008 (0.001) |0.794 (0.003) |
-|separated_hi |10 | 0.90| 0.20|betabinom:threshold |0.007 (0.001) |0.790 (0.005) |
-|separated_hi |10 | 0.90| 0.20|binom_test:BH       |0.000 (0.000) |0.000 (0.000) |
-|separated_hi |10 | 0.90| 0.20|npmle:threshold     |0.024 (0.002) |0.914 (0.010) |
-|separated_hi |10 | 0.90| 0.20|oracle:threshold    |0.029 (0.001) |0.966 (0.002) |
-|separated_hi |10 | 0.95| 0.05|betabinom:threshold |0.000 (0.000) |0.000 (0.000) |
-|separated_hi |10 | 0.95| 0.05|binom_test:BH       |0.000 (0.000) |0.000 (0.000) |
-|separated_hi |10 | 0.95| 0.05|npmle:threshold     |0.051 (0.004) |0.538 (0.030) |
-|separated_hi |10 | 0.95| 0.05|oracle:threshold    |0.000 (0.000) |0.000 (0.000) |
-|separated_hi |10 | 0.95| 0.10|betabinom:threshold |0.000 (0.000) |0.000 (0.000) |
-|separated_hi |10 | 0.95| 0.10|binom_test:BH       |0.000 (0.000) |0.000 (0.000) |
-|separated_hi |10 | 0.95| 0.10|npmle:threshold     |0.063 (0.004) |0.612 (0.031) |
-|separated_hi |10 | 0.95| 0.10|oracle:threshold    |0.072 (0.002) |0.825 (0.003) |
-|separated_hi |10 | 0.95| 0.20|betabinom:threshold |0.002 (0.001) |0.013 (0.008) |
-|separated_hi |10 | 0.95| 0.20|binom_test:BH       |0.000 (0.000) |0.000 (0.000) |
-|separated_hi |10 | 0.95| 0.20|npmle:threshold     |0.078 (0.004) |0.737 (0.027) |
-|separated_hi |10 | 0.95| 0.20|oracle:threshold    |0.072 (0.002) |0.825 (0.003) |
-|overlap_hi   |10 | 0.80| 0.05|betabinom:threshold |0.037 (0.002) |0.381 (0.010) |
-|overlap_hi   |10 | 0.80| 0.05|binom_test:BH       |0.000 (0.000) |0.000 (0.000) |
-|overlap_hi   |10 | 0.80| 0.05|npmle:threshold     |0.064 (0.005) |0.417 (0.025) |
-|overlap_hi   |10 | 0.80| 0.05|oracle:threshold    |0.041 (0.002) |0.420 (0.003) |
-|overlap_hi   |10 | 0.80| 0.10|betabinom:threshold |0.043 (0.002) |0.432 (0.005) |
-|overlap_hi   |10 | 0.80| 0.10|binom_test:BH       |0.000 (0.000) |0.000 (0.000) |
-|overlap_hi   |10 | 0.80| 0.10|npmle:threshold     |0.084 (0.006) |0.559 (0.022) |
-|overlap_hi   |10 | 0.80| 0.10|oracle:threshold    |0.041 (0.002) |0.420 (0.003) |
-|overlap_hi   |10 | 0.80| 0.20|betabinom:threshold |0.099 (0.002) |0.750 (0.003) |
-|overlap_hi   |10 | 0.80| 0.20|binom_test:BH       |0.000 (0.000) |0.000 (0.000) |
-|overlap_hi   |10 | 0.80| 0.20|npmle:threshold     |0.115 (0.005) |0.705 (0.017) |
-|overlap_hi   |10 | 0.80| 0.20|oracle:threshold    |0.098 (0.002) |0.747 (0.002) |
-|overlap_hi   |10 | 0.90| 0.05|betabinom:threshold |0.000 (0.000) |0.000 (0.000) |
-|overlap_hi   |10 | 0.90| 0.05|binom_test:BH       |0.000 (0.000) |0.000 (0.000) |
-|overlap_hi   |10 | 0.90| 0.05|npmle:threshold     |0.041 (0.007) |0.094 (0.015) |
-|overlap_hi   |10 | 0.90| 0.05|oracle:threshold    |0.000 (0.000) |0.000 (0.000) |
-|overlap_hi   |10 | 0.90| 0.10|betabinom:threshold |0.000 (0.000) |0.000 (0.000) |
-|overlap_hi   |10 | 0.90| 0.10|binom_test:BH       |0.000 (0.000) |0.000 (0.000) |
-|overlap_hi   |10 | 0.90| 0.10|npmle:threshold     |0.092 (0.009) |0.210 (0.021) |
-|overlap_hi   |10 | 0.90| 0.10|oracle:threshold    |0.000 (0.000) |0.000 (0.000) |
-|overlap_hi   |10 | 0.90| 0.20|betabinom:threshold |0.005 (0.003) |0.014 (0.007) |
-|overlap_hi   |10 | 0.90| 0.20|binom_test:BH       |0.000 (0.000) |0.000 (0.000) |
-|overlap_hi   |10 | 0.90| 0.20|npmle:threshold     |0.149 (0.011) |0.345 (0.025) |
-|overlap_hi   |10 | 0.90| 0.20|oracle:threshold    |0.000 (0.000) |0.000 (0.000) |
-|overlap_hi   |10 | 0.95| 0.05|betabinom:threshold |0.000 (0.000) |0.000 (0.000) |
-|overlap_hi   |10 | 0.95| 0.05|binom_test:BH       |0.000 (0.000) |0.000 (0.000) |
-|overlap_hi   |10 | 0.95| 0.05|npmle:threshold     |0.000 (0.000) |0.000 (0.000) |
-|overlap_hi   |10 | 0.95| 0.05|oracle:threshold    |0.000 (0.000) |0.000 (0.000) |
-|overlap_hi   |10 | 0.95| 0.10|betabinom:threshold |0.000 (0.000) |0.000 (0.000) |
-|overlap_hi   |10 | 0.95| 0.10|binom_test:BH       |0.000 (0.000) |0.000 (0.000) |
-|overlap_hi   |10 | 0.95| 0.10|npmle:threshold     |0.003 (0.003) |0.004 (0.004) |
-|overlap_hi   |10 | 0.95| 0.10|oracle:threshold    |0.000 (0.000) |0.000 (0.000) |
-|overlap_hi   |10 | 0.95| 0.20|betabinom:threshold |0.000 (0.000) |0.000 (0.000) |
-|overlap_hi   |10 | 0.95| 0.20|binom_test:BH       |0.000 (0.000) |0.000 (0.000) |
-|overlap_hi   |10 | 0.95| 0.20|npmle:threshold     |0.028 (0.009) |0.034 (0.011) |
-|overlap_hi   |10 | 0.95| 0.20|oracle:threshold    |0.000 (0.000) |0.000 (0.000) |
-|near_tau     |10 | 0.80| 0.05|betabinom:threshold |0.011 (0.001) |0.356 (0.004) |
-|near_tau     |10 | 0.80| 0.05|binom_test:BH       |0.000 (0.000) |0.000 (0.000) |
-|near_tau     |10 | 0.80| 0.05|npmle:threshold     |0.033 (0.002) |0.684 (0.021) |
-|near_tau     |10 | 0.80| 0.05|oracle:threshold    |0.025 (0.001) |0.734 (0.003) |
-|near_tau     |10 | 0.80| 0.10|betabinom:threshold |0.011 (0.001) |0.359 (0.003) |
-|near_tau     |10 | 0.80| 0.10|binom_test:BH       |0.000 (0.000) |0.000 (0.000) |
-|near_tau     |10 | 0.80| 0.10|npmle:threshold     |0.043 (0.002) |0.787 (0.016) |
-|near_tau     |10 | 0.80| 0.10|oracle:threshold    |0.025 (0.001) |0.734 (0.003) |
-|near_tau     |10 | 0.80| 0.20|betabinom:threshold |0.020 (0.001) |0.618 (0.014) |
-|near_tau     |10 | 0.80| 0.20|binom_test:BH       |0.000 (0.000) |0.000 (0.000) |
-|near_tau     |10 | 0.80| 0.20|npmle:threshold     |0.053 (0.002) |0.861 (0.012) |
-|near_tau     |10 | 0.80| 0.20|oracle:threshold    |0.050 (0.001) |0.923 (0.001) |
-|near_tau     |10 | 0.90| 0.05|betabinom:threshold |0.000 (0.000) |0.000 (0.000) |
-|near_tau     |10 | 0.90| 0.05|binom_test:BH       |0.000 (0.000) |0.000 (0.000) |
-|near_tau     |10 | 0.90| 0.05|npmle:threshold     |0.130 (0.014) |0.200 (0.023) |
-|near_tau     |10 | 0.90| 0.05|oracle:threshold    |0.000 (0.000) |0.000 (0.000) |
-|near_tau     |10 | 0.90| 0.10|betabinom:threshold |0.000 (0.000) |0.000 (0.000) |
-|near_tau     |10 | 0.90| 0.10|binom_test:BH       |0.000 (0.000) |0.000 (0.000) |
-|near_tau     |10 | 0.90| 0.10|npmle:threshold     |0.164 (0.015) |0.273 (0.026) |
-|near_tau     |10 | 0.90| 0.10|oracle:threshold    |0.000 (0.000) |0.000 (0.000) |
-|near_tau     |10 | 0.90| 0.20|betabinom:threshold |0.355 (0.009) |0.394 (0.010) |
-|near_tau     |10 | 0.90| 0.20|binom_test:BH       |0.000 (0.000) |0.000 (0.000) |
-|near_tau     |10 | 0.90| 0.20|npmle:threshold     |0.198 (0.016) |0.343 (0.029) |
-|near_tau     |10 | 0.90| 0.20|oracle:threshold    |0.000 (0.000) |0.000 (0.000) |
-|near_tau     |10 | 0.95| 0.05|betabinom:threshold |0.000 (0.000) |0.000 (0.000) |
-|near_tau     |10 | 0.95| 0.05|binom_test:BH       |0.000 (0.000) |0.000 (0.000) |
-|near_tau     |10 | 0.95| 0.05|npmle:threshold     |0.000 (0.000) |0.000 (0.000) |
-|near_tau     |10 | 0.95| 0.05|oracle:threshold    |0.000 (0.000) |0.000 (0.000) |
-|near_tau     |10 | 0.95| 0.10|betabinom:threshold |0.000 (0.000) |0.000 (0.000) |
-|near_tau     |10 | 0.95| 0.10|binom_test:BH       |0.000 (0.000) |0.000 (0.000) |
-|near_tau     |10 | 0.95| 0.10|npmle:threshold     |0.000 (0.000) |0.000 (0.000) |
-|near_tau     |10 | 0.95| 0.10|oracle:threshold    |0.000 (0.000) |0.000 (0.000) |
-|near_tau     |10 | 0.95| 0.20|betabinom:threshold |0.000 (0.000) |0.000 (0.000) |
-|near_tau     |10 | 0.95| 0.20|binom_test:BH       |0.000 (0.000) |0.000 (0.000) |
-|near_tau     |10 | 0.95| 0.20|npmle:threshold     |0.005 (0.005) |0.000 (0.000) |
-|near_tau     |10 | 0.95| 0.20|oracle:threshold    |0.000 (0.000) |0.000 (0.000) |
+|G            |k  |  tau|    q|rule                 |FDR           |power         |
+|:------------|:--|----:|----:|:--------------------|:-------------|:-------------|
+|separated_hi |10 | 0.80| 0.05|betabinom:threshold  |0.005 (0.001) |0.789 (0.003) |
+|separated_hi |10 | 0.80| 0.05|binom_test:BH        |0.000 (0.000) |0.000 (0.000) |
+|separated_hi |10 | 0.80| 0.05|npmle:threshold      |0.012 (0.001) |0.868 (0.006) |
+|separated_hi |10 | 0.80| 0.05|oracle:threshold     |0.005 (0.001) |0.789 (0.003) |
+|separated_hi |10 | 0.80| 0.05|robust_box:threshold |0.000 (0.000) |0.000 (0.000) |
+|separated_hi |10 | 0.80| 0.10|betabinom:threshold  |0.005 (0.001) |0.789 (0.003) |
+|separated_hi |10 | 0.80| 0.10|binom_test:BH        |0.000 (0.000) |0.000 (0.000) |
+|separated_hi |10 | 0.80| 0.10|npmle:threshold      |0.018 (0.001) |0.914 (0.006) |
+|separated_hi |10 | 0.80| 0.10|oracle:threshold     |0.005 (0.001) |0.789 (0.003) |
+|separated_hi |10 | 0.80| 0.10|robust_box:threshold |0.000 (0.000) |0.000 (0.000) |
+|separated_hi |10 | 0.80| 0.20|betabinom:threshold  |0.010 (0.001) |0.845 (0.007) |
+|separated_hi |10 | 0.80| 0.20|binom_test:BH        |0.000 (0.000) |0.000 (0.000) |
+|separated_hi |10 | 0.80| 0.20|npmle:threshold      |0.027 (0.002) |0.949 (0.004) |
+|separated_hi |10 | 0.80| 0.20|oracle:threshold     |0.023 (0.001) |0.963 (0.002) |
+|separated_hi |10 | 0.80| 0.20|robust_box:threshold |0.001 (0.000) |0.205 (0.025) |
+|separated_hi |10 | 0.90| 0.05|betabinom:threshold  |0.000 (0.000) |0.000 (0.000) |
+|separated_hi |10 | 0.90| 0.05|binom_test:BH        |0.000 (0.000) |0.000 (0.000) |
+|separated_hi |10 | 0.90| 0.05|npmle:threshold      |0.012 (0.001) |0.751 (0.021) |
+|separated_hi |10 | 0.90| 0.05|oracle:threshold     |0.008 (0.001) |0.794 (0.003) |
+|separated_hi |10 | 0.90| 0.05|robust_box:threshold |0.000 (0.000) |0.000 (0.000) |
+|separated_hi |10 | 0.90| 0.10|betabinom:threshold  |0.001 (0.000) |0.066 (0.016) |
+|separated_hi |10 | 0.90| 0.10|binom_test:BH        |0.000 (0.000) |0.000 (0.000) |
+|separated_hi |10 | 0.90| 0.10|npmle:threshold      |0.018 (0.001) |0.838 (0.017) |
+|separated_hi |10 | 0.90| 0.10|oracle:threshold     |0.008 (0.001) |0.794 (0.003) |
+|separated_hi |10 | 0.90| 0.10|robust_box:threshold |0.000 (0.000) |0.000 (0.000) |
+|separated_hi |10 | 0.90| 0.20|betabinom:threshold  |0.007 (0.001) |0.790 (0.005) |
+|separated_hi |10 | 0.90| 0.20|binom_test:BH        |0.000 (0.000) |0.000 (0.000) |
+|separated_hi |10 | 0.90| 0.20|npmle:threshold      |0.024 (0.002) |0.914 (0.010) |
+|separated_hi |10 | 0.90| 0.20|oracle:threshold     |0.029 (0.001) |0.966 (0.002) |
+|separated_hi |10 | 0.90| 0.20|robust_box:threshold |0.000 (0.000) |0.000 (0.000) |
+|separated_hi |10 | 0.95| 0.05|betabinom:threshold  |0.000 (0.000) |0.000 (0.000) |
+|separated_hi |10 | 0.95| 0.05|binom_test:BH        |0.000 (0.000) |0.000 (0.000) |
+|separated_hi |10 | 0.95| 0.05|npmle:threshold      |0.051 (0.004) |0.538 (0.030) |
+|separated_hi |10 | 0.95| 0.05|oracle:threshold     |0.000 (0.000) |0.000 (0.000) |
+|separated_hi |10 | 0.95| 0.05|robust_box:threshold |0.000 (0.000) |0.000 (0.000) |
+|separated_hi |10 | 0.95| 0.10|betabinom:threshold  |0.000 (0.000) |0.000 (0.000) |
+|separated_hi |10 | 0.95| 0.10|binom_test:BH        |0.000 (0.000) |0.000 (0.000) |
+|separated_hi |10 | 0.95| 0.10|npmle:threshold      |0.063 (0.004) |0.612 (0.031) |
+|separated_hi |10 | 0.95| 0.10|oracle:threshold     |0.072 (0.002) |0.825 (0.003) |
+|separated_hi |10 | 0.95| 0.10|robust_box:threshold |0.000 (0.000) |0.000 (0.000) |
+|separated_hi |10 | 0.95| 0.20|betabinom:threshold  |0.002 (0.001) |0.013 (0.008) |
+|separated_hi |10 | 0.95| 0.20|binom_test:BH        |0.000 (0.000) |0.000 (0.000) |
+|separated_hi |10 | 0.95| 0.20|npmle:threshold      |0.078 (0.004) |0.737 (0.027) |
+|separated_hi |10 | 0.95| 0.20|oracle:threshold     |0.072 (0.002) |0.825 (0.003) |
+|separated_hi |10 | 0.95| 0.20|robust_box:threshold |0.000 (0.000) |0.000 (0.000) |
+|overlap_hi   |10 | 0.80| 0.05|betabinom:threshold  |0.037 (0.002) |0.381 (0.010) |
+|overlap_hi   |10 | 0.80| 0.05|binom_test:BH        |0.000 (0.000) |0.000 (0.000) |
+|overlap_hi   |10 | 0.80| 0.05|npmle:threshold      |0.064 (0.005) |0.417 (0.025) |
+|overlap_hi   |10 | 0.80| 0.05|oracle:threshold     |0.041 (0.002) |0.420 (0.003) |
+|overlap_hi   |10 | 0.80| 0.05|robust_box:threshold |0.000 (0.000) |0.000 (0.000) |
+|overlap_hi   |10 | 0.80| 0.10|betabinom:threshold  |0.043 (0.002) |0.432 (0.005) |
+|overlap_hi   |10 | 0.80| 0.10|binom_test:BH        |0.000 (0.000) |0.000 (0.000) |
+|overlap_hi   |10 | 0.80| 0.10|npmle:threshold      |0.084 (0.006) |0.559 (0.022) |
+|overlap_hi   |10 | 0.80| 0.10|oracle:threshold     |0.041 (0.002) |0.420 (0.003) |
+|overlap_hi   |10 | 0.80| 0.10|robust_box:threshold |0.000 (0.000) |0.000 (0.000) |
+|overlap_hi   |10 | 0.80| 0.20|betabinom:threshold  |0.099 (0.002) |0.750 (0.003) |
+|overlap_hi   |10 | 0.80| 0.20|binom_test:BH        |0.000 (0.000) |0.000 (0.000) |
+|overlap_hi   |10 | 0.80| 0.20|npmle:threshold      |0.115 (0.005) |0.705 (0.017) |
+|overlap_hi   |10 | 0.80| 0.20|oracle:threshold     |0.098 (0.002) |0.747 (0.002) |
+|overlap_hi   |10 | 0.80| 0.20|robust_box:threshold |0.000 (0.000) |0.000 (0.000) |
+|overlap_hi   |10 | 0.90| 0.05|betabinom:threshold  |0.000 (0.000) |0.000 (0.000) |
+|overlap_hi   |10 | 0.90| 0.05|binom_test:BH        |0.000 (0.000) |0.000 (0.000) |
+|overlap_hi   |10 | 0.90| 0.05|npmle:threshold      |0.041 (0.007) |0.094 (0.015) |
+|overlap_hi   |10 | 0.90| 0.05|oracle:threshold     |0.000 (0.000) |0.000 (0.000) |
+|overlap_hi   |10 | 0.90| 0.05|robust_box:threshold |0.000 (0.000) |0.000 (0.000) |
+|overlap_hi   |10 | 0.90| 0.10|betabinom:threshold  |0.000 (0.000) |0.000 (0.000) |
+|overlap_hi   |10 | 0.90| 0.10|binom_test:BH        |0.000 (0.000) |0.000 (0.000) |
+|overlap_hi   |10 | 0.90| 0.10|npmle:threshold      |0.092 (0.009) |0.210 (0.021) |
+|overlap_hi   |10 | 0.90| 0.10|oracle:threshold     |0.000 (0.000) |0.000 (0.000) |
+|overlap_hi   |10 | 0.90| 0.10|robust_box:threshold |0.000 (0.000) |0.000 (0.000) |
+|overlap_hi   |10 | 0.90| 0.20|betabinom:threshold  |0.005 (0.003) |0.014 (0.007) |
+|overlap_hi   |10 | 0.90| 0.20|binom_test:BH        |0.000 (0.000) |0.000 (0.000) |
+|overlap_hi   |10 | 0.90| 0.20|npmle:threshold      |0.149 (0.011) |0.345 (0.025) |
+|overlap_hi   |10 | 0.90| 0.20|oracle:threshold     |0.000 (0.000) |0.000 (0.000) |
+|overlap_hi   |10 | 0.90| 0.20|robust_box:threshold |0.000 (0.000) |0.000 (0.000) |
+|overlap_hi   |10 | 0.95| 0.05|betabinom:threshold  |0.000 (0.000) |0.000 (0.000) |
+|overlap_hi   |10 | 0.95| 0.05|binom_test:BH        |0.000 (0.000) |0.000 (0.000) |
+|overlap_hi   |10 | 0.95| 0.05|npmle:threshold      |0.000 (0.000) |0.000 (0.000) |
+|overlap_hi   |10 | 0.95| 0.05|oracle:threshold     |0.000 (0.000) |0.000 (0.000) |
+|overlap_hi   |10 | 0.95| 0.05|robust_box:threshold |0.000 (0.000) |0.000 (0.000) |
+|overlap_hi   |10 | 0.95| 0.10|betabinom:threshold  |0.000 (0.000) |0.000 (0.000) |
+|overlap_hi   |10 | 0.95| 0.10|binom_test:BH        |0.000 (0.000) |0.000 (0.000) |
+|overlap_hi   |10 | 0.95| 0.10|npmle:threshold      |0.003 (0.003) |0.004 (0.004) |
+|overlap_hi   |10 | 0.95| 0.10|oracle:threshold     |0.000 (0.000) |0.000 (0.000) |
+|overlap_hi   |10 | 0.95| 0.10|robust_box:threshold |0.000 (0.000) |0.000 (0.000) |
+|overlap_hi   |10 | 0.95| 0.20|betabinom:threshold  |0.000 (0.000) |0.000 (0.000) |
+|overlap_hi   |10 | 0.95| 0.20|binom_test:BH        |0.000 (0.000) |0.000 (0.000) |
+|overlap_hi   |10 | 0.95| 0.20|npmle:threshold      |0.028 (0.009) |0.034 (0.011) |
+|overlap_hi   |10 | 0.95| 0.20|oracle:threshold     |0.000 (0.000) |0.000 (0.000) |
+|overlap_hi   |10 | 0.95| 0.20|robust_box:threshold |0.000 (0.000) |0.000 (0.000) |
+|near_tau     |10 | 0.80| 0.05|betabinom:threshold  |0.011 (0.001) |0.356 (0.004) |
+|near_tau     |10 | 0.80| 0.05|binom_test:BH        |0.000 (0.000) |0.000 (0.000) |
+|near_tau     |10 | 0.80| 0.05|npmle:threshold      |0.033 (0.002) |0.684 (0.021) |
+|near_tau     |10 | 0.80| 0.05|oracle:threshold     |0.025 (0.001) |0.734 (0.003) |
+|near_tau     |10 | 0.80| 0.05|robust_box:threshold |0.000 (0.000) |0.000 (0.000) |
+|near_tau     |10 | 0.80| 0.10|betabinom:threshold  |0.011 (0.001) |0.359 (0.003) |
+|near_tau     |10 | 0.80| 0.10|binom_test:BH        |0.000 (0.000) |0.000 (0.000) |
+|near_tau     |10 | 0.80| 0.10|npmle:threshold      |0.043 (0.002) |0.787 (0.016) |
+|near_tau     |10 | 0.80| 0.10|oracle:threshold     |0.025 (0.001) |0.734 (0.003) |
+|near_tau     |10 | 0.80| 0.10|robust_box:threshold |0.000 (0.000) |0.000 (0.000) |
+|near_tau     |10 | 0.80| 0.20|betabinom:threshold  |0.020 (0.001) |0.618 (0.014) |
+|near_tau     |10 | 0.80| 0.20|binom_test:BH        |0.000 (0.000) |0.000 (0.000) |
+|near_tau     |10 | 0.80| 0.20|npmle:threshold      |0.053 (0.002) |0.861 (0.012) |
+|near_tau     |10 | 0.80| 0.20|oracle:threshold     |0.050 (0.001) |0.923 (0.001) |
+|near_tau     |10 | 0.80| 0.20|robust_box:threshold |0.000 (0.000) |0.002 (0.002) |
+|near_tau     |10 | 0.90| 0.05|betabinom:threshold  |0.000 (0.000) |0.000 (0.000) |
+|near_tau     |10 | 0.90| 0.05|binom_test:BH        |0.000 (0.000) |0.000 (0.000) |
+|near_tau     |10 | 0.90| 0.05|npmle:threshold      |0.130 (0.014) |0.200 (0.023) |
+|near_tau     |10 | 0.90| 0.05|oracle:threshold     |0.000 (0.000) |0.000 (0.000) |
+|near_tau     |10 | 0.90| 0.05|robust_box:threshold |0.000 (0.000) |0.000 (0.000) |
+|near_tau     |10 | 0.90| 0.10|betabinom:threshold  |0.000 (0.000) |0.000 (0.000) |
+|near_tau     |10 | 0.90| 0.10|binom_test:BH        |0.000 (0.000) |0.000 (0.000) |
+|near_tau     |10 | 0.90| 0.10|npmle:threshold      |0.164 (0.015) |0.273 (0.026) |
+|near_tau     |10 | 0.90| 0.10|oracle:threshold     |0.000 (0.000) |0.000 (0.000) |
+|near_tau     |10 | 0.90| 0.10|robust_box:threshold |0.000 (0.000) |0.000 (0.000) |
+|near_tau     |10 | 0.90| 0.20|betabinom:threshold  |0.355 (0.009) |0.394 (0.010) |
+|near_tau     |10 | 0.90| 0.20|binom_test:BH        |0.000 (0.000) |0.000 (0.000) |
+|near_tau     |10 | 0.90| 0.20|npmle:threshold      |0.198 (0.016) |0.343 (0.029) |
+|near_tau     |10 | 0.90| 0.20|oracle:threshold     |0.000 (0.000) |0.000 (0.000) |
+|near_tau     |10 | 0.90| 0.20|robust_box:threshold |0.000 (0.000) |0.000 (0.000) |
+|near_tau     |10 | 0.95| 0.05|betabinom:threshold  |0.000 (0.000) |0.000 (0.000) |
+|near_tau     |10 | 0.95| 0.05|binom_test:BH        |0.000 (0.000) |0.000 (0.000) |
+|near_tau     |10 | 0.95| 0.05|npmle:threshold      |0.000 (0.000) |0.000 (0.000) |
+|near_tau     |10 | 0.95| 0.05|oracle:threshold     |0.000 (0.000) |0.000 (0.000) |
+|near_tau     |10 | 0.95| 0.05|robust_box:threshold |0.000 (0.000) |0.000 (0.000) |
+|near_tau     |10 | 0.95| 0.10|betabinom:threshold  |0.000 (0.000) |0.000 (0.000) |
+|near_tau     |10 | 0.95| 0.10|binom_test:BH        |0.000 (0.000) |0.000 (0.000) |
+|near_tau     |10 | 0.95| 0.10|npmle:threshold      |0.000 (0.000) |0.000 (0.000) |
+|near_tau     |10 | 0.95| 0.10|oracle:threshold     |0.000 (0.000) |0.000 (0.000) |
+|near_tau     |10 | 0.95| 0.10|robust_box:threshold |0.000 (0.000) |0.000 (0.000) |
+|near_tau     |10 | 0.95| 0.20|betabinom:threshold  |0.000 (0.000) |0.000 (0.000) |
+|near_tau     |10 | 0.95| 0.20|binom_test:BH        |0.000 (0.000) |0.000 (0.000) |
+|near_tau     |10 | 0.95| 0.20|npmle:threshold      |0.005 (0.005) |0.000 (0.000) |
+|near_tau     |10 | 0.95| 0.20|oracle:threshold     |0.000 (0.000) |0.000 (0.000) |
+|near_tau     |10 | 0.95| 0.20|robust_box:threshold |0.000 (0.000) |0.000 (0.000) |
 
 ## Accuracy of estimated lfdr, J = 200, tau = 0.90
 
@@ -743,145 +896,169 @@ For het designs k0 = 10. npmle_plugin = mean (SD across replicates). A = identif
 
 none = independent primary model (same seeds family, separate scenario ids); within_corr = intra-task run correlation 0.3 (X | theta beta-binomial); clustered = tasks in clusters of 10 sharing theta.
 
-|G            |k  |dependence  |rule                |FDR           |power         | mean_calls|
-|:------------|:--|:-----------|:-------------------|:-------------|:-------------|----------:|
-|separated_hi |5  |clustered   |betabinom:threshold |0.000 (0.000) |0.005 (0.005) |        0.7|
-|separated_hi |5  |none        |betabinom:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|
-|separated_hi |5  |within_corr |betabinom:threshold |0.001 (0.001) |0.005 (0.005) |        0.5|
-|separated_hi |5  |clustered   |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|
-|separated_hi |5  |none        |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|
-|separated_hi |5  |within_corr |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|
-|separated_hi |5  |clustered   |npmle:threshold     |0.031 (0.004) |0.582 (0.031) |       49.1|
-|separated_hi |5  |none        |npmle:threshold     |0.035 (0.002) |0.617 (0.029) |       51.9|
-|separated_hi |5  |within_corr |npmle:threshold     |0.128 (0.005) |0.751 (0.026) |       71.0|
-|separated_hi |5  |clustered   |oracle:threshold    |0.054 (0.004) |0.890 (0.003) |       73.7|
-|separated_hi |5  |none        |oracle:threshold    |0.048 (0.002) |0.888 (0.002) |       74.0|
-|separated_hi |5  |within_corr |oracle:threshold    |0.157 (0.003) |0.929 (0.002) |       87.4|
-|separated_hi |5  |clustered   |unpooled:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|
-|separated_hi |5  |none        |unpooled:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|
-|separated_hi |5  |within_corr |unpooled:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|
-|separated_hi |10 |clustered   |betabinom:threshold |0.002 (0.001) |0.275 (0.027) |       29.0|
-|separated_hi |10 |none        |betabinom:threshold |0.001 (0.000) |0.093 (0.019) |        8.3|
-|separated_hi |10 |within_corr |betabinom:threshold |0.093 (0.002) |0.904 (0.002) |       78.5|
-|separated_hi |10 |clustered   |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|
-|separated_hi |10 |none        |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|
-|separated_hi |10 |within_corr |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|
-|separated_hi |10 |clustered   |npmle:threshold     |0.019 (0.002) |0.825 (0.019) |       70.0|
-|separated_hi |10 |none        |npmle:threshold     |0.022 (0.002) |0.832 (0.018) |       68.1|
-|separated_hi |10 |within_corr |npmle:threshold     |0.091 (0.003) |0.852 (0.015) |       74.5|
-|separated_hi |10 |clustered   |oracle:threshold    |0.008 (0.001) |0.796 (0.005) |       64.7|
-|separated_hi |10 |none        |oracle:threshold    |0.010 (0.001) |0.793 (0.004) |       63.9|
-|separated_hi |10 |within_corr |oracle:threshold    |0.093 (0.002) |0.904 (0.002) |       78.5|
-|separated_hi |10 |clustered   |unpooled:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|
-|separated_hi |10 |none        |unpooled:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|
-|separated_hi |10 |within_corr |unpooled:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|
-|overlap_hi   |5  |clustered   |betabinom:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|
-|overlap_hi   |5  |none        |betabinom:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|
-|overlap_hi   |5  |within_corr |betabinom:threshold |0.054 (0.011) |0.101 (0.020) |       16.2|
-|overlap_hi   |5  |clustered   |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|
-|overlap_hi   |5  |none        |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|
-|overlap_hi   |5  |within_corr |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|
-|overlap_hi   |5  |clustered   |npmle:threshold     |0.046 (0.009) |0.100 (0.019) |       15.2|
-|overlap_hi   |5  |none        |npmle:threshold     |0.061 (0.010) |0.119 (0.020) |       17.1|
-|overlap_hi   |5  |within_corr |npmle:threshold     |0.256 (0.017) |0.452 (0.030) |       71.1|
-|overlap_hi   |5  |clustered   |oracle:threshold    |0.000 (0.000) |0.000 (0.000) |        0.0|
-|overlap_hi   |5  |none        |oracle:threshold    |0.000 (0.000) |0.000 (0.000) |        0.0|
-|overlap_hi   |5  |within_corr |oracle:threshold    |0.000 (0.000) |0.000 (0.000) |        0.0|
-|overlap_hi   |5  |clustered   |unpooled:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|
-|overlap_hi   |5  |none        |unpooled:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|
-|overlap_hi   |5  |within_corr |unpooled:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|
-|overlap_hi   |10 |clustered   |betabinom:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|
-|overlap_hi   |10 |none        |betabinom:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|
-|overlap_hi   |10 |within_corr |betabinom:threshold |0.420 (0.004) |0.786 (0.003) |      113.2|
-|overlap_hi   |10 |clustered   |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|
-|overlap_hi   |10 |none        |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|
-|overlap_hi   |10 |within_corr |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|
-|overlap_hi   |10 |clustered   |npmle:threshold     |0.084 (0.010) |0.205 (0.022) |       25.3|
-|overlap_hi   |10 |none        |npmle:threshold     |0.095 (0.010) |0.207 (0.021) |       24.7|
-|overlap_hi   |10 |within_corr |npmle:threshold     |0.314 (0.014) |0.588 (0.025) |       86.3|
-|overlap_hi   |10 |clustered   |oracle:threshold    |0.000 (0.000) |0.000 (0.000) |        0.0|
-|overlap_hi   |10 |none        |oracle:threshold    |0.000 (0.000) |0.000 (0.000) |        0.0|
-|overlap_hi   |10 |within_corr |oracle:threshold    |0.000 (0.000) |0.000 (0.000) |        0.0|
-|overlap_hi   |10 |clustered   |unpooled:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|
-|overlap_hi   |10 |none        |unpooled:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|
-|overlap_hi   |10 |within_corr |unpooled:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|
+|G            |k  |dependence  |rule                 |FDR           |power         | mean_calls|
+|:------------|:--|:-----------|:--------------------|:-------------|:-------------|----------:|
+|separated_hi |5  |clustered   |betabinom:threshold  |0.000 (0.000) |0.005 (0.005) |        0.7|
+|separated_hi |5  |none        |betabinom:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|
+|separated_hi |5  |within_corr |betabinom:threshold  |0.001 (0.001) |0.005 (0.005) |        0.5|
+|separated_hi |5  |clustered   |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|
+|separated_hi |5  |none        |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|
+|separated_hi |5  |within_corr |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|
+|separated_hi |5  |clustered   |npmle:threshold      |0.031 (0.004) |0.582 (0.031) |       49.1|
+|separated_hi |5  |none        |npmle:threshold      |0.035 (0.002) |0.617 (0.029) |       51.9|
+|separated_hi |5  |within_corr |npmle:threshold      |0.128 (0.005) |0.751 (0.026) |       71.0|
+|separated_hi |5  |clustered   |oracle:threshold     |0.054 (0.004) |0.890 (0.003) |       73.7|
+|separated_hi |5  |none        |oracle:threshold     |0.048 (0.002) |0.888 (0.002) |       74.0|
+|separated_hi |5  |within_corr |oracle:threshold     |0.157 (0.003) |0.929 (0.002) |       87.4|
+|separated_hi |5  |clustered   |robust_box:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|
+|separated_hi |5  |none        |robust_box:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|
+|separated_hi |5  |within_corr |robust_box:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|
+|separated_hi |5  |clustered   |unpooled:threshold   |0.000 (0.000) |0.000 (0.000) |        0.0|
+|separated_hi |5  |none        |unpooled:threshold   |0.000 (0.000) |0.000 (0.000) |        0.0|
+|separated_hi |5  |within_corr |unpooled:threshold   |0.000 (0.000) |0.000 (0.000) |        0.0|
+|separated_hi |10 |clustered   |betabinom:threshold  |0.002 (0.001) |0.275 (0.027) |       29.0|
+|separated_hi |10 |none        |betabinom:threshold  |0.001 (0.000) |0.093 (0.019) |        8.3|
+|separated_hi |10 |within_corr |betabinom:threshold  |0.093 (0.002) |0.904 (0.002) |       78.5|
+|separated_hi |10 |clustered   |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|
+|separated_hi |10 |none        |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|
+|separated_hi |10 |within_corr |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|
+|separated_hi |10 |clustered   |npmle:threshold      |0.019 (0.002) |0.825 (0.019) |       70.0|
+|separated_hi |10 |none        |npmle:threshold      |0.022 (0.002) |0.832 (0.018) |       68.1|
+|separated_hi |10 |within_corr |npmle:threshold      |0.091 (0.003) |0.852 (0.015) |       74.5|
+|separated_hi |10 |clustered   |oracle:threshold     |0.008 (0.001) |0.796 (0.005) |       64.7|
+|separated_hi |10 |none        |oracle:threshold     |0.010 (0.001) |0.793 (0.004) |       63.9|
+|separated_hi |10 |within_corr |oracle:threshold     |0.093 (0.002) |0.904 (0.002) |       78.5|
+|separated_hi |10 |clustered   |robust_box:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|
+|separated_hi |10 |none        |robust_box:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|
+|separated_hi |10 |within_corr |robust_box:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|
+|separated_hi |10 |clustered   |unpooled:threshold   |0.000 (0.000) |0.000 (0.000) |        0.0|
+|separated_hi |10 |none        |unpooled:threshold   |0.000 (0.000) |0.000 (0.000) |        0.0|
+|separated_hi |10 |within_corr |unpooled:threshold   |0.000 (0.000) |0.000 (0.000) |        0.0|
+|overlap_hi   |5  |clustered   |betabinom:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|
+|overlap_hi   |5  |none        |betabinom:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|
+|overlap_hi   |5  |within_corr |betabinom:threshold  |0.054 (0.011) |0.101 (0.020) |       16.2|
+|overlap_hi   |5  |clustered   |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|
+|overlap_hi   |5  |none        |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|
+|overlap_hi   |5  |within_corr |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|
+|overlap_hi   |5  |clustered   |npmle:threshold      |0.046 (0.009) |0.100 (0.019) |       15.2|
+|overlap_hi   |5  |none        |npmle:threshold      |0.061 (0.010) |0.119 (0.020) |       17.1|
+|overlap_hi   |5  |within_corr |npmle:threshold      |0.256 (0.017) |0.452 (0.030) |       71.1|
+|overlap_hi   |5  |clustered   |oracle:threshold     |0.000 (0.000) |0.000 (0.000) |        0.0|
+|overlap_hi   |5  |none        |oracle:threshold     |0.000 (0.000) |0.000 (0.000) |        0.0|
+|overlap_hi   |5  |within_corr |oracle:threshold     |0.000 (0.000) |0.000 (0.000) |        0.0|
+|overlap_hi   |5  |clustered   |robust_box:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|
+|overlap_hi   |5  |none        |robust_box:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|
+|overlap_hi   |5  |within_corr |robust_box:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|
+|overlap_hi   |5  |clustered   |unpooled:threshold   |0.000 (0.000) |0.000 (0.000) |        0.0|
+|overlap_hi   |5  |none        |unpooled:threshold   |0.000 (0.000) |0.000 (0.000) |        0.0|
+|overlap_hi   |5  |within_corr |unpooled:threshold   |0.000 (0.000) |0.000 (0.000) |        0.0|
+|overlap_hi   |10 |clustered   |betabinom:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|
+|overlap_hi   |10 |none        |betabinom:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|
+|overlap_hi   |10 |within_corr |betabinom:threshold  |0.420 (0.004) |0.786 (0.003) |      113.2|
+|overlap_hi   |10 |clustered   |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|
+|overlap_hi   |10 |none        |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|
+|overlap_hi   |10 |within_corr |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|
+|overlap_hi   |10 |clustered   |npmle:threshold      |0.084 (0.010) |0.205 (0.022) |       25.3|
+|overlap_hi   |10 |none        |npmle:threshold      |0.095 (0.010) |0.207 (0.021) |       24.7|
+|overlap_hi   |10 |within_corr |npmle:threshold      |0.314 (0.014) |0.588 (0.025) |       86.3|
+|overlap_hi   |10 |clustered   |oracle:threshold     |0.000 (0.000) |0.000 (0.000) |        0.0|
+|overlap_hi   |10 |none        |oracle:threshold     |0.000 (0.000) |0.000 (0.000) |        0.0|
+|overlap_hi   |10 |within_corr |oracle:threshold     |0.000 (0.000) |0.000 (0.000) |        0.0|
+|overlap_hi   |10 |clustered   |robust_box:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|
+|overlap_hi   |10 |none        |robust_box:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|
+|overlap_hi   |10 |within_corr |robust_box:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|
+|overlap_hi   |10 |clustered   |unpooled:threshold   |0.000 (0.000) |0.000 (0.000) |        0.0|
+|overlap_hi   |10 |none        |unpooled:threshold   |0.000 (0.000) |0.000 (0.000) |        0.0|
+|overlap_hi   |10 |within_corr |unpooled:threshold   |0.000 (0.000) |0.000 (0.000) |        0.0|
 
 ## Dependence stress cases at tau = 0.80 (where the exact test can reject), q = 0.10
 
-|G            |k  |dependence  |rule                |FDR           |power         | mean_calls|
-|:------------|:--|:-----------|:-------------------|:-------------|:-------------|----------:|
-|separated_hi |5  |clustered   |betabinom:threshold |0.010 (0.001) |0.335 (0.031) |       34.8|
-|separated_hi |5  |none        |betabinom:threshold |0.009 (0.001) |0.189 (0.026) |       17.6|
-|separated_hi |5  |within_corr |betabinom:threshold |0.150 (0.003) |0.926 (0.002) |       87.4|
-|separated_hi |5  |clustered   |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|
-|separated_hi |5  |none        |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|
-|separated_hi |5  |within_corr |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|
-|separated_hi |5  |clustered   |binom_test:BY       |0.000 (0.000) |0.000 (0.000) |        0.0|
-|separated_hi |5  |none        |binom_test:BY       |0.000 (0.000) |0.000 (0.000) |        0.0|
-|separated_hi |5  |within_corr |binom_test:BY       |0.000 (0.000) |0.000 (0.000) |        0.0|
-|separated_hi |5  |clustered   |npmle:threshold     |0.036 (0.003) |0.735 (0.024) |       62.4|
-|separated_hi |5  |none        |npmle:threshold     |0.037 (0.002) |0.736 (0.024) |       62.0|
-|separated_hi |5  |within_corr |npmle:threshold     |0.144 (0.004) |0.881 (0.014) |       83.5|
-|separated_hi |5  |clustered   |oracle:threshold    |0.047 (0.003) |0.886 (0.004) |       73.7|
-|separated_hi |5  |none        |oracle:threshold    |0.043 (0.002) |0.884 (0.002) |       74.0|
-|separated_hi |5  |within_corr |oracle:threshold    |0.150 (0.003) |0.926 (0.002) |       87.4|
-|separated_hi |5  |clustered   |unpooled:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|
-|separated_hi |5  |none        |unpooled:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|
-|separated_hi |5  |within_corr |unpooled:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|
-|separated_hi |10 |clustered   |betabinom:threshold |0.004 (0.001) |0.756 (0.012) |       63.8|
-|separated_hi |10 |none        |betabinom:threshold |0.006 (0.001) |0.787 (0.003) |       63.9|
-|separated_hi |10 |within_corr |betabinom:threshold |0.088 (0.002) |0.900 (0.002) |       78.5|
-|separated_hi |10 |clustered   |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|
-|separated_hi |10 |none        |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|
-|separated_hi |10 |within_corr |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|
-|separated_hi |10 |clustered   |binom_test:BY       |0.000 (0.000) |0.000 (0.000) |        0.0|
-|separated_hi |10 |none        |binom_test:BY       |0.000 (0.000) |0.000 (0.000) |        0.0|
-|separated_hi |10 |within_corr |binom_test:BY       |0.000 (0.000) |0.000 (0.000) |        0.0|
-|separated_hi |10 |clustered   |npmle:threshold     |0.019 (0.003) |0.909 (0.007) |       76.3|
-|separated_hi |10 |none        |npmle:threshold     |0.021 (0.001) |0.912 (0.006) |       75.2|
-|separated_hi |10 |within_corr |npmle:threshold     |0.116 (0.004) |0.915 (0.003) |       82.8|
-|separated_hi |10 |clustered   |oracle:threshold    |0.004 (0.001) |0.790 (0.005) |       64.7|
-|separated_hi |10 |none        |oracle:threshold    |0.006 (0.001) |0.787 (0.003) |       63.9|
-|separated_hi |10 |within_corr |oracle:threshold    |0.088 (0.002) |0.900 (0.002) |       78.5|
-|separated_hi |10 |clustered   |unpooled:threshold  |0.004 (0.001) |0.790 (0.005) |       64.7|
-|separated_hi |10 |none        |unpooled:threshold  |0.006 (0.001) |0.787 (0.003) |       63.9|
-|separated_hi |10 |within_corr |unpooled:threshold  |0.088 (0.002) |0.900 (0.002) |       78.5|
-|overlap_hi   |5  |clustered   |betabinom:threshold |0.059 (0.005) |0.371 (0.026) |       64.8|
-|overlap_hi   |5  |none        |betabinom:threshold |0.064 (0.004) |0.373 (0.023) |       62.1|
-|overlap_hi   |5  |within_corr |betabinom:threshold |0.166 (0.002) |0.746 (0.003) |      130.2|
-|overlap_hi   |5  |clustered   |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|
-|overlap_hi   |5  |none        |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|
-|overlap_hi   |5  |within_corr |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|
-|overlap_hi   |5  |clustered   |binom_test:BY       |0.000 (0.000) |0.000 (0.000) |        0.0|
-|overlap_hi   |5  |none        |binom_test:BY       |0.000 (0.000) |0.000 (0.000) |        0.0|
-|overlap_hi   |5  |within_corr |binom_test:BY       |0.000 (0.000) |0.000 (0.000) |        0.0|
-|overlap_hi   |5  |clustered   |npmle:threshold     |0.124 (0.008) |0.566 (0.030) |      105.3|
-|overlap_hi   |5  |none        |npmle:threshold     |0.114 (0.007) |0.523 (0.029) |       94.7|
-|overlap_hi   |5  |within_corr |npmle:threshold     |0.153 (0.005) |0.680 (0.019) |      120.2|
-|overlap_hi   |5  |clustered   |oracle:threshold    |0.000 (0.000) |0.000 (0.000) |        0.0|
-|overlap_hi   |5  |none        |oracle:threshold    |0.000 (0.000) |0.000 (0.000) |        0.0|
-|overlap_hi   |5  |within_corr |oracle:threshold    |0.000 (0.000) |0.000 (0.000) |        0.0|
-|overlap_hi   |5  |clustered   |unpooled:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|
-|overlap_hi   |5  |none        |unpooled:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|
-|overlap_hi   |5  |within_corr |unpooled:threshold  |0.000 (0.000) |0.000 (0.000) |        0.0|
-|overlap_hi   |10 |clustered   |betabinom:threshold |0.046 (0.002) |0.471 (0.013) |       73.6|
-|overlap_hi   |10 |none        |betabinom:threshold |0.044 (0.002) |0.419 (0.004) |       63.7|
-|overlap_hi   |10 |within_corr |betabinom:threshold |0.137 (0.002) |0.669 (0.003) |      113.2|
-|overlap_hi   |10 |clustered   |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|
-|overlap_hi   |10 |none        |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|
-|overlap_hi   |10 |within_corr |binom_test:BH       |0.000 (0.000) |0.000 (0.000) |        0.0|
-|overlap_hi   |10 |clustered   |binom_test:BY       |0.000 (0.000) |0.000 (0.000) |        0.0|
-|overlap_hi   |10 |none        |binom_test:BY       |0.000 (0.000) |0.000 (0.000) |        0.0|
-|overlap_hi   |10 |within_corr |binom_test:BY       |0.000 (0.000) |0.000 (0.000) |        0.0|
-|overlap_hi   |10 |clustered   |npmle:threshold     |0.079 (0.006) |0.562 (0.024) |       95.3|
-|overlap_hi   |10 |none        |npmle:threshold     |0.079 (0.005) |0.521 (0.021) |       85.9|
-|overlap_hi   |10 |within_corr |npmle:threshold     |0.166 (0.003) |0.756 (0.006) |      133.1|
-|overlap_hi   |10 |clustered   |oracle:threshold    |0.042 (0.002) |0.421 (0.005) |       63.6|
-|overlap_hi   |10 |none        |oracle:threshold    |0.043 (0.002) |0.414 (0.003) |       62.8|
-|overlap_hi   |10 |within_corr |oracle:threshold    |0.137 (0.002) |0.669 (0.003) |      113.2|
-|overlap_hi   |10 |clustered   |unpooled:threshold  |0.042 (0.002) |0.421 (0.005) |       63.6|
-|overlap_hi   |10 |none        |unpooled:threshold  |0.043 (0.002) |0.414 (0.003) |       62.8|
-|overlap_hi   |10 |within_corr |unpooled:threshold  |0.137 (0.002) |0.669 (0.003) |      113.2|
+|G            |k  |dependence  |rule                 |FDR           |power         | mean_calls|
+|:------------|:--|:-----------|:--------------------|:-------------|:-------------|----------:|
+|separated_hi |5  |clustered   |betabinom:threshold  |0.010 (0.001) |0.335 (0.031) |       34.8|
+|separated_hi |5  |none        |betabinom:threshold  |0.009 (0.001) |0.189 (0.026) |       17.6|
+|separated_hi |5  |within_corr |betabinom:threshold  |0.150 (0.003) |0.926 (0.002) |       87.4|
+|separated_hi |5  |clustered   |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|
+|separated_hi |5  |none        |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|
+|separated_hi |5  |within_corr |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|
+|separated_hi |5  |clustered   |binom_test:BY        |0.000 (0.000) |0.000 (0.000) |        0.0|
+|separated_hi |5  |none        |binom_test:BY        |0.000 (0.000) |0.000 (0.000) |        0.0|
+|separated_hi |5  |within_corr |binom_test:BY        |0.000 (0.000) |0.000 (0.000) |        0.0|
+|separated_hi |5  |clustered   |npmle:threshold      |0.036 (0.003) |0.735 (0.024) |       62.4|
+|separated_hi |5  |none        |npmle:threshold      |0.037 (0.002) |0.736 (0.024) |       62.0|
+|separated_hi |5  |within_corr |npmle:threshold      |0.144 (0.004) |0.881 (0.014) |       83.5|
+|separated_hi |5  |clustered   |oracle:threshold     |0.047 (0.003) |0.886 (0.004) |       73.7|
+|separated_hi |5  |none        |oracle:threshold     |0.043 (0.002) |0.884 (0.002) |       74.0|
+|separated_hi |5  |within_corr |oracle:threshold     |0.150 (0.003) |0.926 (0.002) |       87.4|
+|separated_hi |5  |clustered   |robust_box:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|
+|separated_hi |5  |none        |robust_box:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|
+|separated_hi |5  |within_corr |robust_box:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|
+|separated_hi |5  |clustered   |unpooled:threshold   |0.000 (0.000) |0.000 (0.000) |        0.0|
+|separated_hi |5  |none        |unpooled:threshold   |0.000 (0.000) |0.000 (0.000) |        0.0|
+|separated_hi |5  |within_corr |unpooled:threshold   |0.000 (0.000) |0.000 (0.000) |        0.0|
+|separated_hi |10 |clustered   |betabinom:threshold  |0.004 (0.001) |0.756 (0.012) |       63.8|
+|separated_hi |10 |none        |betabinom:threshold  |0.006 (0.001) |0.787 (0.003) |       63.9|
+|separated_hi |10 |within_corr |betabinom:threshold  |0.088 (0.002) |0.900 (0.002) |       78.5|
+|separated_hi |10 |clustered   |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|
+|separated_hi |10 |none        |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|
+|separated_hi |10 |within_corr |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|
+|separated_hi |10 |clustered   |binom_test:BY        |0.000 (0.000) |0.000 (0.000) |        0.0|
+|separated_hi |10 |none        |binom_test:BY        |0.000 (0.000) |0.000 (0.000) |        0.0|
+|separated_hi |10 |within_corr |binom_test:BY        |0.000 (0.000) |0.000 (0.000) |        0.0|
+|separated_hi |10 |clustered   |npmle:threshold      |0.019 (0.003) |0.909 (0.007) |       76.3|
+|separated_hi |10 |none        |npmle:threshold      |0.021 (0.001) |0.912 (0.006) |       75.2|
+|separated_hi |10 |within_corr |npmle:threshold      |0.116 (0.004) |0.915 (0.003) |       82.8|
+|separated_hi |10 |clustered   |oracle:threshold     |0.004 (0.001) |0.790 (0.005) |       64.7|
+|separated_hi |10 |none        |oracle:threshold     |0.006 (0.001) |0.787 (0.003) |       63.9|
+|separated_hi |10 |within_corr |oracle:threshold     |0.088 (0.002) |0.900 (0.002) |       78.5|
+|separated_hi |10 |clustered   |robust_box:threshold |0.000 (0.000) |0.034 (0.012) |        3.6|
+|separated_hi |10 |none        |robust_box:threshold |0.000 (0.000) |0.004 (0.004) |        0.3|
+|separated_hi |10 |within_corr |robust_box:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|
+|separated_hi |10 |clustered   |unpooled:threshold   |0.004 (0.001) |0.790 (0.005) |       64.7|
+|separated_hi |10 |none        |unpooled:threshold   |0.006 (0.001) |0.787 (0.003) |       63.9|
+|separated_hi |10 |within_corr |unpooled:threshold   |0.088 (0.002) |0.900 (0.002) |       78.5|
+|overlap_hi   |5  |clustered   |betabinom:threshold  |0.059 (0.005) |0.371 (0.026) |       64.8|
+|overlap_hi   |5  |none        |betabinom:threshold  |0.064 (0.004) |0.373 (0.023) |       62.1|
+|overlap_hi   |5  |within_corr |betabinom:threshold  |0.166 (0.002) |0.746 (0.003) |      130.2|
+|overlap_hi   |5  |clustered   |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|
+|overlap_hi   |5  |none        |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|
+|overlap_hi   |5  |within_corr |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|
+|overlap_hi   |5  |clustered   |binom_test:BY        |0.000 (0.000) |0.000 (0.000) |        0.0|
+|overlap_hi   |5  |none        |binom_test:BY        |0.000 (0.000) |0.000 (0.000) |        0.0|
+|overlap_hi   |5  |within_corr |binom_test:BY        |0.000 (0.000) |0.000 (0.000) |        0.0|
+|overlap_hi   |5  |clustered   |npmle:threshold      |0.124 (0.008) |0.566 (0.030) |      105.3|
+|overlap_hi   |5  |none        |npmle:threshold      |0.114 (0.007) |0.523 (0.029) |       94.7|
+|overlap_hi   |5  |within_corr |npmle:threshold      |0.153 (0.005) |0.680 (0.019) |      120.2|
+|overlap_hi   |5  |clustered   |oracle:threshold     |0.000 (0.000) |0.000 (0.000) |        0.0|
+|overlap_hi   |5  |none        |oracle:threshold     |0.000 (0.000) |0.000 (0.000) |        0.0|
+|overlap_hi   |5  |within_corr |oracle:threshold     |0.000 (0.000) |0.000 (0.000) |        0.0|
+|overlap_hi   |5  |clustered   |robust_box:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|
+|overlap_hi   |5  |none        |robust_box:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|
+|overlap_hi   |5  |within_corr |robust_box:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|
+|overlap_hi   |5  |clustered   |unpooled:threshold   |0.000 (0.000) |0.000 (0.000) |        0.0|
+|overlap_hi   |5  |none        |unpooled:threshold   |0.000 (0.000) |0.000 (0.000) |        0.0|
+|overlap_hi   |5  |within_corr |unpooled:threshold   |0.000 (0.000) |0.000 (0.000) |        0.0|
+|overlap_hi   |10 |clustered   |betabinom:threshold  |0.046 (0.002) |0.471 (0.013) |       73.6|
+|overlap_hi   |10 |none        |betabinom:threshold  |0.044 (0.002) |0.419 (0.004) |       63.7|
+|overlap_hi   |10 |within_corr |betabinom:threshold  |0.137 (0.002) |0.669 (0.003) |      113.2|
+|overlap_hi   |10 |clustered   |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|
+|overlap_hi   |10 |none        |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|
+|overlap_hi   |10 |within_corr |binom_test:BH        |0.000 (0.000) |0.000 (0.000) |        0.0|
+|overlap_hi   |10 |clustered   |binom_test:BY        |0.000 (0.000) |0.000 (0.000) |        0.0|
+|overlap_hi   |10 |none        |binom_test:BY        |0.000 (0.000) |0.000 (0.000) |        0.0|
+|overlap_hi   |10 |within_corr |binom_test:BY        |0.000 (0.000) |0.000 (0.000) |        0.0|
+|overlap_hi   |10 |clustered   |npmle:threshold      |0.079 (0.006) |0.562 (0.024) |       95.3|
+|overlap_hi   |10 |none        |npmle:threshold      |0.079 (0.005) |0.521 (0.021) |       85.9|
+|overlap_hi   |10 |within_corr |npmle:threshold      |0.166 (0.003) |0.756 (0.006) |      133.1|
+|overlap_hi   |10 |clustered   |oracle:threshold     |0.042 (0.002) |0.421 (0.005) |       63.6|
+|overlap_hi   |10 |none        |oracle:threshold     |0.043 (0.002) |0.414 (0.003) |       62.8|
+|overlap_hi   |10 |within_corr |oracle:threshold     |0.137 (0.002) |0.669 (0.003) |      113.2|
+|overlap_hi   |10 |clustered   |robust_box:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|
+|overlap_hi   |10 |none        |robust_box:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|
+|overlap_hi   |10 |within_corr |robust_box:threshold |0.000 (0.000) |0.000 (0.000) |        0.0|
+|overlap_hi   |10 |clustered   |unpooled:threshold   |0.042 (0.002) |0.421 (0.005) |       63.6|
+|overlap_hi   |10 |none        |unpooled:threshold   |0.043 (0.002) |0.414 (0.003) |       62.8|
+|overlap_hi   |10 |within_corr |unpooled:threshold   |0.137 (0.002) |0.669 (0.003) |      113.2|
 
 ## Fit diagnostics summary (all scenarios)
 
